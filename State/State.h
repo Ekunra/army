@@ -2,7 +2,7 @@
 #define STATE_H
 
 #include <iostream>
-// #include "../Exceptions.h"
+#include "../Exceptions.h"
 
 class State {
     protected:
@@ -26,8 +26,8 @@ class State {
         void setHitPoints(int hp);
         void setDamage(int dmg);
 
-
         virtual void takeDamage(int dmg);
+        virtual void takeMagicalDamage(int dmg);
         virtual void addHitPoints(int hp);
 };
 

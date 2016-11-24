@@ -1,4 +1,4 @@
-#include "state.h"
+#include "State.h"
 
 State::State(int hitPoints, int damage, bool isUndead, const std::string& title)
     : hitPoints(hitPoints), hitPointsLimit(hitPoints), damage(damage), isUndead(isUndead), title(title) {}
@@ -42,6 +42,11 @@ void State::takeDamage(int dmg) {
         return;
     }
     hitPoints -= dmg;
+}
+
+
+void State::takeMagicalDamage(int dmg) {
+    this->takeDamage();
 }
 
 void State::addHitPoints(int hp) {
