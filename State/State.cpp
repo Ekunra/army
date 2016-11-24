@@ -46,7 +46,7 @@ void State::takeDamage(int dmg) {
 
 
 void State::takeMagicalDamage(int dmg) {
-    this->takeDamage();
+    this->takeDamage(dmg);
 }
 
 void State::addHitPoints(int hp) {
