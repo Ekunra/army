@@ -4,12 +4,14 @@
 #include <iostream>
 #include "../states/States.h"
 
-class States;
-
 class Unit {
     protected:
         std::string* name;
         States* states;
+
+        bool isAlive();
+        void ensureIsAlive();
+
     public:
         Unit(const std::string& name, int hitPoints, int damage, const std::string& title);
         virtual ~Unit();
@@ -21,8 +23,9 @@ class Unit {
         const std::string& getTitle() const;
 
         virtual void takeDamage(Unit* enemy);
-        virtual void takeMagicDamage(int dmg);
-        virtual void addHitPints(int dmg);
+        virtual void takeCADamage(Unit* enemy);
+        // virtual void takeMagicDamage(int dmg);
+        // virtual void addHitPints(int dmg);
 
         virtual void attack(Unit* enemy);
         virtual void counterAttack(Unit* enemy);
