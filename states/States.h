@@ -11,7 +11,7 @@ class States {
         int damage;
         std::string title;
 
-        void isAlive();
+        void receivePain(int pain);
 
     public:
         States(int hp, int damage, const std::string& title="Default");
@@ -23,10 +23,10 @@ class States {
         const std::string& getTitle() const;
 
         virtual void takeDamage(States* enemy);
+        virtual void takeCADamage(States* enemy);
+
         virtual void takeMagicDamage(int dmg);
         virtual void addHitPoints(int hp);
 };
-
-std::ostream& operator<<(std::ostream& out, const States& states);
 
 #endif // STATES_H
