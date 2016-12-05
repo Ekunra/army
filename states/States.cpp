@@ -10,7 +10,7 @@ States::~States() {
 }
 
 
-void States::receivePain(int pain) {
+void States::applyDamage(int pain) {
     if ( pain > this->hitPoints ) {
         this->hitPoints = 0;
         return;
@@ -34,10 +34,10 @@ const std::string& States::getTitle() const {
 
 
 void States::takeDamage(States* enemy) {
-    this->receivePain(enemy->getDamage());
+    this->applyDamage(enemy->getDamage());
 }
 void States::takeCADamage(States* enemy) {
-    this->receivePain(enemy->getDamage()/2);
+    this->applyDamage(enemy->getDamage()/2);
 }
 
 void States::takeMagicDamage(int dmg) {
