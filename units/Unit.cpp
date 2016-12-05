@@ -71,5 +71,5 @@ std::ostream& operator<<(std::ostream& out, const Unit& unit) {
     } else {
         out << "\033[31m" << "HP: " << "\033[0m" << "\033[1;31m" << unit.getHitPoints() << "\033[0m" << "\033[37m" << "/" << "\033[0m" << "\033[31m" << unit.getHitPointsLimit() << "\033[0m";
     }
-    out << "\033[37m" << " DG: " << unit.getDamage() << " ]" << "\033[0m";
+    out << "\033[37m" << " DG: " << unit.getDamage() << "\033[0m";
 }
