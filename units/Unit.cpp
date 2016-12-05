@@ -8,6 +8,7 @@ Unit::Unit(const std::string& name, int hitPoints, int damage, const std::string
 Unit::~Unit() {
     delete states;
     delete name;
+    std::cout << "  Unit destructed." << std::endl;
 }
 
 bool Unit::isAlive() {
