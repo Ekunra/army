@@ -13,5 +13,5 @@ void Soldier::attack(Unit* enemy) {
 
 std::ostream& operator<<(std::ostream& out, const Soldier& soldier) {
     const Unit* ptr = &soldier;
-    out << *ptr;
+    out << *ptr << "\033[37m" << " ]" << "\033[0m";
 }
