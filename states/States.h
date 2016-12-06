@@ -1,4 +1,4 @@
-#ifndef STATES_H
+applyDamage#ifndef STATES_H
 #define STATES_H
 
 #include <iostream>
@@ -11,7 +11,7 @@ class States {
         int damage;
         std::string title;
 
-        void receivePain(int pain);
+        void applyDamage(int pain);
 
     public:
         States(int hp, int damage, const std::string& title="Default");

@@ -8,6 +8,7 @@ Unit::Unit(const std::string& name, int hitPoints, int damage, const std::string
 Unit::~Unit() {
     delete states;
     delete name;
+    std::cout << "  Unit destructed." << std::endl;
 }
 
 bool Unit::isAlive() {
@@ -37,6 +38,7 @@ const std::string& Unit::getTitle() const {
 
 
 void Unit::takeDamage(Unit* enemy) {
+    std::cout << "      --- " << *this->name << " taking damage from " << enemy->getName() << " in ammount of " << enemy->getDamage() << "." << std::endl;
     if ( this->isAlive() ) {
         this->states->takeDamage(enemy->states);
     }
@@ -47,13 +49,14 @@ void Unit::takeCADamage(Unit* enemy) {
 void Unit::attack(Unit* enemy) {
     this->ensureIsAlive();
 
-    std::cout << this->getName() << " attacking " << enemy->getName() << '.' <<std::endl;
+
+    std::cout << "   --- " << this->getName() << " attacking " << enemy->getName() << ", causing " << this->getDamage() << " dmg." << std::endl;
     enemy->takeDamage(this);
     enemy->counterAttack(this);
 }
 void Unit::counterAttack(Unit* enemy) {
     if ( this->isAlive() ) {
-        std::cout << this->getName() << " counter-attacking " << enemy->getName() << '.' <<std::endl;
+        std::cout << "      --- " << this->getName() << " counter-attacking " << enemy->getName() << ", causing " << this->getDamage()/2 << " dmg." <<std::endl;
         enemy->takeCADamage(this);
     }
 }
@@ -71,5 +74,5 @@ std::ostream& operator<<(std::ostream& out, const Unit& unit) {
     } else {
         out << "\033[31m" << "HP: " << "\033[0m" << "\033[1;31m" << unit.getHitPoints() << "\033[0m" << "\033[37m" << "/" << "\033[0m" << "\033[31m" << unit.getHitPointsLimit() << "\033[0m";
     }
-    out << "\033[37m" << " DG: " << unit.getDamage() << " ]" << "\033[0m";
+    out << "\033[37m" << " DG: " << unit.getDamage() << "\033[0m";
 }
