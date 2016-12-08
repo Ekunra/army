@@ -7,12 +7,12 @@
 
 class SpellBook {
     protected:
-        std::map<SpellNameEnum, Spell*>* spellBook;
+        std::map<SpellEnum, Spell*>* spellBook;
     public:
         SpellBook();
-        ~SpellBook();
+        virtual ~SpellBook();
 
-        const std::map<SpellNameEnum, Spell*>* getSpellBook() const;
+        const std::map<SpellEnum, Spell*>* getSpellBook() const;
 };
 
 #endif // SPELLBOOK_H
