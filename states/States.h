@@ -1,4 +1,4 @@
-applyDamage#ifndef STATES_H
+#ifndef STATES_H
 #define STATES_H
 
 #include <iostream>
