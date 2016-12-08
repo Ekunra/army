@@ -7,8 +7,8 @@
 class Spell {
     protected:
         SpellEnum sEnum;
-        int power;
-        int manaCost;
+        int* power;
+        int* manaCost;
         std::string* spellName;
     public:
         Spell(SpellEnum sEnum, int power, int manaCost, const std::string& spellName);
