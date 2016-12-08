@@ -2,11 +2,11 @@
 #define SPELLENUM_CPP
 
 typedef enum {
-    FireBall,
-    LightningBolt,
-    Implosion,
-    Heal,
-    Bless
+    FIREBALL,
+    LIGHTNINGBOLT,
+    IMPLOSION,
+    HEAL,
+    BLESS
 } SpellEnum;
 
 #endif // SPELLENUM_CPP
