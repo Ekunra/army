@@ -1,7 +1,7 @@
 #include "Soldier.h"
 
 Soldier::Soldier(const std::string& name, int hitPoints, int damage, const std::string& title, StateEnum uEnum)
-    : Unit(name, hitPoints, damage, title, uEnum) {}
+    : Unit(name, hitPoints, damage, title, uEnum, new BaseAttack(), new BaseCounterAttack()) {}
 
 Soldier::~Soldier() {
     std::cout << "Soldier destructed." << std::endl;
