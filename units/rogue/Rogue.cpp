@@ -1,14 +1,13 @@
 #include "Rogue.h"
 
 Rogue::Rogue(const std::string& name, int hitPoints, int damage, const std::string& title, StateEnum uEnum)
-    : Unit(name, hitPoints, damage, title, uEnum) {}
+    : Unit(name, hitPoints, damage, title, uEnum, new RogueAttack(), new BaseCounterAttack()) {}
 Rogue::~Rogue() {
     std::cout << "Rogue destructed." << std::endl;
 }
 
 void Rogue::attack(Unit* enemy) {
-    Unit::ensureIsAlive();
-    enemy->takeDamage(this);
+    Unit::attack(enemy);
 }
 
 std::ostream& operator<<(std::ostream& out, const Rogue& rogue) {
