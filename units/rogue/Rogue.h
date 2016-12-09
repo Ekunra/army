@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "../Unit.h"
+#include "../attack/RogueAttack.h"
 
 class Rogue : public Unit {
     public:
