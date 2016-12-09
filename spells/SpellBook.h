@@ -4,6 +4,11 @@
 #include <iostream>
 #include <map>
 #include "Spell.h"
+#include "spellPrototypes/FireBall.h"
+#include "spellPrototypes/Implosion.h"
+#include "spellPrototypes/LightningBolt.h"
+#include "spellPrototypes/Heal.h"
+#include "spellPrototypes/Bless.h"
 
 class SpellBook {
     protected:
