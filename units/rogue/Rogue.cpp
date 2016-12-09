@@ -1,7 +1,7 @@
 #include "Rogue.h"
 
-Rogue::Rogue(const std::string& name, int hitPoints, int damage, const std::string& title)
-    : Unit(name, hitPoints, damage, title) {}
+Rogue::Rogue(const std::string& name, int hitPoints, int damage, const std::string& title, StateEnum uEnum)
+    : Unit(name, hitPoints, damage, title, uEnum) {}
 Rogue::~Rogue() {
     std::cout << "Rogue destructed." << std::endl;
 }
