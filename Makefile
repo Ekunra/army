@@ -3,7 +3,7 @@ CFLAGS=-c -std=c++11
 
 SOURCES=$(shell find . -type f -name '*.cpp' )
 OBJECTS=$(SOURCES:.cpp=.o)
-EXEC=battle.out
+EXEC=battlefield.out
 
 all: $(EXEC)
 

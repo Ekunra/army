@@ -1,8 +1,8 @@
 #include <iostream>
 #include "Unit.h"
 
-Unit::Unit(const std::string& name, int hitPoints, int damage, const std::string& title) {
-    this->states = new States(hitPoints, damage, title);
+Unit::Unit(const std::string& name, int hitPoints, int damage, const std::string& title, StateEnum uEnum) {
+    this->states = new States(hitPoints, damage, title, uEnum);
     this->name = new std::string(name);
 }
 Unit::~Unit() {
@@ -15,9 +15,11 @@ bool Unit::isAlive() {
     return this->states->getHitPoints() > 0;
 }
 void Unit::ensureIsAlive() {
+    std::cout << "Ensure is Alive!!!." << std::endl;
     if ( !this->isAlive() ) {
         throw DeadUnitException();
     }
+    std::cout << "   Alive!" <<std::endl;
 }
 
 const std::string& Unit::getName() const {
@@ -35,9 +37,17 @@ const int Unit::getDamage() const {
 const std::string& Unit::getTitle() const {
     return this->states->getTitle();
 }
+const StateEnum Unit::getUEnum() const {
+    return this->states->getUEnum();
+}
 
 
 void Unit::takeDamage(Unit* enemy) {
+    std::cout << "      --- " << *this->name 
+    << " taking damage from " << enemy->getName() 
+    << " in ammount of " << enemy->getDamage() 
+    << "." << std::endl;
+
     if ( this->isAlive() ) {
         this->states->takeDamage(enemy->states);
     }
@@ -48,13 +58,21 @@ void Unit::takeCADamage(Unit* enemy) {
 void Unit::attack(Unit* enemy) {
     this->ensureIsAlive();
 
-    std::cout << this->getName() << " attacking " << enemy->getName() << '.' <<std::endl;
+    std::cout << "   --- " << this->getName() 
+    << " attacking " << enemy->getName() 
+    << ", causing " << this->getDamage() 
+    << " dmg." << std::endl;
+
     enemy->takeDamage(this);
     enemy->counterAttack(this);
 }
 void Unit::counterAttack(Unit* enemy) {
     if ( this->isAlive() ) {
-        std::cout << this->getName() << " counter-attacking " << enemy->getName() << '.' <<std::endl;
+        std::cout << "      --- " << this->getName() 
+        << " counter-attacking " << enemy->getName() 
+        << ", causing " << this->getDamage()/2 
+        << " dmg." <<std::endl;
+        
         enemy->takeCADamage(this);
     }
 }
