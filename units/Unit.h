@@ -3,17 +3,26 @@
 
 #include <iostream>
 #include "../states/States.h"
+#include "attack/BaseAttack.h"
+#include "attack/BaseCounterAttack.h"
+
+class BaseCounterAttack;
+class BaseAttack;
 
 class Unit {
     protected:
         std::string* name;
         States* states;
+        BaseAttack* baseAttack;
+        BaseCounterAttack* baseCounterAttack;
 
         bool isAlive();
         void ensureIsAlive();
 
     public:
-        Unit(const std::string& name, int hitPoints, int damage, const std::string& title, StateEnum uEnum);
+        Unit(const std::string& name, int hitPoints, int damage,
+                const std::string& title, StateEnum uEnum,
+                BaseAttack* baseAttack, BaseCounterAttack* baseCounterAttack);
         virtual ~Unit();
 
         const std::string& getName() const;

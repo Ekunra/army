@@ -1,22 +1,30 @@
 #include <iostream>
 #include "Unit.h"
 
-Unit::Unit(const std::string& name, int hitPoints, int damage, const std::string& title, StateEnum uEnum) {
-    this->states = new States(hitPoints, damage, title, uEnum);
-    this->name = new std::string(name);
+Unit::Unit(const std::string& name, int hitPoints, int damage, const std::string& title, StateEnum uEnum, BaseAttack* baseAttack, BaseCounterAttack* baseCounterAttack)
+    : states(new States(hitPoints, damage, title, uEnum)), name(new std::string(name)), baseAttack(baseAttack), baseCounterAttack(baseCounterAttack) {
+    // this->states = new States(hitPoints, damage, title, uEnum);
+    // this->name = new std::string(name);
+    // this->baseAttack = new BaseAttack;
+    // this->baseCounterAttack = new BaseCounterAttack;
 }
 Unit::~Unit() {
     delete states;
     delete name;
+    delete baseAttack;
+    delete baseCounterAttack;
+    std::cout << "  Unit destructed." << std::endl;
 }
 
 bool Unit::isAlive() {
     return this->states->getHitPoints() > 0;
 }
 void Unit::ensureIsAlive() {
+    std::cout << "Ensure is Alive!!!." << std::endl;
     if ( !this->isAlive() ) {
         throw DeadUnitException();
     }
+    std::cout << "   Alive!" <<std::endl;
 }
 
 const std::string& Unit::getName() const {
@@ -40,6 +48,11 @@ const StateEnum Unit::getUEnum() const {
 
 
 void Unit::takeDamage(Unit* enemy) {
+    std::cout << "      --- " << *this->name 
+    << " taking damage from " << enemy->getName() 
+    << " in ammount of " << enemy->getDamage() 
+    << "." << std::endl;
+
     if ( this->isAlive() ) {
         this->states->takeDamage(enemy->states);
     }
@@ -49,13 +62,11 @@ void Unit::takeCADamage(Unit* enemy) {
 }
 void Unit::attack(Unit* enemy) {
     this->ensureIsAlive();
-
-    enemy->takeDamage(this);
-    enemy->counterAttack(this);
+    this->baseAttack->attack(this, enemy);
 }
 void Unit::counterAttack(Unit* enemy) {
     if ( this->isAlive() ) {
-        enemy->takeCADamage(this);
+        this->baseCounterAttack->counterAttack(this, enemy);
     }
 }
 // void Unit::takeMagicDamage(int dmg) {}
