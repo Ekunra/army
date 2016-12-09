@@ -1,8 +1,8 @@
 #include <iostream>
 #include "States.h"
 
-States::States(int hp, int damage, const std::string& title)
-    : hitPoints(hp), hitPointsLimit(hp), damage(damage), title(title) {
+States::States(int hp, int damage, const std::string& title, StateEnum uEnum)
+    : hitPoints(hp), hitPointsLimit(hp), damage(damage), title(title),  uEnum(uEnum){
     std::cout << "States created." << std::endl;
 }
 States::~States() {
@@ -30,6 +30,9 @@ const int States::getDamage() const {
 }
 const std::string& States::getTitle() const {
     return this->title;
+}
+const StateEnum States::getUEnum() const {
+    return this->uEnum;
 }
 
 
