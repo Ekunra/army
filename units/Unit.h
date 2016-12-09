@@ -13,7 +13,7 @@ class Unit {
         void ensureIsAlive();
 
     public:
-        Unit(const std::string& name, int hitPoints, int damage, const std::string& title);
+        Unit(const std::string& name, int hitPoints, int damage, const std::string& title, StateEnum uEnum);
         virtual ~Unit();
 
         const std::string& getName() const;
@@ -21,6 +21,7 @@ class Unit {
         const int getHitPointsLimit() const;
         const int getDamage() const;
         const std::string& getTitle() const;
+        const StateEnum getUEnum() const;
 
         virtual void takeDamage(Unit* enemy);
         virtual void takeCADamage(Unit* enemy);
