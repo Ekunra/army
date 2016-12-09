@@ -6,7 +6,7 @@ States::States(int hp, int damage, const std::string& title)
     std::cout << "States created." << std::endl;
 }
 States::~States() {
-    std::cout << "States destructed" << std::endl;
+    std::cout << "  States destructed" << std::endl;
 }
 
 

@@ -15,9 +15,11 @@ bool Unit::isAlive() {
     return this->states->getHitPoints() > 0;
 }
 void Unit::ensureIsAlive() {
+    std::cout << "Ensure is Alive!!!." << std::endl;
     if ( !this->isAlive() ) {
         throw DeadUnitException();
     }
+    std::cout << "   Alive!" <<std::endl;
 }
 
 const std::string& Unit::getName() const {
@@ -48,7 +50,6 @@ void Unit::takeCADamage(Unit* enemy) {
 }
 void Unit::attack(Unit* enemy) {
     this->ensureIsAlive();
-
 
     std::cout << "   --- " << this->getName() << " attacking " << enemy->getName() << ", causing " << this->getDamage() << " dmg." << std::endl;
     enemy->takeDamage(this);
