@@ -33,23 +33,23 @@ int main() {
 
     std::cout << "------------------" << std::endl;
 
-    // DDTSpell* spell = new DDTSpell(FIREBALL, 20, 20, "FireBall");
-    // std::cout << spell << std::endl;
-    // HTSpell* heal = new HTSpell(BLESS,50,30,"Bless");
-    // std::cout << heal << std::endl;
+    DDTSpell* spell = new DDTSpell(FIREBALL, 20, 20, "FireBall");
+    std::cout << spell << std::endl;
+    HTSpell* heal = new HTSpell(BLESS,50,30,"Bless");
+    std::cout << heal << std::endl;
 
-    // delete spell;
-    // delete heal;
+    delete spell;
+    delete heal;
 
-    // std::cout << "------------------" << std::endl;
+    std::cout << "------------------" << std::endl;
 
-    // FireBall* fireBall = new FireBall;
-    // delete fireBall;
+    FireBall* fireBall = new FireBall;
+    delete fireBall;
 
-    // std::cout << "------------------" << std::endl;
+    std::cout << "------------------" << std::endl;
 
-    // SpellBook* spellBook = new SpellBook;
-    // delete spellBook;
+    SpellBook* spellBook = new SpellBook;
+    delete spellBook;
 
     return 0;
 }
