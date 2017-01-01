@@ -1,12 +1,12 @@
 #include <iostream>
-#include "LimitedField.h"
+#include "limitedfield/LimitedField.h"
 
 
 class Test {
     protected:
         LimitedField<double>* lfield;
     public:
-        Test(double value) : lfield(new LimitedField<double>(value)) {}
+        Test(int value) : lfield(new LimitedField<double>(value)) {}
         ~Test() {
             delete lfield;
         }
@@ -18,12 +18,14 @@ class Test {
 
 int main() {
     Test* test = new Test(100.5);
-    LimitedField<int>* f1 = new LimitedField<int>(100);
-    
-    std::cout << *f1 << std::endl;
-    test->show();
+    LimitedField<double>* f1 = new LimitedField<double>(100);
+    LimitedField<double>* f2 = new LimitedField<double>(50);
+    LimitedField<double>* f3 = new LimitedField<double>(110);
+
 
     delete f1;
+    delete f2;
+    delete f3;
     delete test;
     return 0;
 }
