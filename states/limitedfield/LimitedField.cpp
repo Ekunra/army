@@ -9,6 +9,7 @@ LimitedField<Type>::LimitedField(Type value)
 
 template <class Type>
 LimitedField<Type>::~LimitedField() {
+    std::cout << "LimitedField deleted" << std::endl;
     delete value;
     delete limit;
 }
