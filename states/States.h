@@ -17,7 +17,7 @@ class States {
         Damage<Type>* damage;
 
     public:
-        States(Type hp, Type damage, const std::string& title="Default", UnitEnum uEnum=UnitEnum::DEFAULT, UnitEnum state=UnitEnum::DEFAULT);
+        States(Type hp, Type damage, const std::string& title="Default", UnitEnum uEnum=UnitEnum::DEFAULT, UnitEnum uState=UnitEnum::DEFAULT);
         virtual ~States();
 
         const Type& getHitPoints() const;

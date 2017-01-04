@@ -2,11 +2,11 @@
 
 template <class Type>
 States<Type>::States
-    (Type hp, Type damage, const std::string& title, UnitEnum uEnum, UnitEnum state)
+    (Type hp, Type damage, const std::string& title, UnitEnum uEnum, UnitEnum uState)
     :   health(new LimitedField<Type>(hp)),
         damage(new Damage<Type>(damage)),
         uEnum(new UnitEnum(uEnum)),
-        uState(new UnitEnum(state)),
+        uState(new UnitEnum(uState)),
         title(new std::string(title)) {
             std::cout << "  States created" << std::endl;
         }
