@@ -18,10 +18,10 @@ class Damage {
 
     public:
         Damage(Type dmg);
-        ~Damage();
+        virtual ~Damage();
 
-        const Type getMaxDmg() const;
-        const Type getMinDmg() const;
+        const Type& getMaxDmg() const;
+        const Type& getMinDmg() const;
         Type getDamage();
 };
 

@@ -1,27 +1,11 @@
 #include <iostream>
 #include "states/limitedfield/LimitedField.h"
 #include "states/damage/Damage.h"
-
-
-class Test {
-    protected:
-        LimitedField<double>* lfield;
-    public:
-        Test(int value) : lfield(new LimitedField<double>(value)) {}
-        ~Test() {
-            delete lfield;
-        }
-
-        void show() {
-            std::cout << *lfield << std::endl;
-        }
-};
+#include "states/States.h"
 
 int main() {
-    Test* test = new Test(100.5);
-    LimitedField<double>* f1 = new LimitedField<double>(100);
     Damage<double>* d1 = new Damage<double>(30);
-    std::cout << "f1 - " << *f1 << std::endl;
+    States<double>* s1 = new States<double>(100, 30, "Soldier");
     std::cout << "d1 - " << *d1 << std::endl;
     std::cout << "------------------------------" << std::endl;
 
@@ -30,47 +14,30 @@ int main() {
     }
     std::cout << d1->getDamage() << std::endl;
 
+    std::cout << "------------------------------" << std::endl;
+
+    std::cout << "s1 HitPoints      " << s1->getHitPoints() << ';' << std::endl;
+    std::cout << "s1 HitPointsLimit " << s1->getHitPointsLimit() << ';' << std::endl;
+    std::cout << "s1 Max Damage :   " << s1->getMaxDmg() << ';' << std::endl;
+    std::cout << "s1 Min Damage :   " << s1->getMinDmg() << ';' << std::endl;
+    std::cout << "s1 Current Damage:" << s1->getDamage() << ';' << std::endl;
+
+    if ( s1->getUEnum() == UnitEnum::DEFAULT ) {
+        std::cout << "Super" << std::endl;
+    } else {
+        std::cout << "Fuck" << std::endl;
+    }
+
+    std::cout << "s1 Title      :   " << s1->getTitle() << ';' << std::endl;
+
     int a = 10;
     double b = 11.7;
     float c = 5.33333;
 
-    // std::cout << "------------------------------" << std::endl;
-    // *f1 -= a;
-    // std::cout << *f1 << std::endl;
-
-    // std::cout << "------------------------------" << std::endl;
-    // *f1 -= b;
-    // std::cout << *f1 << std::endl;
-    
-    // std::cout << "------------------------------" << std::endl;
-    // *f1 += c;
-    // std::cout << *f1 << std::endl;
-
-    // std::cout << "------------------------------" << std::endl;
-    // std::cout << "   a = " << a << ";\n" << "   b = " << b << ";\n" << "   c = " << c << ';' << std::endl;
-    // a = b;
-    // std::cout << "     a = " << a << ';' << std::endl;
-    // a = c;
-    // std::cout << "     a = " << a << ';' << std::endl;
-    // a = 10;
-    // std::cout << "     -----" << std::endl;
-    // b = a;
-    // std::cout << "     b = " << b << ';' << std::endl;
-    // b = c;
-    // std::cout << "     b = " << b << ';' << std::endl;
-    // b = 11.7;
-    // std::cout << "     -----" << std::endl;
-    // c = b;
-    // std::cout << "     c = " << c << ';' << std::endl;
-    // c = a;
-    // std::cout << "     c = " << c << ';' << std::endl;
-    // c = 5.33333;
-
     std::cout << "------------------------------" << std::endl;
 
 
-    delete f1;
-    delete test;
     delete d1;
+    delete s1;
     return 0;
 }

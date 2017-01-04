@@ -4,12 +4,14 @@ template <class Type>
 Damage<Type>::Damage(Type dmg)
     : maxDmg(new Type(dmg)), minDmg(new Type(round((dmg/10)*8))) {
         srand(time(NULL));
+        std::cout << "   Damage Instance created." << std::endl;
     }
 
 template <class Type>
 Damage<Type>::~Damage() {
     delete maxDmg;
     delete minDmg;
+    std::cout << "      - Damage Instance deleted." << std::endl;
 }
 
 
@@ -32,11 +34,11 @@ float Damage<Type>::randomize(float min, float range) {
 }
 
 template <class Type>
-const Type Damage<Type>::getMaxDmg() const {
+const Type& Damage<Type>::getMaxDmg() const {
     return *this->maxDmg;
 }
 template <class Type>
-const Type Damage<Type>::getMinDmg() const {
+const Type& Damage<Type>::getMinDmg() const {
     return *this->minDmg;
 }
 template <class Type>

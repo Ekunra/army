@@ -15,8 +15,8 @@ class LimitedField {
         LimitedField(Type value);
         ~LimitedField();
 
-        const Type getValue() const;
-        const Type getLimit() const;
+        const Type& getValue() const;
+        const Type& getLimit() const;
 
         const bool operator==(Type value) const;
         const bool operator!=(Type value) const;

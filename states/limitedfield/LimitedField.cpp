@@ -5,11 +5,12 @@
 template <class Type>
 LimitedField<Type>::LimitedField(Type value)
     : value(new Type(value)), limit(new Type(value)) {
+        std::cout << "   LimitedField Instance created." << std::endl;
 }
 
 template <class Type>
 LimitedField<Type>::~LimitedField() {
-    std::cout << "LimitedField deleted" << std::endl;
+    std::cout << "      - LimitedField Instance deleted" << std::endl;
     delete value;
     delete limit;
 }
@@ -29,11 +30,11 @@ std::cout << "- \"Validate function works\"" << std::endl;
 
 
 template <class Type>
-const Type LimitedField<Type>::getValue() const {
+const Type& LimitedField<Type>::getValue() const {
     return *this->value;
 }
 template <class Type>
-const Type LimitedField<Type>::getLimit() const {
+const Type& LimitedField<Type>::getLimit() const {
     return *this->limit;
 }
 
