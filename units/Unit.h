@@ -15,9 +15,9 @@ class Unit {
     public:
         Unit(const std::string& name,
                 States<Type>* states/*,
-                BaseAbility* baseAbility,
-                BaseAttack* baseAttack,
-                BaseCounterAttack* baseCounterAttack*/);
+                BaseAbility<Type>* baseAbility,
+                BaseAttack<Type>* baseAttack,
+                BaseCounterAttack<Type>* baseCounterAttack*/);
         virtual ~Unit();
 
         const Type& getHitPoints() const;
@@ -27,6 +27,7 @@ class Unit {
         const UnitEnum& getUEnum() const;
         const UnitEnum& getUState() const;
         const std::string& getTitle() const;
+        const std::string& getName() const;
 
         Type getDamage();
 

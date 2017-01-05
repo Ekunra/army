@@ -2,11 +2,12 @@
 #include "states/limitedfield/LimitedField.h"
 #include "states/damage/Damage.h"
 #include "states/States.h"
+#include "units/Unit.h"
+#include "units/soldier/Soldier.h"
 
 int main() {
-    Damage<double>* d1 = new Damage<double>(30);
     States<double>* s1 = new States<double>(100, 30, "Soldier");
-    std::cout << "d1 - " << *d1 << std::endl;
+    Soldier<double>* sr1 = new Soldier<double>("u1");
     std::cout << "------------------------------" << std::endl;
 
 
@@ -14,7 +15,7 @@ int main() {
     std::cout << "------------------------------" << std::endl;
 
 
-    delete d1;
     delete s1;
+    delete sr1;
     return 0;
 }

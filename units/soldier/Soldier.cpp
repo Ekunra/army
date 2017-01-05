@@ -1,20 +1,17 @@
 #include "Soldier.h"
 
 template <class Type>
-Soldier<Type>::Soldier(const std::string& name,
-                        int hitPoints,
-                        int damage,
-                        const std::string& title,
-                        UnitEnum uEnum,
-                        UnitEnum uState)
-                                :   Unit<Type>(name, new States<Type>(hitPoints, damage, title, uEnum, uState)/*,
-                                    new BaseAbility(),
-                                    new BaseAttack(),
-                                    new BaseCounterAttack()*/ ) {}
+Soldier<Type>::Soldier(const std::string& name) 
+                :  Unit<Type>  (name, 
+                                new States<Type>((Type)Hp::SOLDIER,
+                                                 (Type)Dmg::SOLDIER,
+                                                 "Soldier",
+                                                 UnitEnum::SOLDIER,
+                                                 UnitEnum::SOLDIER)) {}
 
 template <class Type>
 Soldier<Type>::~Soldier() {
-    std::cout << "Soldier destructed." << std::endl;
+    std::cout << " -- Soldier destructed." << std::endl;
 }
 
 template <class Type>

@@ -11,7 +11,7 @@ template <class Type>
 Damage<Type>::~Damage() {
     delete maxDmg;
     delete minDmg;
-    std::cout << "      - Damage Instance deleted." << std::endl;
+    std::cout << "        - Damage Instance deleted." << std::endl;
 }
 
 

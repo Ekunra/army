@@ -8,7 +8,7 @@ States<Type>::States
         uEnum(new UnitEnum(uEnum)),
         uState(new UnitEnum(uState)),
         title(new std::string(title)) {
-            std::cout << "  States created" << std::endl;
+            std::cout << "     + States created" << std::endl;
         }
 
 template <class Type>
@@ -17,7 +17,7 @@ States<Type>::~States() {
     delete damage;
     delete uEnum;
     delete uState;
-    std::cout << "      States (" << *this->title << ") deleted." << std::endl;
+    std::cout << "      - States (" << *this->title << ") deleted." << std::endl;
     delete title;
 }
 
