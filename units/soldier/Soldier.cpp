@@ -7,7 +7,9 @@ Soldier<Type>::Soldier(const std::string& name)
                                                  (Type)Dmg::SOLDIER,
                                                  "Soldier",
                                                  UnitEnum::SOLDIER,
-                                                 UnitEnum::SOLDIER)) {}
+                                                 UnitEnum::SOLDIER),
+                                new BaseAttack<Type>,
+                                new BaseCounterAttack<Type>) {}
 
 template <class Type>
 Soldier<Type>::~Soldier() {

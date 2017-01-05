@@ -3,21 +3,34 @@
 
 #include <iostream>
 #include "../states/States.h"
+#include "attack/BaseAttack.h"
+#include "attack/BaseCounterAttack.h"
+
+// template <class Type>
+// class BaseAbility;
+
+template <class Type>
+class BaseAttack;
+
+template <class Type>
+class BaseCounterAttack;
 
 template <class Type>
 class Unit {
     protected:
         std::string* name;
         States<Type>* states;
+        BaseAttack<Type>* baseAttack;
+        BaseCounterAttack<Type>* baseCounterAttack;
 
         bool isAlive();
 
     public:
         Unit(const std::string& name,
-                States<Type>* states/*,
-                BaseAbility<Type>* baseAbility,
+                States<Type>* states,/*
+                BaseAbility<Type>* baseAbility,*/
                 BaseAttack<Type>* baseAttack,
-                BaseCounterAttack<Type>* baseCounterAttack*/);
+                BaseCounterAttack<Type>* baseCounterAttack);
         virtual ~Unit();
 
         const Type& getHitPoints() const;

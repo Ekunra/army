@@ -17,7 +17,7 @@ States<Type>::~States() {
     delete damage;
     delete uEnum;
     delete uState;
-    std::cout << "      - States (" << *this->title << ") deleted." << std::endl;
+    std::cout << "    - - States (" << *this->title << ") deleted." << std::endl;
     delete title;
 }
 
