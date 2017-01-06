@@ -26,8 +26,23 @@ Unit<Type>::~Unit() {
 }
 
 
-template <class Type>
-bool Unit<Type>::isAlive() {}
+template <>
+bool Unit<int>::isAlive() {
+    std::cout << " - <int>::isAlive() is working." << std::endl;
+    return this->states->getHitPoints() > 0;
+}
+
+template <>
+bool Unit<double>::isAlive() {
+    std::cout << " - <double>::isAlive() is working." << std::endl;
+    return this->states->getHitPoints() > 0;
+}
+
+template <>
+bool Unit<float>::isAlive() {
+    std::cout << " - <float>::isAlive() is working." << std::endl;
+    return this->states->getHitPoints() >= 0.1;
+}
 
 
 template <class Type>
@@ -73,18 +88,27 @@ const std::string& Unit<Type>::getName() const {
 
 
 template <class Type>
-Type Unit<Type>::getDamage() {}
+Type Unit<Type>::getDamage() {
+    this->states->getDamage();
+}
 
 
 template <class Type>
-void Unit<Type>::attack(Unit* enemy) {}
+void Unit<Type>::attack(Unit* enemy) {
+    // dfs
+}
 
 template <class Type>
 void Unit<Type>::counterAttack(Unit* enemy) {}
 
 
 template <class Type>
-void Unit<Type>::takeDamage(Unit* enemy) {}
+void Unit<Type>::takeDamage(Unit* enemy) {
+
+    if ( this->isAlive() ) {
+        this->states->takeDamage(enemy->states);
+    }
+}
 
 template <class Type>
 void Unit<Type>::takeCADamage(Unit* enemy) {}
