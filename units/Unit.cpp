@@ -95,11 +95,13 @@ Type Unit<Type>::getDamage() {
 
 template <class Type>
 void Unit<Type>::attack(Unit* enemy) {
-    // dfs
+    this->baseAttack->attack(this, enemy);
 }
 
 template <class Type>
-void Unit<Type>::counterAttack(Unit* enemy) {}
+void Unit<Type>::counterAttack(Unit* enemy) {
+    this->baseCounterAttack->counterAttack(this, enemy);
+}
 
 
 template <class Type>
