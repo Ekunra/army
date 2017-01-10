@@ -40,4 +40,7 @@ class States {
         // virtual void takeMagicEffect(HTSpell* spell);
 };
 
+template <class Type>
+std::ostream& operator<<(std::ostream& out, const States<Type>& states);
+
 #endif // STATES_H

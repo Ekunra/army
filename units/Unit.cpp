@@ -52,6 +52,10 @@ template <class Type>
 const Damage<Type>& Unit<Type>::getDamageObj() const {
     return this->states->getDamageObj();
 }
+template <class Type>
+const States<Type>& Unit<Type>::getStates() const {
+    return *this->states;
+}
 
 
 template <class Type>
@@ -138,9 +142,7 @@ template class Unit<float>;
 
 template <class Type>
 std::ostream& operator<<(std::ostream& out, const Unit<Type>& unit) {
-    out << unit.getHealth();
-    out << FO_GREY << " | " << FO_RESET;
-    out << unit.getDamageObj();
+    out << unit.getStates();
     return out;
 }
 

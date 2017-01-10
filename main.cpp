@@ -6,7 +6,8 @@
 #include "units/soldier/Soldier.h"
 
 int main() {
-    Soldier<double>* sr1 = new Soldier<double>("u1");
+    Soldier<double>* sr1 = new Soldier<double>("sr1");
+    Soldier<double>* sr2 = new
     std::cout << "------------------------------" << std::endl;
 
     std::cout << *sr1 << std::endl;

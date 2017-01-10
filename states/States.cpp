@@ -1,15 +1,14 @@
 #include "States.h"
 
 template <class Type>
-States<Type>::States
-    (Type hp, Type damage, const std::string& title, UnitEnum uEnum, UnitEnum uState)
-    :   health(new LimitedField<Type>(hp)),
-        damage(new Damage<Type>(damage)),
-        uEnum(new UnitEnum(uEnum)),
-        uState(new UnitEnum(uState)),
-        title(new std::string(title)) {
-            std::cout << "     + States created" << std::endl;
-        }
+States<Type>::States(Type hp, Type damage, const std::string& title, UnitEnum uEnum, UnitEnum uState)
+                        :   health(new LimitedField<Type>(hp)),
+                            damage(new Damage<Type>(damage)),
+                            uEnum(new UnitEnum(uEnum)),
+                            uState(new UnitEnum(uState)),
+                            title(new std::string(title)) {
+    std::cout << "     + States created" << std::endl;
+}
 
 template <class Type>
 States<Type>::~States() {
@@ -74,10 +73,14 @@ Type States<Type>::getDamage() {
 }
 
 template <class Type>
-void States<Type>::takeDamage(States* enemy) {}
+void States<Type>::takeDamage(States* enemy) {
+    *this->health -= enemy->getDamage();
+}
 
 template <class Type>
-void States<Type>::takeCADamage(States* enemy) {}
+void States<Type>::takeCADamage(States* enemy) {
+    *this->health -= (enemy->getDamage()/2);
+}
 
 
 template <class Type>
@@ -89,3 +92,33 @@ void States<Type>::takeMagicEffect(/*DDTSpell* spell*/) {}
 template class States<int>;
 template class States<double>;
 template class States<float>;
+
+template <class Type>
+std::ostream& operator<<(std::ostream& out, const States<Type>& states) {
+    switch ( states.getUEnum() ) {
+        case UnitEnum::VAMPIRE : {
+            out << FO_B_RED;
+            break;
+        }
+        case UnitEnum::WEREWOLF : {
+            out << FO_B_RED;
+            break;
+        }
+        case UnitEnum::WOLF : {
+            out << FO_B_RED;
+            break;
+        }
+        default : {
+            out << FO_B;
+        }
+    }
+    out << states.getTitle() << FO_RESET;
+    out << ' ';
+    out << states.getHealth();
+    out << FO_GREY << " | " << FO_RESET;
+    out << states.getDamageObj();
+}
+
+template std::ostream& operator<<(std::ostream& out, const States<int>& states);
+template std::ostream& operator<<(std::ostream& out, const States<double>& states);
+template std::ostream& operator<<(std::ostream& out, const States<float>& states);
