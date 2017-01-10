@@ -8,6 +8,7 @@ Soldier<Type>::Soldier(const std::string& name)
                                                  "Soldier",
                                                  UnitEnum::SOLDIER,
                                                  UnitEnum::SOLDIER),
+                                new BaseAbility<Type>,
                                 new BaseAttack<Type>,
                                 new BaseCounterAttack<Type>) {}
 
@@ -26,9 +27,12 @@ template class Soldier<double>;
 template class Soldier<float>;
 
 template <class Type>
-std::ostream& operator<<(std::ostream& out, const Soldier<Type>& soldier) {/*
-    out << *((Unit*)(&soldier)) << FO_D_GREY << " ]" << FO_RESET;
-    return out;*/
+std::ostream& operator<<(std::ostream& out, const Soldier<Type>& soldier) {
+    out << ' ' << FO_B << soldier.getName() << FO_RESET;
+    out << FO_D_GREY << " [ " << FO_RESET;
+    out << *((Unit<Type>*)(&soldier));
+    out << FO_D_GREY << " ]" << FO_RESET;
+    return out;
 }
 
 template std::ostream& operator<<(std::ostream& out, const Soldier<int>& soldier);

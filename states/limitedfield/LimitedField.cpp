@@ -147,7 +147,43 @@ LimitedField<Type> LimitedField<Type>::operator=(Type value) {
 
 template <class Type>
 std::ostream& operator<<(std::ostream& out, const LimitedField<Type>& field) {
-    out << '(' << field.getValue() << '/' << field.getLimit() << ')';
+    Type full = field.getLimit();
+    Type hurmed = field.getLimit() / 2;
+    Type veryHurmed = (field.getLimit() / 10 ) * 2;
+
+    out << FO_D_GREY << "HP:" << FO_RESET;
+
+    if ( field.getValue() >= field.getLimit() ) {
+
+        out << FO_B_GREEN << field.getValue() << FO_RESET;
+        out << FO_D_GREY << '/' << FO_RESET;
+        out << FO_GREEN << field.getLimit() << FO_RESET;
+
+    } else if ( field.getValue() < field.getLimit() && field.getValue() >= hurmed ) {
+
+        out << FO_GREEN << field.getValue() << FO_RESET;
+        out << FO_D_GREY << '/' << FO_RESET;
+        out << FO_GREEN << field.getLimit() << FO_RESET;
+
+    } else if ( field.getValue() < hurmed && field.getValue() >= veryHurmed ) {
+
+        out << FO_YELLOW << field.getValue() << FO_RESET;
+        out << FO_D_GREY << '/' << FO_RESET;
+        out << FO_GREEN << field.getLimit() << FO_RESET;
+
+    } else if ( field.getValue() < veryHurmed && field.getValue() >= 0.001 ) {
+
+        out << FO_RED << field.getValue() << FO_RESET;
+        out << FO_D_GREY << '/' << FO_RESET;
+        out << FO_YELLOW << field.getLimit() << FO_RESET;
+
+    } else if ( field.getValue() < 0.001 ) {
+
+        out << FO_B_RED << field.getValue() << FO_RESET;
+        out << FO_D_GREY << '/' << FO_RESET;
+        out << FO_RED << field.getLimit() << FO_RESET;
+
+    }
     return out;
 }
 

@@ -3,11 +3,12 @@
 
 #include <iostream>
 #include "../states/States.h"
+#include "abilities/BaseAbility.h"
 #include "attack/BaseAttack.h"
 #include "attack/BaseCounterAttack.h"
 
-// template <class Type>
-// class BaseAbility;
+template <class Type>
+class BaseAbility;
 
 template <class Type>
 class BaseAttack;
@@ -20,6 +21,7 @@ class Unit {
     protected:
         std::string* name;
         States<Type>* states;
+        BaseAbility<Type>* baseAbility;
         BaseAttack<Type>* baseAttack;
         BaseCounterAttack<Type>* baseCounterAttack;
 
@@ -27,11 +29,14 @@ class Unit {
 
     public:
         Unit(const std::string& name,
-                States<Type>* states,/*
-                BaseAbility<Type>* baseAbility,*/
+                States<Type>* states,
+                BaseAbility<Type>* baseAbility,
                 BaseAttack<Type>* baseAttack,
                 BaseCounterAttack<Type>* baseCounterAttack);
         virtual ~Unit();
+
+        const LimitedField<Type>& getHealth() const;
+        const Damage<Type>& getDamageObj() const;
 
         const Type& getHitPoints() const;
         const Type& getHitPointsLimit() const;

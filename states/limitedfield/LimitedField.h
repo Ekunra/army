@@ -2,6 +2,7 @@
 #define LIMITEDFIELD_H
 
 #include <iostream>
+#include "../../macro_color.cpp"
 
 template <class Type>
 class LimitedField {

@@ -3,8 +3,8 @@
 
 #include <iostream>
 #include <cmath>
-#include <cstdlib>
-#include <ctime>
+#include "Randomizer.h"
+#include "../../macro_color.cpp"
 
 template <class Type>
 class Damage {
@@ -12,9 +12,7 @@ class Damage {
         Type* maxDmg;
         Type* minDmg;
 
-        int randomize(int min, int max);
-        double randomize(double min, double max);
-        float randomize(float min, float max);
+        Type randomize(Type min, Type max);
 
     public:
         Damage(Type dmg);

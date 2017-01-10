@@ -20,6 +20,9 @@ class States {
         States(Type hp, Type damage, const std::string& title="Default", UnitEnum uEnum=UnitEnum::DEFAULT, UnitEnum uState=UnitEnum::DEFAULT);
         virtual ~States();
 
+        const LimitedField<Type>& getHealth() const;
+        const Damage<Type>& getDamageObj() const;
+
         const Type& getHitPoints() const;
         const Type& getHitPointsLimit() const;
         const Type& getMaxDmg() const;

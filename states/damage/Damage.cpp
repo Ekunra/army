@@ -3,7 +3,7 @@
 template <class Type>
 Damage<Type>::Damage(Type dmg)
     : maxDmg(new Type(dmg)), minDmg(new Type(round((dmg/10)*8))) {
-        srand(time(NULL));
+        Randomizer::launch();
         std::cout << "   Damage Instance created." << std::endl;
     }
 
@@ -15,20 +15,20 @@ Damage<Type>::~Damage() {
 }
 
 
-template <class Type>
-int Damage<Type>::randomize(int min, int range) {
+template <>
+int Damage<int>::randomize(int min, int range) {
     // std::cout << " - int randomize() works" << std::endl;
     return rand() % (range+1) + min;
 }
 
-template <class Type>
-double Damage<Type>::randomize(double min, double range) {
+template <>
+double Damage<double>::randomize(double min, double range) {
     // std::cout << " - double randomize() works" << std::endl;
     return ( (double)(rand() % ((int)range*10+1) + ((int)min*10) ) / 10 );
 }
 
-template <class Type>
-float Damage<Type>::randomize(float min, float range) {
+template <>
+float Damage<float>::randomize(float min, float range) {
     // std::cout << " - float randomize() works" << std::endl;
     return randomize((double)min, (double)range);
 }
@@ -49,7 +49,10 @@ Type Damage<Type>::getDamage() {
 
 template <class Type>
 std::ostream& operator<<(std::ostream& out, const Damage<Type>& dmg) {
-    out << dmg.getMinDmg() << '-' << dmg.getMaxDmg();
+    out << FO_D_GREY << "DMG:" << FO_RESET;
+    out << FO_RED << dmg.getMinDmg() << FO_RESET;
+    out << FO_D_GREY << '-' << FO_RESET;
+    out << FO_RED << dmg.getMaxDmg() << FO_RESET;
     return out;
 }
 

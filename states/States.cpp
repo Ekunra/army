@@ -23,6 +23,16 @@ States<Type>::~States() {
 
 
 template <class Type>
+const LimitedField<Type>& States<Type>::getHealth() const {
+    return *this->health;
+}
+template <class Type>
+const Damage<Type>& States<Type>::getDamageObj() const {
+    return *this->damage;
+}
+
+
+template <class Type>
 const Type& States<Type>::getHitPoints() const {
     return this->health->getValue();
 }
