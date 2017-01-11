@@ -10,7 +10,9 @@ Soldier<Type>::Soldier(const std::string& name)
                                                  UnitEnum::SOLDIER),
                                 new BaseAbility<Type>,
                                 new BaseAttack<Type>,
-                                new BaseCounterAttack<Type>) {}
+                                new BaseCounterAttack<Type>) {
+    std::cout << "      + Soldier instance created." << std::endl;
+}
 
 template <class Type>
 Soldier<Type>::~Soldier() {
@@ -19,7 +21,7 @@ Soldier<Type>::~Soldier() {
 
 template <class Type>
 void Soldier<Type>::attack(Unit<Type>* enemy) {
-    // Unit::attack(enemy);
+    Unit<Type>::attack(enemy);
 }
 
 template class Soldier<int>;

@@ -7,10 +7,17 @@
 
 int main() {
     Soldier<double>* sr1 = new Soldier<double>("sr1");
-    Soldier<double>* sr2 = new
-    std::cout << "------------------------------" << std::endl;
-
+    Soldier<double>* sr2 = new Soldier<double>("sr2");
     std::cout << *sr1 << std::endl;
+    std::cout << *sr2 << std::endl;
+    std::cout << "------------------------------" << std::endl;
+    sr1->attack(sr2);
+    std::cout << *sr1 << std::endl;
+    std::cout << *sr2 << std::endl;
+    std::cout << "------------------------------" << std::endl;
+    sr1->attack(sr2);
+    std::cout << *sr1 << std::endl;
+    std::cout << *sr2 << std::endl;
 
     std::cout << "------------------------------" << std::endl;
 

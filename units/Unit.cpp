@@ -100,6 +100,7 @@ Type Unit<Type>::getDamage() {
 
 template <class Type>
 void Unit<Type>::attack(Unit* enemy) {
+    std::cout << this->getName() << " attacking " << enemy->getName() << std::endl;;
     this->baseAttack->attack(this, enemy);
 }
 
