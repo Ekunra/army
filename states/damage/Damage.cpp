@@ -2,7 +2,7 @@
 
 template <class Type>
 Damage<Type>::Damage(Type dmg)
-    : maxDmg(new Type(dmg)), minDmg(new Type(round((dmg/10)*8))) {
+    : maxDmg(new Type(dmg)), minDmg(new Type(round((dmg/10)*8))), lastDmg(new Type(0)) {
         Randomizer::launch();
         std::cout << "   Damage Instance created." << std::endl;
     }
@@ -11,26 +11,27 @@ template <class Type>
 Damage<Type>::~Damage() {
     delete maxDmg;
     delete minDmg;
+    delete lastDmg;
     std::cout << "        - Damage Instance deleted." << std::endl;
 }
 
 
 template <>
-int Damage<int>::randomize(int min, int range) {
-    // std::cout << " - int randomize() works" << std::endl;
-    return rand() % (range+1) + min;
+void Damage<int>::randomize() {
+    std::cout << " - int randomize() works" << std::endl;
+    *this->lastDmg = rand() % ((*this->maxDmg-*this->minDmg)+1) + *this->minDmg;
 }
 
 template <>
-double Damage<double>::randomize(double min, double range) {
-    // std::cout << " - double randomize() works" << std::endl;
-    return ( (double)(rand() % ((int)range*10+1) + ((int)min*10) ) / 10 );
+void Damage<double>::randomize() {
+    std::cout << " - double randomize() works" << std::endl;
+    *this->lastDmg = ( (double)(rand() % ((int)((*this->maxDmg-*this->minDmg)*10+1)) + ((int)(*this->minDmg * 10)) ) / 10 );
 }
 
 template <>
-float Damage<float>::randomize(float min, float range) {
-    // std::cout << " - float randomize() works" << std::endl;
-    return randomize((double)min, (double)range);
+void Damage<float>::randomize() {
+    std::cout << " - float randomize() works" << std::endl;
+    *this->lastDmg = ( (float)(rand() % ((int)((*this->maxDmg-*this->minDmg)*10+1)) + ((int)(*this->minDmg * 10)) ) / 10 );
 }
 
 template <class Type>
@@ -42,8 +43,9 @@ const Type& Damage<Type>::getMinDmg() const {
     return *this->minDmg;
 }
 template <class Type>
-Type Damage<Type>::getDamage() {
-    return this->randomize(*this->minDmg, (*this->maxDmg-*this->minDmg));
+Type& Damage<Type>::getDamage() {
+    /*this->*/randomize();
+    return *this->lastDmg;
 }
 
 

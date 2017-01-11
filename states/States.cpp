@@ -69,16 +69,21 @@ const std::string& States<Type>::getTitle() const {
 
 template <class Type>
 Type States<Type>::getDamage() {
+    std::cout << "      * Damage -> getDamage()" << std::endl;
     return this->damage->getDamage();
+    std::cout << "      * Damage -> getDamage() sent Damage" << std::endl;
 }
 
 template <class Type>
-void States<Type>::takeDamage(States* enemy) {
+void States<Type>::takeDamage(States<Type>* enemy) {
+        std::cout << "      * states arrived to enemy states" << std::endl;
     *this->health -= enemy->getDamage();
+
+        std::cout << "      * enemy's states gave damage and takeDamage() finishing its work." << std::endl;
 }
 
 template <class Type>
-void States<Type>::takeCADamage(States* enemy) {
+void States<Type>::takeCADamage(States<Type>* enemy) {
     *this->health -= (enemy->getDamage()/2);
 }
 

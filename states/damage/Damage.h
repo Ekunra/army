@@ -11,8 +11,9 @@ class Damage {
     protected:
         Type* maxDmg;
         Type* minDmg;
+        Type* lastDmg;
 
-        Type randomize(Type min, Type max);
+        void randomize();
 
     public:
         Damage(Type dmg);
@@ -20,7 +21,8 @@ class Damage {
 
         const Type& getMaxDmg() const;
         const Type& getMinDmg() const;
-        Type getDamage();
+        const Type& getLastDmg() const;
+        Type& getDamage();
 };
 
 template <class Type>

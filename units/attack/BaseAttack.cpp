@@ -11,13 +11,15 @@ BaseAttack<Type>::~BaseAttack() {
 
 template <class Type>
 void BaseAttack<Type>::attack(Unit<Type>* attacker, Unit<Type>* enemy) {
-    // std::cout << "      --- " << attacker->getName() 
-    // << " attacking " << enemy->getName() 
+    std::cout << "      --- " << attacker->getName() 
+    << " attacking " << enemy->getName() << std::endl;
     // << ", causing " << attacker->getDamage() 
     // << " dmg." <<std::endl;
 
     enemy->takeDamage(attacker);
+    std::cout << "      --- " << attacker->getName() << " calling " << enemy->getName()  << "\'s counterAttack!" << std::endl;
     enemy->counterAttack(attacker);
+    std::cout << "      --- " << attacker->getName() << "\'s attack finished" << std::endl;
 }
 
 template class BaseAttack<int>;
