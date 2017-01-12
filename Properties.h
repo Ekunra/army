@@ -17,7 +17,10 @@ enum class UnitEnum {
     NECROMANCER,
 
     DEMON,
-    WOLF
+    WOLF,
+
+    EVILSPIRIT,
+    ALIVE
 };
 
 enum class Hp {

@@ -1,11 +1,11 @@
 #include "States.h"
 
 template <class Type>
-States<Type>::States(Type hp, Type damage, const std::string& title, UnitEnum uEnum, UnitEnum uState)
+States<Type>::States(Type hp, Type damage, const std::string& title, UnitEnum uEnum, UnitEnum uType)
                         :   health(new LimitedField<Type>(hp)),
                             damage(new Damage<Type>(damage)),
                             uEnum(new UnitEnum(uEnum)),
-                            uState(new UnitEnum(uState)),
+                            uType(new UnitEnum(uType)),
                             title(new std::string(title)) {
     std::cout << "     + States created" << std::endl;
 }
@@ -15,7 +15,7 @@ States<Type>::~States() {
     delete health;
     delete damage;
     delete uEnum;
-    delete uState;
+    delete uType;
     std::cout << "    - - States (" << *this->title << ") deleted." << std::endl;
     delete title;
 }
@@ -58,8 +58,8 @@ const UnitEnum& States<Type>::getUEnum() const {
 }
 
 template <class Type>
-const UnitEnum& States<Type>::getUState() const {
-    return *this->uState;
+const UnitEnum& States<Type>::getUType() const {
+    return *this->uType;
 }
 
 template <class Type>
@@ -76,7 +76,7 @@ Type States<Type>::getDamage() {
 
 template <class Type>
 void States<Type>::takeDamage(States<Type>* enemy) {
-        std::cout << "      * states arrived to enemy states" << std::endl;
+        std::cout << "      * states arrived to enemy states->takeDamage()" << std::endl;
     *this->health -= enemy->getDamage();
 
         std::cout << "      * enemy's states gave damage and takeDamage() finishing its work." << std::endl;
@@ -84,7 +84,9 @@ void States<Type>::takeDamage(States<Type>* enemy) {
 
 template <class Type>
 void States<Type>::takeCADamage(States<Type>* enemy) {
+        std::cout << "      * states arrived to enemy states->takeCADamage()" << std::endl;
     *this->health -= (enemy->getDamage()/2);
+        std::cout << "      * enemy's states gave damage / 2 and takeCADamage() finishing its work." << std::endl;
 }
 
 

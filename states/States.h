@@ -11,13 +11,13 @@ template <class Type>
 class States {
     protected:
         UnitEnum* uEnum;
-        UnitEnum* uState;
+        UnitEnum* uType;
         std::string* title;
         LimitedField<Type>* health;
         Damage<Type>* damage;
 
     public:
-        States(Type hp, Type damage, const std::string& title="Default", UnitEnum uEnum=UnitEnum::DEFAULT, UnitEnum uState=UnitEnum::DEFAULT);
+        States(Type hp, Type damage, const std::string& title="Default", UnitEnum uEnum=UnitEnum::DEFAULT, UnitEnum uType=UnitEnum::DEFAULT);
         virtual ~States();
 
         const LimitedField<Type>& getHealth() const;
@@ -28,7 +28,7 @@ class States {
         const Type& getMaxDmg() const;
         const Type& getMinDmg() const;
         const UnitEnum& getUEnum() const;
-        const UnitEnum& getUState() const;
+        const UnitEnum& getUType() const;
         const std::string& getTitle() const;
 
         Type getDamage();

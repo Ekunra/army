@@ -158,11 +158,11 @@ std::ostream& operator<<(std::ostream& out, const LimitedField<Type>& field) {
 
         out << FO_B_L_GREEN << field.getValue() << FO_RESET;
         out << FO_D_GREY << '/' << FO_RESET;
-        out << FO_L_GREEN << field.getLimit() << FO_RESET;
+        out << FO_B_L_GREEN << field.getLimit() << FO_RESET;
 
     } else if ( field.getValue() < full && field.getValue() >= almostFull ) {
 
-        out << FO_L_GREEN << field.getValue() << FO_RESET;
+        out << FO_GREEN << field.getValue() << FO_RESET;
         out << FO_D_GREY << '/' << FO_RESET;
         out << FO_L_GREEN << field.getLimit() << FO_RESET;
 
@@ -170,7 +170,7 @@ std::ostream& operator<<(std::ostream& out, const LimitedField<Type>& field) {
 
         out << FO_GREEN << field.getValue() << FO_RESET;
         out << FO_D_GREY << '/' << FO_RESET;
-        out << FO_L_GREEN << field.getLimit() << FO_RESET;
+        out << FO_GREEN << field.getLimit() << FO_RESET;
 
     } else if ( field.getValue() < hurmed && field.getValue() >= veryHurmed ) {
 

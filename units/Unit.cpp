@@ -45,6 +45,15 @@ Unit<Type>::~Unit() {
 
 
 template <class Type>
+void Unit<Type>::ensureIsAlive() {
+    std::cout << "Ensure is Alive!!!." << std::endl;
+    if ( !this->isAlive() ) {
+        throw DeadUnitException("Unit is dead & can't attack more...");
+    }
+}
+
+
+template <class Type>
 const LimitedField<Type>& Unit<Type>::getHealth() const {
     return this->states->getHealth();
 }
@@ -79,8 +88,8 @@ const UnitEnum& Unit<Type>::getUEnum() const {
     return this->states->getUEnum();
 }
 template <class Type>
-const UnitEnum& Unit<Type>::getUState() const {
-    return this->states->getUState();
+const UnitEnum& Unit<Type>::getUType() const {
+    return this->states->getUType();
 }
 template <class Type>
 const std::string& Unit<Type>::getTitle() const {
@@ -100,12 +109,16 @@ Type Unit<Type>::getDamage() {
 
 template <class Type>
 void Unit<Type>::attack(Unit* enemy) {
-    std::cout << this->getName() << " attacking " << enemy->getName() << std::endl;;
+    std::cout << FO_B << " ! " << FO_RESET << this->getName() << FO_B << " attacking " << FO_RESET << enemy->getName() << std::endl;;
     this->baseAttack->attack(this, enemy);
 }
 
 template <class Type>
 void Unit<Type>::counterAttack(Unit* enemy) {
+    if ( !this->isAlive() ) {
+        std::cout << "      --- " << this->getName() << " is not alive, counterAttack() aborted." << std::endl;
+        return;
+    }
     this->baseCounterAttack->counterAttack(this, enemy);
 }
 
@@ -116,7 +129,9 @@ void Unit<Type>::takeDamage(Unit* enemy) {
     if ( this->isAlive() ) {
         std::cout << "      * isAlive in takeDamage() function." << std::endl;
         this->states->takeDamage(enemy->states);
-        std::cout << "      * this->states->takeDamage(enemy->states) sent states" << std::endl;
+        std::cout << "      * this->states->takeDamage(enemy->states) sent states and finishing it's work." << std::endl;
+    } else {
+        std::cout << "      --- " << this->getName() << " is not alive & can't take damage." << std::endl;
     }
 }
 

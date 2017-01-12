@@ -35,6 +35,8 @@ class Unit {
                 BaseCounterAttack<Type>* baseCounterAttack);
         virtual ~Unit();
 
+        void ensureIsAlive();
+
         const LimitedField<Type>& getHealth() const;
         const Damage<Type>& getDamageObj() const;
         const States<Type>& getStates() const;
@@ -44,7 +46,7 @@ class Unit {
         const Type& getMaxDmg() const;
         const Type& getMinDmg() const;
         const UnitEnum& getUEnum() const;
-        const UnitEnum& getUState() const;
+        const UnitEnum& getUType() const;
         const std::string& getTitle() const;
         const std::string& getName() const;
 

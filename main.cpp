@@ -4,36 +4,25 @@
 #include "states/States.h"
 #include "units/Unit.h"
 #include "units/soldier/Soldier.h"
+#include "units/rogue/Rogue.h"
 
 int main() {
     Soldier<float>* sr1 = new Soldier<float>("sr1");
-    Soldier<float>* sr2 = new Soldier<float>("sr2");
+    Rogue<float>* r1 = new Rogue<float>("R1");
     std::cout << *sr1 << std::endl;
-    std::cout << *sr2 << std::endl;
+    std::cout << *r1 << std::endl;
     std::cout << "------------------------------" << std::endl;
-    sr1->attack(sr2);
+    sr1->attack(r1);
     std::cout << *sr1 << std::endl;
-    std::cout << *sr2 << std::endl;
+    std::cout << *r1 << std::endl;
     std::cout << "------------------------------" << std::endl;
-    sr1->attack(sr2);
+    r1->attack(sr1);
     std::cout << *sr1 << std::endl;
-    std::cout << *sr2 << std::endl;
+    std::cout << *r1 << std::endl;
     std::cout << "------------------------------" << std::endl;
-    sr1->attack(sr2);
-    std::cout << *sr1 << std::endl;
-    std::cout << *sr2 << std::endl;
-    std::cout << "------------------------------" << std::endl;
-    sr1->attack(sr2);
-    std::cout << *sr1 << std::endl;
-    std::cout << *sr2 << std::endl;
-    std::cout << "------------------------------" << std::endl;
-    sr1->attack(sr2);
-    std::cout << *sr1 << std::endl;
-    std::cout << *sr2 << std::endl;
-    std::cout << "------------------------------" << std::endl;
-    sr1->attack(sr2);
-    std::cout << *sr1 << std::endl;
-    std::cout << *sr2 << std::endl;
+
+    double a = 5;
+    double b = (double)a;
 
 
     std::cout << "------------------------------" << std::endl;
