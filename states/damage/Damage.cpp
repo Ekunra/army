@@ -44,7 +44,7 @@ const Type& Damage<Type>::getMinDmg() const {
 }
 template <class Type>
 Type& Damage<Type>::getDamage() {
-    /*this->*/randomize();
+    this->randomize();
     return *this->lastDmg;
 }
 

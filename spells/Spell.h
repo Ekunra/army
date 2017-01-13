@@ -5,22 +5,24 @@
 #include "../Properties.h"
 #include "SpellEnum.h"
 
+template <class Type>
 class Spell {
     protected:
-        SpellEnum sEnum;
-        int* power;
-        int* manaCost;
+        SpellEnum* sEnum;
+        Type* power;
+        Type* manaCost;
         std::string* spellName;
     public:
-        Spell(SpellEnum sEnum, int power, int manaCost, const std::string& spellName);
+        Spell(SpellEnum sEnum, Type power, Type manaCost, const std::string& spellName);
         virtual ~Spell();
 
-        const SpellEnum getSEnum() const;
-        const int getPower() const;
-        const int getManaCost() const;
+        const SpellEnum& getSEnum() const;
+        const Type& getPower() const;
+        const Type& getManaCost() const;
         const std::string& getSpellName() const;
 };
 
-std::ostream& operator<<(std::ostream& out, const Spell* spell);
+template <class Type>
+std::ostream& operator<<(std::ostream& out, const Spell<Type>* spell);
 
 #endif // SPELL_H
