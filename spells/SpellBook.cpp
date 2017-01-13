@@ -1,11 +1,13 @@
 #include "SpellBook.h"
 
-SpellBook::SpellBook() : spellBook(new std::map<SpellEnum, Spell*>){
-}
-SpellBook::~SpellBook() {
+template <class Type>
+SpellBook<Type>::SpellBook() : spellBook(new std::map<SpellEnum, Spell<Type>*>) {}
+
+template <class Type>
+SpellBook<Type>::~SpellBook() {
     std::cout << "   --- Start deleting spells from SpellBook. --- " << std::endl;
-    std::map<SpellEnum, Spell*>::iterator it;
-    for (it=this->spellBook->begin(); it != this->spellBook->end(); ++it) {
+    typename std::map<SpellEnum, Spell<Type>*>::iterator it;
+    for ( it = this->spellBook->begin(); it != this->spellBook->end(); ++it ) {
         delete it->second ;
     }
     std::cout << "   --- Spells' deleting from SpellBook finished. --- " << std::endl;
@@ -14,7 +16,8 @@ SpellBook::~SpellBook() {
     std::cout << "   --- SPELL BOOK destructed." << std::endl;
 }
 
-bool SpellBook::haveSpell(SpellEnum sEnum) {
+template <class Type>
+bool SpellBook<Type>::haveSpell(SpellEnum sEnum) {
     bool result = false;
 
     if ( this->spellBook->find(sEnum) != this->spellBook->end() ) {
@@ -24,13 +27,16 @@ bool SpellBook::haveSpell(SpellEnum sEnum) {
     return result;
 }
 
-void SpellBook::insertSpell(SpellEnum sEnum, Spell* spell) {
-    this->spellBook->insert(std::pair<SpellEnum, Spell*>(sEnum, spell));
+template <class Type>
+void SpellBook<Type>::insertSpell(SpellEnum sEnum, Spell<Type>* spell) {
+    this->spellBook->insert(std::pair<SpellEnum, Spell<Type>*>(sEnum, spell));
 }
 
-const std::map<SpellEnum, Spell*>* SpellBook::getSpellBook() const {
+template <class Type>
+const std::map<SpellEnum, Spell<Type>*>* SpellBook<Type>::getSpellBook() const {
     return this->spellBook;
 }
-const Spell* SpellBook::getSpell(SpellEnum sEnum) const {
-    return this->spellBook->find(sEnum)->second;
+template <class Type>
+const Spell<Type>& SpellBook<Type>::getSpell(SpellEnum sEnum) const {
+    return *this->spellBook->find(sEnum)->second;
 }

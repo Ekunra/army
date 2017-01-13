@@ -5,6 +5,7 @@
 #include "units/Unit.h"
 #include "units/soldier/Soldier.h"
 #include "units/rogue/Rogue.h"
+#include "spells/SpellBook.h"
 #include "spells/Spell.h"
 
 int main() {
@@ -20,6 +21,12 @@ int main() {
 
     Spell<double>* s1 = new Spell<double>(FIREBALL, 100, 20, "Fireball");
     delete s1;
+    std::cout << "------------------------------" << std::endl;
+
+    SpellBook<double>* sp1 = new SpellBook<double>;
+    sp1->insertSpell(FIREBALL, new Spell<double>(FIREBALL, 10, 20, "Fireball"));
+    sp1->insertSpell(BLESS, new Spell<double>(BLESS, 10, 20, "Bless"));
+    sp1->insertSpell(IMPLOSION, new Spell<double>(IMPLOSION, 10, 20, "Implosion"));
 
     std::cout << "------------------------------" << std::endl;
 

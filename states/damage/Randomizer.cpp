@@ -3,7 +3,7 @@
 Randomizer* Randomizer::instance = NULL;
 
 Randomizer::Randomizer() {
-    srand(rand() ^ time(NULL));
+    srand(time(NULL));
     std::cout << "   + instance of randomizer created" << std::endl;
 }
 Randomizer::~Randomizer() {

@@ -11,18 +11,19 @@
 // #include "spellPrototypes/Bless.h"
 // #include "spellPrototypes/ManaPortion.h"
 
+template <class Type>
 class SpellBook {
     protected:
-        std::map<SpellEnum, Spell*>* spellBook;
+        std::map<SpellEnum, Spell<Type>*>* spellBook;
     public:
         SpellBook();
         virtual ~SpellBook();
 
         bool haveSpell(SpellEnum sEnum);
-        void insertSpell(SpellEnum sEnum, Spell* spell);
+        void insertSpell(SpellEnum sEnum, Spell<Type>* spell);
 
-        const std::map<SpellEnum, Spell*>* getSpellBook() const;
-        const Spell* getSpell(SpellEnum sEnum) const;
+        const std::map<SpellEnum, Spell<Type>*>* getSpellBook() const;
+        const Spell<Type>& getSpell(SpellEnum sEnum) const;
 };
 
 #endif // SPELLBOOK_H
