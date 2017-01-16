@@ -41,7 +41,7 @@ std::ostream& operator<<(std::ostream& out, const Spell<Type>& spell) {
     out << "power: " << spell.getPower() << ", ";
     out << "mana cost: " << spell.getManaCost() << ')';
     return out;
-}
+};
 
 template std::ostream& operator<<(std::ostream& out, const Spell<int>& Spell);
 template std::ostream& operator<<(std::ostream& out, const Spell<double>& Spell);

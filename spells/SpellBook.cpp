@@ -1,7 +1,8 @@
 #include "SpellBook.h"
 
 template <class Type>
-SpellBook<Type>::SpellBook() : spellBook(new std::map<SpellEnum, Spell<Type>*>) {}
+SpellBook<Type>::SpellBook() : spellBook(new std::map<SpellEnum, Spell<Type>*>) {
+}
 
 template <class Type>
 SpellBook<Type>::~SpellBook() {
@@ -40,3 +41,7 @@ template <class Type>
 const Spell<Type>& SpellBook<Type>::getSpell(SpellEnum sEnum) const {
     return *this->spellBook->find(sEnum)->second;
 }
+
+template class SpellBook<int>;
+template class SpellBook<double>;
+template class SpellBook<float>;
