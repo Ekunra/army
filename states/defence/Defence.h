@@ -5,11 +5,11 @@
 
 class Defence {
     protected:
-        double* dmgDefence;
-        double* mDmgDefence;
+        double* dCoef;
+        double* mdCoef;
 
     public:
-        Defence();
+        Defence(double dCoef, double mdCoef);
         ~Defence();
 
         const double& getDmgDefence() const;
