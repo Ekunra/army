@@ -54,16 +54,16 @@ void Unit<Type>::ensureIsAlive() {
 
 
 template <class Type>
-const LimitedField<Type>& Unit<Type>::getHealth() const {
+const LimitedField<Type>* Unit<Type>::getHealth() const {
     return this->states->getHealth();
 }
 template <class Type>
-const Damage<Type>& Unit<Type>::getDamageObj() const {
+const Damage<Type>* Unit<Type>::getDamageObj() const {
     return this->states->getDamageObj();
 }
 template <class Type>
-const States<Type>& Unit<Type>::getStates() const {
-    return *this->states;
+const States<Type>* Unit<Type>::getStates() const {
+    return this->states;
 }
 
 
@@ -161,7 +161,7 @@ template class Unit<float>;
 
 template <class Type>
 std::ostream& operator<<(std::ostream& out, const Unit<Type>& unit) {
-    out << unit.getStates();
+    out << *unit.getStates();
     return out;
 }
 

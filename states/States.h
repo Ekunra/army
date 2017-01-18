@@ -5,6 +5,7 @@
 #include "../Exceptions.h"
 #include "../Properties.h"
 #include "damage/Damage.h"
+#include "defence/Defence.h"
 #include "limitedfield/LimitedField.h"
 
 template <class Type>
@@ -15,13 +16,14 @@ class States {
         std::string* title;
         LimitedField<Type>* health;
         Damage<Type>* damage;
+        Defence* defence;
 
     public:
-        States(Type hp, Type damage, const std::string& title="Default", UnitEnum uEnum=UnitEnum::DEFAULT, UnitEnum uType=UnitEnum::DEFAULT);
+        States(LimitedField<Type>* health, Damage<Type>* damage, Defence* defence, const std::string& title="Default", UnitEnum uEnum=UnitEnum::DEFAULT, UnitEnum uType=UnitEnum::DEFAULT);
         virtual ~States();
 
-        const LimitedField<Type>& getHealth() const;
-        const Damage<Type>& getDamageObj() const;
+        const LimitedField<Type>* getHealth() const;
+        const Damage<Type>* getDamageObj() const;
 
         const Type& getHitPoints() const;
         const Type& getHitPointsLimit() const;

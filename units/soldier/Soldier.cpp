@@ -3,8 +3,9 @@
 template <class Type>
 Soldier<Type>::Soldier(const std::string& name) 
                 :  Unit<Type>  (name, 
-                                new States<Type>((Type)Hp::SOLDIER,
-                                                 (Type)Dmg::SOLDIER,
+                                new States<Type>(new LimitedField<Type>((Type)Hp::SOLDIER),
+                                                 new Damage<Type>((Type)Dmg::SOLDIER),
+                                                 new Defence,
                                                  "Soldier",
                                                  UnitEnum::SOLDIER,
                                                  UnitEnum::ALIVE),

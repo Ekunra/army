@@ -1,9 +1,15 @@
 #include "States.h"
 
 template <class Type>
-States<Type>::States(Type hp, Type damage, const std::string& title, UnitEnum uEnum, UnitEnum uType)
-                        :   health(new LimitedField<Type>(hp)),
-                            damage(new Damage<Type>(damage)),
+States<Type>::States(LimitedField<Type>* health,
+                    Damage<Type>* damage,
+                    Defence* defence,
+                    const std::string& title,
+                    UnitEnum uEnum,
+                    UnitEnum uType)
+                        :   health(health),
+                            damage(damage),
+                            defence(defence),
                             uEnum(new UnitEnum(uEnum)),
                             uType(new UnitEnum(uType)),
                             title(new std::string(title)) {
@@ -22,12 +28,12 @@ States<Type>::~States() {
 
 
 template <class Type>
-const LimitedField<Type>& States<Type>::getHealth() const {
-    return *this->health;
+const LimitedField<Type>* States<Type>::getHealth() const {
+    return this->health;
 }
 template <class Type>
-const Damage<Type>& States<Type>::getDamageObj() const {
-    return *this->damage;
+const Damage<Type>* States<Type>::getDamageObj() const {
+    return this->damage;
 }
 
 
@@ -121,9 +127,9 @@ std::ostream& operator<<(std::ostream& out, const States<Type>& states) {
     }
     out << states.getTitle() << FO_RESET;
     out << ' ';
-    out << states.getHealth();
+    out << *states.getHealth();
     out << FO_GREY << " | " << FO_RESET;
-    out << states.getDamageObj();
+    out << *states.getDamageObj();
 }
 
 template std::ostream& operator<<(std::ostream& out, const States<int>& states);

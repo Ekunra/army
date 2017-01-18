@@ -49,6 +49,50 @@ enum class Dmg {
     NECROMANCER = 15
 };
 
+enum class TakeDamageCoef { // Divides by 100 while initialization.
+    DEFAULT,
+
+    SOLDIER,
+    ROGUE,
+    BERSERKER,
+    WEREWOLF,
+    VAMPIRE,
+
+    WIZARD,
+    HEALER,
+    PRIEST,
+    WARLOCK,
+    NECROMANCER,
+
+    DEMON,
+    WOLF,
+
+    EVILSPIRIT,
+    ALIVE
+};
+
+enum class TakeMagicDamageCoef { // Divides by 100 while initialization.
+    DEFAULT,
+
+    SOLDIER,
+    ROGUE,
+    BERSERKER,
+    WEREWOLF,
+    VAMPIRE,
+
+    WIZARD,
+    HEALER,
+    PRIEST,
+    WARLOCK,
+    NECROMANCER,
+
+    DEMON,
+    WOLF,
+
+    EVILSPIRIT,
+    ALIVE
+};
+
 enum class Mana {
     WIZARD = 200,
     HEALER = 150,
@@ -75,7 +119,14 @@ enum class SCost {
     MANAPORTION = 20
 };
 
-enum class Coef {
+enum class DDTMagicCoef {
+    WIZARD,
+    HEALER,
+    PRIEST,
+    WARLOCK
+};
+
+enum class HTMagicCoef {
     WIZARD,
     HEALER,
     PRIEST,

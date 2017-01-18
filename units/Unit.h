@@ -37,9 +37,9 @@ class Unit {
 
         void ensureIsAlive();
 
-        const LimitedField<Type>& getHealth() const;
-        const Damage<Type>& getDamageObj() const;
-        const States<Type>& getStates() const;
+        const LimitedField<Type>* getHealth() const;
+        const Damage<Type>* getDamageObj() const;
+        const States<Type>* getStates() const;
 
         const Type& getHitPoints() const;
         const Type& getHitPointsLimit() const;

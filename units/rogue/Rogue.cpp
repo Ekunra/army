@@ -3,8 +3,9 @@
 template <class Type>
 Rogue<Type>::Rogue(const std::string& name) 
                 :  Unit<Type>  (name, 
-                                new States<Type>((Type)Hp::ROGUE,
-                                                 (Type)Dmg::ROGUE,
+                                new States<Type>(new LimitedField<Type>((Type)Hp::ROGUE),
+                                                 new Damage<Type>((Type)Dmg::ROGUE),
+                                                 new Defence,
                                                  "Rogue",
                                                  UnitEnum::ROGUE,
                                                  UnitEnum::ALIVE),
@@ -16,7 +17,7 @@ Rogue<Type>::Rogue(const std::string& name)
 
 template <class Type>
 Rogue<Type>::~Rogue() {
-    std::cout << " -- Rogue destructed." << std::endl;
+    std::cout << "   ** Rogue destructed." << std::endl;
 }
 
 template <class Type>

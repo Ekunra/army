@@ -4,7 +4,7 @@ template <class Type>
 RogueAttack<Type>::RogueAttack() {}
 template <class Type>
 RogueAttack<Type>::~RogueAttack() {
-    std::cout << "  * RogueAttack destructed." << std::endl;
+    std::cout << "      - - RogueAttack destructed." << std::endl;
 }
 
 template <class Type>
