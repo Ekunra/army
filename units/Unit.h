@@ -62,6 +62,7 @@ class Unit {
         // virtual void takeMagic(HTSpell* spell);
 
         virtual void bite(Unit* enemy);
+        virtual void transform(Unit* enemy);
         virtual void transform();
 };
 

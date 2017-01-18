@@ -152,6 +152,18 @@ template <class Type>
 void Unit<Type>::bite(Unit* enemy) {}
 
 template <class Type>
+void Unit<Type>::transform(Unit* enemy) {
+    if ( !( this->getUEnum() == UnitEnum::WEREWOLF
+         || this->getUEnum() == UnitEnum::WOLF
+         || this->getUEnum() == UnitEnum::VAMPIRE )
+            &&
+          ( enemy->getUEnum() == UnitEnum::WEREWOLF
+         || enemy->getUEnum() == UnitEnum::WOLF
+         || enemy->getUEnum() == UnitEnum::VAMPIRE) ) {
+    }
+}
+
+template <class Type>
 void Unit<Type>::transform() {}
 
 

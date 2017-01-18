@@ -25,7 +25,7 @@ std::cout << "- \"Validate function works\"" << std::endl;
     if ( result < 0 ) {
         return 0;
     }
-    return result;
+    return round( result * 100 ) / 100;
 }
 
 

@@ -2,6 +2,7 @@
 #define LIMITEDFIELD_H
 
 #include <iostream>
+#include <cmath>
 #include "../../macro_color.cpp"
 
 template <class Type>
