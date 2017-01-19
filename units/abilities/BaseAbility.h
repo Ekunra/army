@@ -9,12 +9,14 @@ class Unit;
 
 template <class Type>
 class BaseAbility {
+    protected:
+        Unit<Type>* owner;
     public:
-        BaseAbility();
+        BaseAbility(Unit<Type>* owner);
         virtual ~BaseAbility();
 
-        virtual void bite(Unit<Type>* enemy, Unit<Type>* rodent);
-        virtual void transform(Unit<Type>* unit);
+        // virtual void bite(Unit<Type>* enemy, Unit<Type>* rodent);
+        // virtual void transform(Unit<Type>* unit);
 };
 
 #endif // BASEABILITY_H

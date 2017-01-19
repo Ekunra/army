@@ -5,6 +5,7 @@ template <class Type>
 Unit<Type>::Unit(const std::string& name,
                     States<Type>* states,
                     BaseAbility<Type>* baseAbility,
+                    BaseAbility<Type>* baseAbility,
                     BaseAttack<Type>* baseAttack,
                     BaseCounterAttack<Type>* baseCounterAttack)
                           : name(new std::string(name)),

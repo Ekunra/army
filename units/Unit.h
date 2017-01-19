@@ -21,7 +21,8 @@ class Unit {
     protected:
         std::string* name;
         States<Type>* states;
-        BaseAbility<Type>* baseAbility;
+        BaseAbility<Type>* ability1;
+        BaseAbility<Type>* ability2;
         BaseAttack<Type>* baseAttack;
         BaseCounterAttack<Type>* baseCounterAttack;
 
@@ -31,6 +32,7 @@ class Unit {
         Unit(const std::string& name,
                 States<Type>* states,
                 BaseAbility<Type>* baseAbility,
+                BaseAbility<Type>* baseAbility=NULL,
                 BaseAttack<Type>* baseAttack,
                 BaseCounterAttack<Type>* baseCounterAttack);
         virtual ~Unit();

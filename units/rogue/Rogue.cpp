@@ -10,7 +10,8 @@ Rogue<Type>::Rogue(const std::string& name)
                                                  "Rogue",
                                                  UnitEnum::ROGUE,
                                                  UnitEnum::ALIVE),
-                                new BaseAbility<Type>,
+                                new BaseAbility<Type>(this),
+                                new BaseAbility<Type>(this),
                                 new RogueAttack<Type>,
                                 new BaseCounterAttack<Type>) {
     std::cout << "      + Rogue instance created." << std::endl;

@@ -1,7 +1,7 @@
 #include "BaseAbility.h"
 
 template <class Type>
-BaseAbility<Type>::BaseAbility() {
+BaseAbility<Type>::BaseAbility(Unit<Type>* owner) : owner(owner) {
     std::cout << "   BaseAbility created." << std::endl;
 }
 template <class Type>
@@ -10,14 +10,9 @@ BaseAbility<Type>::~BaseAbility() {
 }
 
 template <class Type>
-void BaseAbility<Type>::bite(Unit<Type>* rodent, Unit<Type>* enemy) {
-    // std::cout << "  !! It was a good try! But take care of your teeth! " << std::endl;
-    // enemy->counterAttack(rodent);
-}
-
-template <class Type>
-void BaseAbility<Type>::transform(Unit<Type>* unit) {
-    // std::cout << "  :) It's realy interesting, whom do you want to transform into?" << std::endl;
+void BaseAbility<Type>::action(Unit<Type>* enemy) {
+    std::cout << "  !! It was a good try! But take care of your teeth! " << std::endl;
+    enemy->counterAttack(rodent);
 }
 
 template class BaseAbility<int>;
