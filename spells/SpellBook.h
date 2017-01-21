@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <map>
+#include "../debug.h"
 #include "Spell.h"
 // #include "spellPrototypes/FireBall.h"
 // #include "spellPrototypes/Implosion.h"

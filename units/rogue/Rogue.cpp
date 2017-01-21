@@ -14,12 +14,12 @@ Rogue<Type>::Rogue(const std::string& name)
                                 NULL,
                                 new RogueAttack<Type>,
                                 new BaseCounterAttack<Type>) {
-    std::cout << "      + Rogue instance created." << std::endl;
+    std::cout << FO_GREEN << "     ** Rogue instance created." << FO_RESET << std::endl;
 }
 
 template <class Type>
 Rogue<Type>::~Rogue() {
-    std::cout << "   ** Rogue destructed." << std::endl;
+    std::cout << FO_RED << "   ** Rogue destructed." << FO_RESET << std::endl;
 }
 
 template <class Type>

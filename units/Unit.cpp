@@ -68,6 +68,14 @@ template <class Type>
 const States<Type>* Unit<Type>::getStates() const {
     return this->states;
 }
+template <class Type>
+const BaseAbility<Type>* Unit<Type>::getAbility1() const {
+    return this->baseAbility1;
+}
+template <class Type>
+const BaseAbility<Type>* Unit<Type>::getAbility2() const {
+    return this->baseAbility2;
+}
 
 
 template <class Type>
@@ -152,17 +160,20 @@ void Unit<Type>::takeMagic(/*DDTSpell* spell*/) {}
 
 
 template <class Type>
-void Unit<Type>::bite(Unit* enemy) {}
+void Unit<Type>::bite(Unit* enemy) {
+    if (  this->getUEnum() != UnitEnum::WEREWOLF
+       || this->getUEnum() != UnitEnum::WOLF
+       || this->getUEnum() != UnitEnum::VAMPIRE ) {
+        std::cout << "Realy, what do you want to transform into? :D" << std::endl;
+        return;
+    }
+}
 
 template <class Type>
 void Unit<Type>::transform(Unit* enemy) {
     if ( !( this->getUEnum() == UnitEnum::WEREWOLF
-         || this->getUEnum() == UnitEnum::WOLF
-         || this->getUEnum() == UnitEnum::VAMPIRE )
-            &&
-          ( enemy->getUEnum() == UnitEnum::WEREWOLF
-         || enemy->getUEnum() == UnitEnum::WOLF
-         || enemy->getUEnum() == UnitEnum::VAMPIRE) ) {
+         || this->getUEnum() == UnitEnum::WOLF ) ) {
+        return;
     }
 }
 

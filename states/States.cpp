@@ -128,7 +128,7 @@ std::ostream& operator<<(std::ostream& out, const States<Type>& states) {
     out << states.getTitle() << FO_RESET;
     out << ' ';
     out << *states.getHealth();
-    out << FO_GREY << " | " << FO_RESET;
+    out << FO_D_GREY << " | " << FO_RESET;
     out << *states.getDamageObj();
 }
 

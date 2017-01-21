@@ -4,6 +4,7 @@
 #include <iostream>
 #include <cmath>
 #include "../../macro_color.cpp"
+#include "../../debug.h"
 
 template <class Type>
 class LimitedField {

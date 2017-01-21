@@ -14,12 +14,14 @@ Soldier<Type>::Soldier(const std::string& name)
                                 NULL,
                                 new BaseAttack<Type>,
                                 new BaseCounterAttack<Type>) {
-    std::cout << "      + Soldier instance created." << std::endl;
+    if ( DEBUG ) {
+        std::cout << FO_GREEN << "     ** Soldier instance created." << FO_RESET << std::endl;
+    }
 }
 
 template <class Type>
 Soldier<Type>::~Soldier() {
-    std::cout << " -- Soldier destructed." << std::endl;
+    std::cout << FO_RED << "   ** Soldier destructed." << FO_RESET << std::endl;
 }
 
 template <class Type>

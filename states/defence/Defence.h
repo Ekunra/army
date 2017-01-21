@@ -2,6 +2,7 @@
 #define DEFENCE_H
 
 #include <iostream>
+#include "../../debug.h"
 
 class Defence {
     protected:

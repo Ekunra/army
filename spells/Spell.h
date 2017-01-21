@@ -2,6 +2,7 @@
 #define SPELL_H
 
 #include <iostream>
+#include "../debug.h"
 #include "../Properties.h"
 #include "SpellEnum.h"
 

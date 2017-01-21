@@ -16,8 +16,6 @@ class BaseAbility {
         virtual ~BaseAbility();
 
         virtual void action(Unit<Type>* enemy);
-        // virtual void bite(Unit<Type>* enemy, Unit<Type>* rodent);
-        // virtual void transform(Unit<Type>* unit);
 };
 
 #endif // BASEABILITY_H
