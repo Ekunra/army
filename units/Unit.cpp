@@ -4,13 +4,14 @@
 template <class Type>
 Unit<Type>::Unit(const std::string& name,
                     States<Type>* states,
-                    BaseAbility<Type>* baseAbility,
-                    BaseAbility<Type>* baseAbility,
+                    BaseAbility<Type>* baseAbility1,
+                    BaseAbility<Type>* baseAbility2,
                     BaseAttack<Type>* baseAttack,
                     BaseCounterAttack<Type>* baseCounterAttack)
                           : name(new std::string(name)),
                             states(states),
-                            baseAbility(baseAbility),
+                            baseAbility1(baseAbility1),
+                            baseAbility2(baseAbility2),
                             baseAttack(baseAttack),
                             baseCounterAttack(baseCounterAttack) {
     std::cout << "      + Unit instance created." << std::endl;
@@ -38,7 +39,8 @@ template <class Type>
 Unit<Type>::~Unit() {
     delete name;
     delete states;
-    delete baseAbility;
+    delete baseAbility1;
+    delete baseAbility2;
     delete baseAttack;
     delete baseCounterAttack;
     std::cout << "    - Unit instance destructed." << std::endl;

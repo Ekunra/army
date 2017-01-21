@@ -12,7 +12,7 @@ BaseAbility<Type>::~BaseAbility() {
 template <class Type>
 void BaseAbility<Type>::action(Unit<Type>* enemy) {
     std::cout << "  !! It was a good try! But take care of your teeth! " << std::endl;
-    enemy->counterAttack(rodent);
+    enemy->counterAttack(owner);
 }
 
 template class BaseAbility<int>;

@@ -10,7 +10,8 @@ Soldier<Type>::Soldier(const std::string& name)
                                                  "Soldier",
                                                  UnitEnum::SOLDIER,
                                                  UnitEnum::ALIVE),
-                                new BaseAbility<Type>,
+                                new BaseAbility<Type>(this),
+                                NULL,
                                 new BaseAttack<Type>,
                                 new BaseCounterAttack<Type>) {
     std::cout << "      + Soldier instance created." << std::endl;
