@@ -2,11 +2,17 @@
 
 template <class Type>
 BaseAbility<Type>::BaseAbility(Unit<Type>* owner) : owner(owner) {
-    std::cout << "   BaseAbility created." << std::endl;
+    if ( DEBUG ) {
+        std::cout << FO_B_GREEN << "     + " << FO_RESET;
+        std::cout << FO_B << "BaseAbility" << FO_RESET << " created." << std::endl;
+    }
 }
 template <class Type>
 BaseAbility<Type>::~BaseAbility() {
-    std::cout << "    - - BaseAbility destructed." << std::endl;
+    if ( DEBUG ){
+        std::cout << FO_B_RED << "      - " << FO_RESET;
+        std::cout << "BaseAbility destructed." << std::endl;
+    }
 }
 
 template <class Type>

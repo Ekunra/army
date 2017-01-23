@@ -13,16 +13,23 @@ States<Type>::States(LimitedField<Type>* health,
                             uEnum(new UnitEnum(uEnum)),
                             uType(new UnitEnum(uType)),
                             title(new std::string(title)) {
-    std::cout << "     + States created" << std::endl;
+    if ( DEBUG ) {
+        std::cout << FO_B_GREEN << "     + " << FO_RESET;
+        std::cout << FO_B << "States" << FO_RESET <<" created" << std::endl;
+    }
 }
 
 template <class Type>
 States<Type>::~States() {
     delete health;
     delete damage;
+    delete defence;
     delete uEnum;
     delete uType;
-    std::cout << "    - - States (" << *this->title << ") deleted." << std::endl;
+    if ( DEBUG ) {
+        std::cout << FO_B_RED << "      - " << FO_RESET;
+        std::cout << "States (" << FO_B << *this->title << FO_RESET << ") deleted." << std::endl;
+    }
     delete title;
 }
 
@@ -34,6 +41,10 @@ const LimitedField<Type>* States<Type>::getHealth() const {
 template <class Type>
 const Damage<Type>* States<Type>::getDamageObj() const {
     return this->damage;
+}
+template <class Type>
+const Defence* States<Type>::getDefence() const {
+    return this->defence;
 }
 
 
@@ -119,6 +130,16 @@ std::ostream& operator<<(std::ostream& out, const States<Type>& states) {
         }
         case UnitEnum::WOLF : {
             out << FO_B_RED;
+            break;
+        }
+        case UnitEnum::WIZARD : {
+            out << FO_B_BLUE;
+            break;
+        }
+        case UnitEnum::HEALER : {
+            break;
+        }
+        case UnitEnum::PRIEST : {
             break;
         }
         default : {

@@ -1,10 +1,17 @@
 #include "RogueAttack.h"
 
 template <class Type>
-RogueAttack<Type>::RogueAttack() {}
+RogueAttack<Type>::RogueAttack() {
+    if ( DEBUG ) {
+        std::cout << FO_B_GREEN << "       + " << FO_RESET;
+        std::cout << FO_B << "RogueAttack" << FO_RESET << " created." << std::endl;
+    }
+}
 template <class Type>
 RogueAttack<Type>::~RogueAttack() {
-    std::cout << "      - - RogueAttack destructed." << std::endl;
+    if ( DEBUG ) {
+        std::cout << FO_B_RED << "      - - " << FO_RESET << "RogueAttack destructed." << std::endl;
+    }
 }
 
 template <class Type>

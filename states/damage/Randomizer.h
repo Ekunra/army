@@ -5,6 +5,7 @@
 #include <cstdlib>
 #include <ctime>
 #include "../../debug.h"
+#include "../../macro_color.cpp"
 
 class Randomizer {
     private:

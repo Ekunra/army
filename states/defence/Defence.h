@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "../../debug.h"
+#include "../../macro_color.cpp"
 
 class Defence {
     protected:

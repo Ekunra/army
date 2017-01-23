@@ -1,11 +1,19 @@
 #include "BaseCounterAttack.h"
 
 template <class Type>
-BaseCounterAttack<Type>::BaseCounterAttack() {}
+BaseCounterAttack<Type>::BaseCounterAttack() {
+    if ( DEBUG ) {
+        std::cout << FO_B_GREEN << "     + " << FO_RESET;
+        std::cout << FO_B << "BaseCounterAttack" << FO_RESET << " created." << std::endl;
+    }
+}
 
 template <class Type>
 BaseCounterAttack<Type>::~BaseCounterAttack() {
-    std::cout << "    - - BaseCounterAttack destructed." << std::endl;
+    if ( DEBUG ) {
+        std::cout << FO_B_RED << "      - " << FO_RESET;
+        std::cout << "BaseCounterAttack destructed." << std::endl;
+    }
 }
 
 

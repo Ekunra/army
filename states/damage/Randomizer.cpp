@@ -4,10 +4,15 @@ Randomizer* Randomizer::instance = NULL;
 
 Randomizer::Randomizer() {
     srand(time(NULL));
-    std::cout << "   + instance of randomizer created" << std::endl;
+    if ( DEBUG ) {
+        std::cout << FO_B << " ! " << FO_RESET << "instance of ";
+        std::cout << FO_B << "randomizer" << FO_RESET << " created" << std::endl;
+    }
 }
 Randomizer::~Randomizer() {
-    std::cout << "Randomizer deleted" << std::endl;
+    if ( DEBUG ) {
+        std::cout << "Randomizer deleted" << std::endl;
+    }
 }
 
 void Randomizer::launch() {

@@ -19,11 +19,17 @@ class States {
         Defence* defence;
 
     public:
-        States(LimitedField<Type>* health, Damage<Type>* damage, Defence* defence, const std::string& title="Default", UnitEnum uEnum=UnitEnum::DEFAULT, UnitEnum uType=UnitEnum::DEFAULT);
+        States(LimitedField<Type>* health,
+               Damage<Type>* damage,
+               Defence* defence,
+               const std::string& title="Default",
+               UnitEnum uEnum=UnitEnum::DEFAULT,
+               UnitEnum uType=UnitEnum::DEFAULT);
         virtual ~States();
 
         const LimitedField<Type>* getHealth() const;
         const Damage<Type>* getDamageObj() const;
+        const Defence* getDefence() const;
 
         const Type& getHitPoints() const;
         const Type& getHitPointsLimit() const;

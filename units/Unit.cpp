@@ -14,7 +14,10 @@ Unit<Type>::Unit(const std::string& name,
                             baseAbility2(baseAbility2),
                             baseAttack(baseAttack),
                             baseCounterAttack(baseCounterAttack) {
-    std::cout << "      + Unit instance created." << std::endl;
+    if ( DEBUG ) {
+        std::cout << FO_B_GREEN << "       + " << FO_RESET;
+        std::cout << FO_B << "Unit" << FO_RESET << " instance created." << std::endl;
+    }
 }
 
 
@@ -43,7 +46,10 @@ Unit<Type>::~Unit() {
     delete baseAbility2;
     delete baseAttack;
     delete baseCounterAttack;
-    std::cout << "    - Unit instance destructed." << std::endl;
+    if ( DEBUG ) {
+        std::cout << FO_B_RED << "    - " << FO_RESET;
+        std::cout << "Unit instance destructed." << std::endl;
+    }
 }
 
 

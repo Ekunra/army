@@ -5,14 +5,20 @@
 template <class Type>
 LimitedField<Type>::LimitedField(Type value)
     : value(new Type(value)), limit(new Type(value)) {
-        std::cout << "   LimitedField Instance created." << std::endl;
+    if ( DEBUG ) {
+        std::cout << FO_B_GREEN << "   + " << FO_RESET;
+        std::cout << FO_D_GREY << "LimitedField Instance created." << FO_RESET << std::endl;
+    }
 }
 
 template <class Type>
 LimitedField<Type>::~LimitedField() {
-    std::cout << "        - LimitedField Instance deleted" << std::endl;
     delete value;
     delete limit;
+    if ( DEBUG ) {
+        std::cout << FO_B_RED << "        - " FO_RESET;
+        std::cout << "LimitedField Instance deleted" << std::endl;
+    }
 }
 
 

@@ -12,8 +12,8 @@
 int main() {
     Soldier<float>* sr1 = new Soldier<float>("sr1");
     Rogue<float>* r1 = new Rogue<float>("R1");
-    std::cout << *sr1 << std::endl;
     std::cout << "------------------------------" << std::endl;
+    std::cout << *sr1 << std::endl;
     std::cout << *r1 << std::endl;
     std::cout << "------------------------------" << std::endl;
     r1->bite(sr1);

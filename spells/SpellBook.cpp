@@ -6,15 +6,21 @@ SpellBook<Type>::SpellBook() : spellBook(new std::map<SpellEnum, Spell<Type>*>) 
 
 template <class Type>
 SpellBook<Type>::~SpellBook() {
-    std::cout << "       --- Start deleting spells from SpellBook. --- " << std::endl;
+    if ( DEBUG ) {
+        std::cout << "       --- Start deleting spells from SpellBook. --- " << std::endl;
+    }
     typename std::map<SpellEnum, Spell<Type>*>::iterator it;
     for ( it = this->spellBook->begin(); it != this->spellBook->end(); ++it ) {
         delete it->second ;
     }
-    std::cout << "       --- Spells' deleting from SpellBook finished. --- " << std::endl;
+    if ( DEBUG ) {
+        std::cout << "       --- Spells' deleting from SpellBook finished. --- " << std::endl;
+    }
 
     delete spellBook;
-    std::cout << "   --- SPELL BOOK destructed." << std::endl;
+    if ( DEBUG ) {
+        std::cout << "   --- SPELL BOOK destructed." << std::endl;
+    }
 }
 
 template <class Type>

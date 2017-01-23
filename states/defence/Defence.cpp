@@ -1,10 +1,21 @@
 #include "Defence.h"
 
 Defence::Defence(double dCoef, double mdCoef)
-    : dCoef(new double(dCoef)), mdCoef(new double(mdCoef)) {}
+    : dCoef(new double(dCoef)), mdCoef(new double(mdCoef)) {
+
+        if ( DEBUG ) {
+            std::cout << FO_B_GREEN << "   + " << FO_RESET;
+            std::cout << FO_D_GREY << "Defence Instance created." << FO_RESET << std::endl;
+        }
+    }
 Defence::~Defence() {
     delete dCoef;
     delete mdCoef;
+
+    if ( DEBUG ) {
+        std::cout << FO_B_RED << "        - " << FO_RESET;
+        std::cout << "Defence instance deleted" << std::endl;
+    }
 }
 
 const double& Defence::getDmgDefence() const {}
