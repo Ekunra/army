@@ -10,7 +10,7 @@ Rogue<Type>::Rogue(const std::string& name)
                                                  "Rogue",
                                                  UnitEnum::ROGUE,
                                                  UnitEnum::ALIVE),
-                                new BaseAbility<Type>(this),
+                                NULL/*new BaseAbility<Type>(this)*/,
                                 NULL,
                                 new RogueAttack<Type>,
                                 new BaseCounterAttack<Type>) {

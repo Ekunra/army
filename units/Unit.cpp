@@ -4,14 +4,14 @@
 template <class Type>
 Unit<Type>::Unit(const std::string& name,
                     States<Type>* states,
-                    BaseAbility<Type>* baseAbility1,
-                    BaseAbility<Type>* baseAbility2,
+                    BaseAbility<Type>* priAbility,
+                    BaseAbility<Type>* secAbility,
                     BaseAttack<Type>* baseAttack,
                     BaseCounterAttack<Type>* baseCounterAttack)
                           : name(new std::string(name)),
                             states(states),
-                            baseAbility1(baseAbility1),
-                            baseAbility2(baseAbility2),
+                            primaryAbility(priAbility),
+                            secondaryAbility(secAbility),
                             baseAttack(baseAttack),
                             baseCounterAttack(baseCounterAttack) {
     if ( DEBUG ) {
@@ -42,8 +42,8 @@ template <class Type>
 Unit<Type>::~Unit() {
     delete name;
     delete states;
-    delete baseAbility1;
-    delete baseAbility2;
+    delete primaryAbility;
+    delete secondaryAbility;
     delete baseAttack;
     delete baseCounterAttack;
     if ( DEBUG ) {
@@ -75,12 +75,12 @@ const States<Type>* Unit<Type>::getStates() const {
     return this->states;
 }
 template <class Type>
-const BaseAbility<Type>* Unit<Type>::getAbility1() const {
-    return this->baseAbility1;
+const BaseAbility<Type>* Unit<Type>::getPrimaryAbility() const {
+    return this->primaryAbility;
 }
 template <class Type>
-const BaseAbility<Type>* Unit<Type>::getAbility2() const {
-    return this->baseAbility2;
+const BaseAbility<Type>* Unit<Type>::getSecondaryAbility() const {
+    return this->secondaryAbility;
 }
 
 
@@ -166,25 +166,21 @@ void Unit<Type>::takeMagic(/*DDTSpell* spell*/) {}
 
 
 template <class Type>
-void Unit<Type>::bite(Unit* enemy) {
-    if (  this->getUEnum() != UnitEnum::WEREWOLF
-       || this->getUEnum() != UnitEnum::WOLF
-       || this->getUEnum() != UnitEnum::VAMPIRE ) {
-        std::cout << "Realy, what do you want to transform into? :D" << std::endl;
+void Unit<Type>::usePrimaryAbility(Unit<Type>* enemy) {
+    if (  this->primaryAbility == NULL ) {
+        std::cout << "You have no primaryAbility :D" << std::endl;
         return;
     }
+    this->primaryAbility->action(enemy);
 }
 
 template <class Type>
-void Unit<Type>::transform(Unit* enemy) {
-    if ( !( this->getUEnum() == UnitEnum::WEREWOLF
-         || this->getUEnum() == UnitEnum::WOLF ) ) {
+void Unit<Type>::useSecondaryAbility() {
+    if ( this->secondaryAbility == NULL ) {
+        std::cout << "You have no secondaryAbility :D" << std::endl;
         return;
     }
 }
-
-template <class Type>
-void Unit<Type>::transform() {}
 
 
 template class Unit<int>;

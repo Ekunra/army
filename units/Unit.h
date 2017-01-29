@@ -21,8 +21,8 @@ class Unit {
     protected:
         std::string* name;
         States<Type>* states;
-        BaseAbility<Type>* baseAbility1;
-        BaseAbility<Type>* baseAbility2;
+        BaseAbility<Type>* primaryAbility;
+        BaseAbility<Type>* secondaryAbility;
         BaseAttack<Type>* baseAttack;
         BaseCounterAttack<Type>* baseCounterAttack;
 
@@ -31,8 +31,8 @@ class Unit {
     public:
         Unit(const std::string& name,
                 States<Type>* states,
-                BaseAbility<Type>* baseAbility1,
-                BaseAbility<Type>* baseAbility2,
+                BaseAbility<Type>* priAbility,
+                BaseAbility<Type>* secAbility,
                 BaseAttack<Type>* baseAttack,
                 BaseCounterAttack<Type>* baseCounterAttack);
         virtual ~Unit();
@@ -42,8 +42,8 @@ class Unit {
         const LimitedField<Type>* getHealth() const;
         const Damage<Type>* getDamageObj() const;
         const States<Type>* getStates() const;
-        const BaseAbility<Type>* getAbility1() const;
-        const BaseAbility<Type>* getAbility2() const;
+        const BaseAbility<Type>* getPrimaryAbility() const;
+        const BaseAbility<Type>* getSecondaryAbility() const;
 
         const Type& getHitPoints() const;
         const Type& getHitPointsLimit() const;
@@ -65,9 +65,8 @@ class Unit {
         virtual void takeMagic(/*DDTSpell* spell*/);
         // virtual void takeMagic(HTSpell* spell);
 
-        virtual void bite(Unit* enemy);
-        virtual void transform(Unit* enemy);
-        virtual void transform();
+        virtual void usePrimaryAbility(Unit<Type>* enemy);
+        virtual void useSecondaryAbility();
 };
 
 template <class Type>

@@ -21,6 +21,7 @@ void BaseAbility<Type>::action(Unit<Type>* enemy) {
     enemy->counterAttack(owner);
 }
 
+
 template class BaseAbility<int>;
 template class BaseAbility<double>;
 template class BaseAbility<float>;

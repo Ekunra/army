@@ -94,7 +94,7 @@ Type States<Type>::getDamage() {
 template <class Type>
 void States<Type>::takeDamage(States<Type>* enemy) {
         std::cout << "      * states arrived to enemy states->takeDamage()" << std::endl;
-    *this->health -= enemy->getDamage();
+    *this->health -= (enemy->getDamage() * enemy->defence->getDmgDefence() );
 
         std::cout << "      * enemy's states gave damage and takeDamage() finishing its work." << std::endl;
 }

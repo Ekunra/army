@@ -16,10 +16,7 @@ int main() {
     std::cout << *sr1 << std::endl;
     std::cout << *r1 << std::endl;
     std::cout << "------------------------------" << std::endl;
-    r1->bite(sr1);
-    // sr1->attack(r1);
-    // std::cout << *sr1 << std::endl;
-    // std::cout << *r1 << std::endl;
+    std::cout << "------------------------------" << std::endl;
     std::cout << "------------------------------" << std::endl;
 
     Spell<double>* s1 = new Spell<double>(FIREBALL, 100, 20, "Fireball");
@@ -32,6 +29,10 @@ int main() {
     sb1->insertSpell(IMPLOSION, new Spell<double>(IMPLOSION, 10, 20, "Implosion"));
     delete sb1;
 
+    std::cout << "------------------------------" << std::endl;
+    sr1->attack(r1);
+    std::cout << *sr1 << std::endl;
+    std::cout << *r1 << std::endl;
     std::cout << "------------------------------" << std::endl;
 
     delete sr1;

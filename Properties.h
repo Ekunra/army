@@ -50,44 +50,44 @@ enum class Dmg {
 };
 
 enum class TakeDamageCoef { // Divides by 100 while initialization.
-    DEFAULT = 10,
+    DEFAULT = 100,
 
-    SOLDIER = 10,
-    ROGUE = 10,
-    BERSERKER = 10,
-    WEREWOLF = 10,
-    VAMPIRE = 10,
+    SOLDIER = 100,
+    ROGUE = 100,
+    BERSERKER = 100,
+    WEREWOLF = 100,
+    VAMPIRE = 100,
 
-    WIZARD = 10,
-    HEALER = 10,
-    PRIEST = 10,
-    WARLOCK = 10,
-    NECROMANCER = 10,
+    WIZARD = 100,
+    HEALER = 100,
+    PRIEST = 100,
+    WARLOCK = 100,
+    NECROMANCER = 100,
 
-    DEMON = 10,
-    WOLF = 10,
+    DEMON = 100,
+    WOLF = 100,
 
-    EVILSPIRIT = 10,
-    ALIVE = 10
+    EVILSPIRIT = 100,
+    ALIVE = 100
 };
 
 enum class TakeMagicDamageCoef { // Divides by 100 while initialization.
-    DEFAULT = 10,
+    DEFAULT = 100,
 
-    SOLDIER = 10,
-    ROGUE = 10,
-    BERSERKER = 10,
-    WEREWOLF = 10,
-    VAMPIRE = 10,
+    SOLDIER = 100,
+    ROGUE = 100,
+    BERSERKER = 100,
+    WEREWOLF = 100,
+    VAMPIRE = 100,
 
-    WIZARD = 10,
-    HEALER = 10,
-    PRIEST = 10,
-    WARLOCK = 10,
-    NECROMANCER = 10,
+    WIZARD = 100,
+    HEALER = 100,
+    PRIEST = 100,
+    WARLOCK = 100,
+    NECROMANCER = 100,
 
-    DEMON = 10,
-    WOLF = 20,
+    DEMON = 100,
+    WOLF = 200,
 
     EVILSPIRIT,
     ALIVE

@@ -10,7 +10,7 @@ Soldier<Type>::Soldier(const std::string& name)
                                                  "Soldier",
                                                  UnitEnum::SOLDIER,
                                                  UnitEnum::ALIVE),
-                                new BaseAbility<Type>(this),
+                                NULL/*new BaseAbility<Type>(this)*/,
                                 NULL,
                                 new BaseAttack<Type>,
                                 new BaseCounterAttack<Type>) {
@@ -32,6 +32,7 @@ template <class Type>
 void Soldier<Type>::attack(Unit<Type>* enemy) {
     Unit<Type>::attack(enemy);
 }
+
 
 template class Soldier<int>;
 template class Soldier<double>;
