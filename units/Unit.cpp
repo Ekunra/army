@@ -126,6 +126,10 @@ Type Unit<Type>::getDamage() {
 
 template <class Type>
 void Unit<Type>::attack(Unit* enemy) {
+    if ( !this->isAlive() ) {
+        std::cout << "      --- " << this->getName() << " is not alive, attack() aborted." << std::endl;
+        return;
+    }
     std::cout << FO_B << " ! " << FO_RESET << this->getName() << FO_B << " attacking " << FO_RESET << enemy->getName() << std::endl;;
     this->baseAttack->attack(this, enemy);
 }
@@ -136,6 +140,7 @@ void Unit<Type>::counterAttack(Unit* enemy) {
         std::cout << "      --- " << this->getName() << " is not alive, counterAttack() aborted." << std::endl;
         return;
     }
+    std::cout << FO_B << " ! " << FO_RESET << this->getName() << FO_B << " counter-attacking " << FO_RESET << enemy->getName() << std::endl;;
     this->baseCounterAttack->counterAttack(this, enemy);
 }
 
@@ -154,6 +159,7 @@ void Unit<Type>::takeDamage(Unit* enemy) {
 
 template <class Type>
 void Unit<Type>::takeCADamage(Unit* enemy) {
+    std::cout << "      --- " << this->getName() << " taking counter-attack damage." << std::endl;
     this->states->takeCADamage(enemy->states);
 }
 

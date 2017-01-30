@@ -1,7 +1,7 @@
 #include "Defence.h"
 
 Defence::Defence(double dCoef, double mdCoef)
-    : dCoef(new double(dCoef)), mdCoef(new double(mdCoef)) {
+    : dCoef(new double(dCoef/100)), mdCoef(new double(mdCoef/100)) {
 
         if ( DEBUG ) {
             std::cout << FO_B_GREEN << "   + " << FO_RESET;

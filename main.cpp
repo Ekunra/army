@@ -10,8 +10,8 @@
 
 
 int main() {
-    Soldier<float>* sr1 = new Soldier<float>("sr1");
-    Rogue<float>* r1 = new Rogue<float>("R1");
+    Soldier<int>* sr1 = new Soldier<int>("sr1");
+    Rogue<int>* r1 = new Rogue<int>("R1");
     std::cout << "------------------------------" << std::endl;
     std::cout << *sr1 << std::endl;
     std::cout << *r1 << std::endl;
