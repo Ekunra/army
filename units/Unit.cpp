@@ -161,6 +161,7 @@ template <class Type>
 void Unit<Type>::takeCADamage(Unit* enemy) {
     std::cout << "      --- " << this->getName() << " taking counter-attack damage." << std::endl;
     this->states->takeCADamage(enemy->states);
+    std::cout << "      * this->states->takeCADamаage(enemy->states) sent states and finishing it's work." << std::endl;
 }
 
 
