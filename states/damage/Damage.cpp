@@ -2,7 +2,7 @@
 
 template <class Type>
 Damage<Type>::Damage(Type dmg)
-    : maxDmg(new Type(dmg)), minDmg(new Type(round((dmg/10)*8))), lastDmg(new Type(0)) {
+    : maxDmg(new Type(dmg)), minDmg(new Type(round(((float)dmg/10)*8))), lastDmg(new Type(0)) {
         Randomizer::launch();
         if ( DEBUG ) {
             std::cout << FO_B_GREEN << "   + " << FO_RESET;
@@ -53,6 +53,11 @@ template <class Type>
 const Type& Damage<Type>::getMinDmg() const {
     return *this->minDmg;
 }
+template <class Type>
+const Type& Damage<Type>::getLastDmg() const {
+    return *this->lastDmg;
+}
+
 template <class Type>
 Type& Damage<Type>::getDamage() {
     this->randomize();

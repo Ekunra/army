@@ -21,4 +21,6 @@ Defence::~Defence() {
 const double& Defence::getDmgDefence() const {
     return *this->dCoef;
 }
-const double& Defence::getMDmgDefence() const {}
+const double& Defence::getMDmgDefence() const {
+    return *this->mdCoef;
+}

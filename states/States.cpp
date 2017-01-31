@@ -68,6 +68,11 @@ const Type& States<Type>::getMinDmg() const {
     return this->damage->getMinDmg();
 }
 
+template <class Type>
+const Type& States<Type>::getLastDmg() const {
+    return this->damage->getLastDmg();
+}
+
 
 template <class Type>
 const UnitEnum& States<Type>::getUEnum() const {
@@ -94,7 +99,8 @@ Type States<Type>::getDamage() {
 template <class Type>
 void States<Type>::takeDamage(States<Type>* enemy) {
         std::cout << "      * states arrived to enemy states->takeDamage()" << std::endl;
-    *this->health -= (enemy->getDamage() * enemy->defence->getDmgDefence() );
+    *this->health -= (enemy->getDamage() * this->defence->getDmgDefence() );
+    std::cout << FO_B << "   caused damage is : " << FO_RESET << "damage(" <<  enemy->getLastDmg() << ") * dCoef(" << this->defence->getDmgDefence() << ") = " << (enemy->getLastDmg() * this->defence->getDmgDefence()) << std::endl;
 
         std::cout << "      * enemy's states gave damage and takeDamage() finishing its work." << std::endl;
 }

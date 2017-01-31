@@ -35,6 +35,7 @@ class States {
         const Type& getHitPointsLimit() const;
         const Type& getMaxDmg() const;
         const Type& getMinDmg() const;
+        const Type& getLastDmg() const;
         const UnitEnum& getUEnum() const;
         const UnitEnum& getUType() const;
         const std::string& getTitle() const;
