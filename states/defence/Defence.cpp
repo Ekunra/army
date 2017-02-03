@@ -6,6 +6,7 @@ Defence::Defence(double dCoef, double mdCoef)
         if ( DEBUG ) {
             std::cout << FO_B_GREEN << "   + " << FO_RESET;
             std::cout << FO_D_GREY << "Defence Instance created." << FO_RESET << std::endl;
+            
         }
     }
 Defence::~Defence() {

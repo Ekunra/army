@@ -15,9 +15,13 @@ template <class Type>
 SpellCasterStates<Type>::~SpellCasterStates() {}
 
 template <class Type>
-const Type& SpellCasterStates<Type>::getMana() const {}
+const Type& SpellCasterStates<Type>::getMana() const {
+    return this->mana->getValue();
+}
 template <class Type>
-const Type& SpellCasterStates<Type>::getManaLimit() const {}
+const Type& SpellCasterStates<Type>::getManaLimit() const {
+    return this->mana->getLimit();
+}
 
 template <class Type>
 void SpellCasterStates<Type>::receiveMana() {}

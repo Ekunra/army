@@ -98,17 +98,32 @@ Type States<Type>::getDamage() {
 
 template <class Type>
 void States<Type>::takeDamage(States<Type>* enemy) {
+    if ( DEBUG ) {
         std::cout << "      * states arrived to enemy states->takeDamage()" << std::endl;
-    *this->health -= (enemy->getDamage() * this->defence->getDmgDefence() );
-    std::cout << FO_B << "   caused damage is : " << FO_RESET << "damage(" <<  enemy->getLastDmg() << ") * dCoef(" << this->defence->getDmgDefence() << ") = " << (enemy->getLastDmg() * this->defence->getDmgDefence()) << std::endl;
+    }
 
+    *this->health -= (enemy->getDamage() * this->defence->getDmgDefence() );
+
+    if ( DEBUG ) {
+        std::cout << FO_B << "      caused damage is : " << FO_RESET;
+        std::cout << "damage(" <<  enemy->getLastDmg() << ") * dCoef(";
+        std::cout << this->defence->getDmgDefence() << ") = ";
+        std::cout << (enemy->getLastDmg() * this->defence->getDmgDefence()) << std::endl;
         std::cout << "      * enemy's states gave damage and takeDamage() finishing its work." << std::endl;
+    }
 }
 
 template <class Type>
 void States<Type>::takeCADamage(States<Type>* enemy) {
         std::cout << "      * states arrived to enemy states->takeCADamage()" << std::endl;
     *this->health -= (enemy->getDamage()/2);
+
+    if ( DEBUG ) {
+        std::cout << FO_B << "      caused CA damage is : " << FO_RESET;
+        std::cout << "damage(" <<  enemy->getLastDmg()/2 << ") * dCoef(";
+        std::cout << this->defence->getDmgDefence() << ") = ";
+        std::cout << ((enemy->getLastDmg()/2) * this->defence->getDmgDefence()) << std::endl;
+    }
         std::cout << "      * enemy's states gave damage / 2 and takeCADamage() finishing its work." << std::endl;
 }
 
