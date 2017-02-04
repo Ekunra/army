@@ -3,11 +3,33 @@
 
 
 template <class Type>
-LimitedField<Type>::LimitedField(Type value)
-    : value(new Type(value)), limit(new Type(value)) {
+LimitedField<Type>::LimitedField(Type value, FieldType fType)
+            : value(new Type(value)),
+              limit(new Type(value)),
+              fType(new FieldType(fType)) {
     if ( DEBUG ) {
         std::cout << FO_B_GREEN << "   + " << FO_RESET;
-        std::cout << FO_D_GREY << "LimitedField Instance created." << FO_RESET << std::endl;
+        std::cout << FO_D_GREY << "LimitedField Instance created." << FO_RESET;
+
+        switch (fType) {
+            case FieldType::HEALTH : {
+                std::cout << " Health.";
+                break;
+            }
+            case FieldType::MANA : {
+                std::cout << " Mana.";
+                break;
+            }
+            default : {
+                std::cout << " Default.";
+            }
+        }
+
+        std::cout << std::endl;
+
+
+
+
     }
 }
 
@@ -42,6 +64,10 @@ const Type& LimitedField<Type>::getValue() const {
 template <class Type>
 const Type& LimitedField<Type>::getLimit() const {
     return *this->limit;
+}
+template <class Type>
+const FieldType& LimitedField<Type>::getFieldType() const {
+    return *this->fType;
 }
 
 
@@ -160,42 +186,88 @@ std::ostream& operator<<(std::ostream& out, const LimitedField<Type>& field) {
 
     out << FO_D_GREY << "HP:" << FO_RESET;
 
-    if ( field.getValue() >= full ) {
+    switch ( field.getFieldType() ) {
+        case FieldType::HEALTH : {
+            if ( field.getValue() >= full ) {
 
-        out << FO_B_L_GREEN << field.getValue() << FO_RESET;
-        out << FO_D_GREY << '/' << FO_RESET;
-        out << FO_B_L_GREEN << field.getLimit() << FO_RESET;
+                out << FO_B_L_GREEN << field.getValue() << FO_RESET;
+                out << FO_D_GREY << '/' << FO_RESET;
+                out << FO_B_L_GREEN << field.getLimit() << FO_RESET;
 
-    } else if ( field.getValue() < full && field.getValue() >= almostFull ) {
+            } else if ( field.getValue() < full && field.getValue() >= almostFull ) {
 
-        out << FO_GREEN << field.getValue() << FO_RESET;
-        out << FO_D_GREY << '/' << FO_RESET;
-        out << FO_L_GREEN << field.getLimit() << FO_RESET;
+                out << FO_GREEN << field.getValue() << FO_RESET;
+                out << FO_D_GREY << '/' << FO_RESET;
+                out << FO_L_GREEN << field.getLimit() << FO_RESET;
 
-    } else if ( field.getValue() < almostFull && field.getValue() >= hurmed ) {
+            } else if ( field.getValue() < almostFull && field.getValue() >= hurmed ) {
 
-        out << FO_GREEN << field.getValue() << FO_RESET;
-        out << FO_D_GREY << '/' << FO_RESET;
-        out << FO_GREEN << field.getLimit() << FO_RESET;
+                out << FO_GREEN << field.getValue() << FO_RESET;
+                out << FO_D_GREY << '/' << FO_RESET;
+                out << FO_GREEN << field.getLimit() << FO_RESET;
 
-    } else if ( field.getValue() < hurmed && field.getValue() >= veryHurmed ) {
+            } else if ( field.getValue() < hurmed && field.getValue() >= veryHurmed ) {
 
-        out << FO_ORANGE << field.getValue() << FO_RESET;
-        out << FO_D_GREY << '/' << FO_RESET;
-        out << FO_GREEN << field.getLimit() << FO_RESET;
+                out << FO_ORANGE << field.getValue() << FO_RESET;
+                out << FO_D_GREY << '/' << FO_RESET;
+                out << FO_GREEN << field.getLimit() << FO_RESET;
 
-    } else if ( field.getValue() < veryHurmed && field.getValue() >= 0.001 ) {
+            } else if ( field.getValue() < veryHurmed && field.getValue() >= 0.001 ) {
 
-        out << FO_RED << field.getValue() << FO_RESET;
-        out << FO_D_GREY << '/' << FO_RESET;
-        out << FO_B_ORANGE << field.getLimit() << FO_RESET;
+                out << FO_RED << field.getValue() << FO_RESET;
+                out << FO_D_GREY << '/' << FO_RESET;
+                out << FO_B_ORANGE << field.getLimit() << FO_RESET;
 
-    } else if ( field.getValue() < 0.001 ) {
+            } else if ( field.getValue() < 0.001 ) {
 
-        out << FO_B_L_RED << field.getValue() << FO_RESET;
-        out << FO_D_GREY << '/' << FO_RESET;
-        out << FO_RED << field.getLimit() << FO_RESET;
+                out << FO_B_L_RED << field.getValue() << FO_RESET;
+                out << FO_D_GREY << '/' << FO_RESET;
+                out << FO_RED << field.getLimit() << FO_RESET;
 
+            }
+            break;
+        }
+        case FieldType::MANA : {
+            if ( field.getValue() >= full ) {
+
+                out << FO_B_L_GREEN << field.getValue() << FO_RESET;
+                out << FO_D_GREY << '/' << FO_RESET;
+                out << FO_B_L_GREEN << field.getLimit() << FO_RESET;
+
+            } else if ( field.getValue() < full && field.getValue() >= almostFull ) {
+
+                out << FO_GREEN << field.getValue() << FO_RESET;
+                out << FO_D_GREY << '/' << FO_RESET;
+                out << FO_L_GREEN << field.getLimit() << FO_RESET;
+
+            } else if ( field.getValue() < almostFull && field.getValue() >= hurmed ) {
+
+                out << FO_GREEN << field.getValue() << FO_RESET;
+                out << FO_D_GREY << '/' << FO_RESET;
+                out << FO_GREEN << field.getLimit() << FO_RESET;
+
+            } else if ( field.getValue() < hurmed && field.getValue() >= veryHurmed ) {
+
+                out << FO_ORANGE << field.getValue() << FO_RESET;
+                out << FO_D_GREY << '/' << FO_RESET;
+                out << FO_GREEN << field.getLimit() << FO_RESET;
+
+            } else if ( field.getValue() < veryHurmed && field.getValue() >= 0.001 ) {
+
+                out << FO_RED << field.getValue() << FO_RESET;
+                out << FO_D_GREY << '/' << FO_RESET;
+                out << FO_B_ORANGE << field.getLimit() << FO_RESET;
+
+            } else if ( field.getValue() < 0.001 ) {
+
+                out << FO_B_L_RED << field.getValue() << FO_RESET;
+                out << FO_D_GREY << '/' << FO_RESET;
+                out << FO_RED << field.getLimit() << FO_RESET;
+
+            }
+            break;
+        }
+        default : {}
     }
     return out;
 }

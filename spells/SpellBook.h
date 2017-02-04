@@ -5,12 +5,12 @@
 #include <map>
 #include "../debug.h"
 #include "Spell.h"
-// #include "spellPrototypes/FireBall.h"
-// #include "spellPrototypes/Implosion.h"
-// #include "spellPrototypes/LightningBolt.h"
-// #include "spellPrototypes/Heal.h"
-// #include "spellPrototypes/Bless.h"
-// #include "spellPrototypes/ManaPortion.h"
+#include "spellPrototypes/FireBall.h"
+#include "spellPrototypes/Implosion.h"
+#include "spellPrototypes/LightningBolt.h"
+#include "spellPrototypes/Heal.h"
+#include "spellPrototypes/Bless.h"
+#include "spellPrototypes/ManaPortion.h"
 
 template <class Type>
 class SpellBook {

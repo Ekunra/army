@@ -2,23 +2,16 @@
 #define SPELLCASTERSTATES_H
 
 #include <iostream>
-#include "States.h"
 #include "limitedfield/LimitedField.h"
 #include "../debug.h"
 #include "../macro_color.cpp"
 
 template <class Type>
-class SpellCasterStates : public States<Type> {
+class SpellCasterStates {
     protected:
         LimitedField<Type>* mana;
     public:
-        SpellCasterStates(LimitedField<Type>* health,
-                          Damage<Type>* damage,
-                          Defence* defence,
-                          LimitedField<Type>* mana,
-                          const std::string& title="Default",
-                          UnitEnum uEnum=UnitEnum::DEFAULT,
-                          UnitEnum uType=UnitEnum::DEFAULT);
+        SpellCasterStates(LimitedField<Type>* mana);
         virtual ~SpellCasterStates();
 
         const Type& getMana() const;

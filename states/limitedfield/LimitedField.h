@@ -5,21 +5,24 @@
 #include <cmath>
 #include "../../macro_color.cpp"
 #include "../../debug.h"
+#include "../../Properties.h"
 
 template <class Type>
 class LimitedField {
     protected:
         Type* value;
         Type* limit;
+        FieldType* fType;
 
         Type validate(Type value);
 
     public:
-        LimitedField(Type value);
+        LimitedField(Type value, FieldType fType=FieldType::DEFAULT);
         ~LimitedField();
 
         const Type& getValue() const;
         const Type& getLimit() const;
+        const FieldType& getFieldType() const;
 
         const bool operator==(Type value) const;
         const bool operator!=(Type value) const;

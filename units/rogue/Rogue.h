@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include "../Unit.h"
-#include "../attack/RogueAttack.h"
+#include "../../attack/RogueAttack.h"
 #include "../../Properties.h"
 
 template <class Type>

@@ -1,24 +1,36 @@
 #include "SpellCaster.h"
 
 template <class Type>
-SpellCaster<Type>::SpellCaster(const std::string& name,
-            SpellCasterStates<Type>* spellCasterStates,
-            BaseAbility<Type>* priAbility,
-            BaseAbility<Type>* secAbility,
-            BaseAttack<Type>* baseAttack,
-            BaseCounterAttack<Type>* baseCounterAttack)
-                : Unit<Type> (  name,
-                                spellCasterStates,
-                                priAbility,
-                                secAbility,
-                                baseAttack,
-                                baseCounterAttack ),
-                  spellCasterStates(spellCasterStates),
-                  spellBook(new SpellBook<Type>() ) {}
+SpellCaster<Type>::SpellCaster( const std::string& name,
+                                SpellCasterStates<Type>* spellCasterStates,
+                                States<Type>* states,
+                                BaseAbility<Type>* priAbility,
+                                BaseAbility<Type>* secAbility,
+                                BaseAttack<Type>* baseAttack,
+                                BaseCounterAttack<Type>* baseCounterAttack)
+                                    : spellBook(new SpellBook<Type>() ),
+                                      spellCasterStates(spellCasterStates),
+                                      Unit<Type> (  name,
+                                                    states,
+                                                    priAbility,
+                                                    secAbility,
+                                                    baseAttack,
+                                                    baseCounterAttack ) {
+    if ( DEBUG ) {
+        std::cout << FO_B_GREEN << "         + " << FO_RESET;
+        std::cout << FO_B << "SpellCaster" << FO_RESET << " instance created." << std::endl;
+    }
+}
 template <class Type>
 SpellCaster<Type>::~SpellCaster() {
     delete spellCasterStates;
     delete spellBook;
+    if ( DEBUG ) {
+        std::cout << FO_B_RED << "  - " << FO_RESET;
+        std::cout << "SpellCaster (";
+        std::cout << FO_B << Unit<Type>::getTitle() << FO_RESET;
+        std::cout << ") instance destructed." << std::endl;
+    }
 }
 
 template <class Type>

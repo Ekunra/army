@@ -1,18 +1,21 @@
 #include "SpellCasterStates.h"
 
 template <class Type>
-SpellCasterStates<Type>::SpellCasterStates
-                (LimitedField<Type>* health,
-                 Damage<Type>* damage,
-                 Defence* defence,
-                 LimitedField<Type>* mana,
-                 const std::string& title,
-                 UnitEnum uEnum,
-                 UnitEnum uType)
-                          : States<Type>(health, damage, defence, title, uEnum, uType),
-                            mana(mana) {}
+SpellCasterStates<Type>::SpellCasterStates(LimitedField<Type>* mana)
+          : mana(mana) {
+    if ( DEBUG ) {
+        std::cout << FO_B_GREEN << "         + " << FO_RESET;
+        std::cout << FO_B << "SpellCasterStates" << FO_RESET <<" created" << std::endl;
+    }
+}
 template <class Type>
-SpellCasterStates<Type>::~SpellCasterStates() {}
+SpellCasterStates<Type>::~SpellCasterStates() {
+    delete mana;
+    if ( DEBUG ) {
+        std::cout << FO_B_RED << "      - " << FO_RESET;
+        std::cout << "SpellCasterStates deleted." << std::endl;
+    }
+}
 
 template <class Type>
 const Type& SpellCasterStates<Type>::getMana() const {

@@ -93,7 +93,7 @@ enum class TakeMagicDamageCoef { // Divides by 100 while initialization.
     ALIVE
 };
 
-enum class Mana {
+enum class Mp {
     WIZARD = 200,
     HEALER = 150,
     PRIEST = 120,
@@ -131,6 +131,12 @@ enum class HTMagicCoef {
     HEALER,
     PRIEST,
     WARLOCK
+};
+
+enum class FieldType {
+    HEALTH,
+    MANA,
+    DEFAULT
 };
 
 #endif // PROPERTIES_H

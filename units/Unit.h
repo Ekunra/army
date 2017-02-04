@@ -3,9 +3,9 @@
 
 #include <iostream>
 #include "../states/States.h"
-#include "abilities/BaseAbility.h"
-#include "attack/BaseAttack.h"
-#include "attack/BaseCounterAttack.h"
+#include "../abilities/BaseAbility.h"
+#include "../attack/BaseAttack.h"
+#include "../attack/BaseCounterAttack.h"
 
 template <class Type>
 class BaseAbility;

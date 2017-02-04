@@ -2,6 +2,9 @@
 
 template <class Type>
 SpellBook<Type>::SpellBook() : spellBook(new std::map<SpellEnum, Spell<Type>*>) {
+    if ( DEBUG ) {
+        std::cout << FO_B_GREEN << "           + " << FO_RESET << FO_B << "SpellBook" << FO_RESET << " created" << std::endl;
+    }
 }
 
 template <class Type>
@@ -19,7 +22,7 @@ SpellBook<Type>::~SpellBook() {
 
     delete spellBook;
     if ( DEBUG ) {
-        std::cout << "   --- SPELL BOOK destructed." << std::endl;
+        std::cout << FO_B_RED << "       - " << FO_RESET << "SPELL BOOK destructed." << std::endl;
     }
 }
 

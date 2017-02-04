@@ -3,7 +3,7 @@
 template <class Type>
 Soldier<Type>::Soldier(const std::string& name) 
                 :  Unit<Type>  (name, 
-                                new States<Type>(new LimitedField<Type>((Type)Hp::SOLDIER),
+                                new States<Type>(new LimitedField<Type>( (Type)Hp::SOLDIER, FieldType::HEALTH ),
                                                  new Damage<Type>((Type)Dmg::SOLDIER),
                                                  new Defence((double)TakeDamageCoef::SOLDIER,
                                                              (double)TakeMagicDamageCoef::SOLDIER),

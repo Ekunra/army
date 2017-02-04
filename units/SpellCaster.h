@@ -14,6 +14,7 @@ class SpellCaster : public Unit<Type> {
     public:
         SpellCaster(const std::string& name,
                     SpellCasterStates<Type>* SpellCasterStates,
+                    States<Type>* states,
                     BaseAbility<Type>* priAbility,
                     BaseAbility<Type>* secAbility,
                     BaseAttack<Type>* baseAttack,

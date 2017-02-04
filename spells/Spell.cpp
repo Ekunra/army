@@ -12,6 +12,9 @@ Spell<Type>::Spell(SpellEnum sEnum, Type power, Type manaCost, const std::string
 }
 template <class Type>
 Spell<Type>::~Spell() {
+    delete power;
+    delete manaCost;
+
     if ( DEBUG ) {
         std::cout << "         - " << this->getSpellName() << "'s Spell:: destructed" << std::endl;
     }
