@@ -34,23 +34,42 @@ SpellCaster<Type>::~SpellCaster() {
 }
 
 template <class Type>
-const Type& SpellCaster<Type>::getMana() const {}
-template <class Type>
-const Type& SpellCaster<Type>::getManaLimit() const {}
+bool SpellCaster<Type>::haveEnoughMana() {}
 
 template <class Type>
-void SpellCaster<Type>::castDDTMagic(SpellEnum sEnum, Unit<Type>* enemy) {}
+const SpellCasterStates<Type>& SpellCaster<Type>::getSpellCasterStates() const {
+    return *this->spellCasterStates;
+}
 template <class Type>
-void SpellCaster<Type>::castHTMagic(SpellEnum sEnum, Unit<Type>* enemy) {}
+const SpellBook<Type>& SpellCaster<Type>::getSpellBook() const {
+    return *this->spellBook;
+}
+
 template <class Type>
-void SpellCaster<Type>::castMTMagic(SpellEnum sEnum, SpellCaster* friendly) {}
+const Type& SpellCaster<Type>::getMana() const {
+    return this->spellCasterStates->getMana();
+}
+template <class Type>
+const Type& SpellCaster<Type>::getManaLimit() const {
+    return this->spellCasterStates->getManaLimit();
+}
+
+template <class Type>
+void SpellCaster<Type>::cast(SpellEnum sEnum, SpellCaster<Type>* someCaster) {}
+template <class Type>
+void SpellCaster<Type>::cast(SpellEnum sEnum, Unit<Type>* enemy) {}
 
 template class SpellCaster<int>;
 template class SpellCaster<double>;
 template class SpellCaster<float>;
 
 template <class Type>
-std::ostream& operator<<(std::ostream& out, const SpellCaster<Type>& spellCaster) {};
+std::ostream& operator<<(std::ostream& out, const SpellCaster<Type>& spellCaster) {
+    out << *((Unit<Type>*)(&spellCaster));
+    out << FO_D_GREY << " | " << FO_RESET;
+    out << spellCaster.getSpellCasterStates();
+    return out;
+};
 
 template std::ostream& operator<<(std::ostream& out, const SpellCaster<int>& spellCaster);
 template std::ostream& operator<<(std::ostream& out, const SpellCaster<double>& spellCaster);

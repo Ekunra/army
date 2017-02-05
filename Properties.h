@@ -119,18 +119,25 @@ enum class SCost {
     MANAPORTION = 20
 };
 
-enum class DDTMagicCoef {
-    WIZARD,
-    HEALER,
-    PRIEST,
-    WARLOCK
+enum class DDTMagicCoef { // Divides by 100 while initialization.
+    WIZARD = 100,
+    HEALER = 50,
+    PRIEST = 50,
+    NECROMANCER = 100
 };
 
-enum class HTMagicCoef {
-    WIZARD,
-    HEALER,
-    PRIEST,
-    WARLOCK
+enum class HTMagicCoef { // Divides by 100 while initialization.
+    WIZARD = 50,
+    HEALER = 100,
+    PRIEST = 100,
+    NECROMANCER = 100
+};
+
+enum class MTMagicCoef { // Divides by 100 while initialization.
+    WIZARD = 100,
+    HEALER = 100,
+    PRIEST = 100,
+    NECROMANCER = 100
 };
 
 enum class FieldType {

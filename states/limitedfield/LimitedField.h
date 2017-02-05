@@ -18,6 +18,7 @@ class LimitedField {
 
     public:
         LimitedField(Type value, FieldType fType=FieldType::DEFAULT);
+        LimitedField(const LimitedField& obj);
         ~LimitedField();
 
         const Type& getValue() const;
@@ -43,6 +44,8 @@ class LimitedField {
 
         LimitedField operator=(const LimitedField& other);
         LimitedField operator=(Type value);
+
+        void mutate(const LimitedField& other, double coef);
 };
 
 template <class Type>

@@ -12,6 +12,10 @@
 #define FO_LBLUE "\033[36m"
 #define FO_GREY "\033[37m"
 
+#define FO_BLUE256 "\033[38;05;20m"
+#define FO_VIOLET256 "\033[38;05;129m"
+#define FO_PINK256 "\033[38;05;161m"
+
 #define FO_L_RED "\033[38;05;196m"
 #define FO_L_GREEN "\033[38;05;46m"
 #define FO_ORANGE "\033[38;05;214m"
@@ -24,6 +28,10 @@
 #define FO_B_VIOLET "\033[1;35m"
 #define FO_B_LBLUE "\033[1;36m"
 #define FO_B_GREY "\033[1;37m"
+
+#define FO_B_BLUE256 "\033[01;38;05;20m"
+#define FO_B_VIOLET256 "\033[01;38;05;129m"
+#define FO_B_PINK256 "\033[01;38;05;161m"
 
 #define FO_B_L_RED "\033[01;38;05;196m"
 #define FO_B_L_GREEN "\033[01;38;05;46m"

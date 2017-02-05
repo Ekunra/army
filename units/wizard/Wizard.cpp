@@ -5,7 +5,10 @@ Wizard<Type>::Wizard(const std::string& name)
                 : SpellCaster<Type>(name,
                                     new SpellCasterStates<Type>(
                                         new LimitedField<Type>( (Type)Mp::WIZARD,
-                                                                FieldType::MANA) ),
+                                                                FieldType::MANA ),
+                                        (double)DDTMagicCoef::WIZARD,
+                                        (double)HTMagicCoef::WIZARD,
+                                        (double)MTMagicCoef::WIZARD ),
                                     new States<Type> (
                                         new LimitedField<Type>( (Type)Hp::WIZARD,
                                                                 FieldType::HEALTH ),
@@ -50,7 +53,13 @@ template class Wizard<double>;
 template class Wizard<float>;
 
 template <class Type>
-std::ostream& operator<<(std::ostream& out, const Wizard<Type>& wizard) {}
+std::ostream& operator<<(std::ostream& out, const Wizard<Type>& wizard) {
+    out << ' ' << FO_B << wizard.getName() << FO_RESET;
+    out << FO_D_GREY << " [ " << FO_RESET;
+    out << *((SpellCaster<Type>*)(&wizard));
+    out << FO_D_GREY << " ]" << FO_RESET;
+    return out;
+}
 
 template std::ostream& operator<<(std::ostream& out, const Wizard<int>& wizard);
 template std::ostream& operator<<(std::ostream& out, const Wizard<double>& wizard);

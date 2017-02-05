@@ -27,10 +27,18 @@ LimitedField<Type>::LimitedField(Type value, FieldType fType)
 
         std::cout << std::endl;
 
-
-
-
     }
+}
+
+template <class Type>
+LimitedField<Type>::LimitedField(const LimitedField& obj) {
+    std::cout << "Copy constructor works." << std::endl;
+    std::cout << obj.getValue() << std::endl;
+    std::cout << obj.getLimit() << std::endl;
+    value = new Type(obj.getValue());
+    limit = new Type(obj.getLimit());
+    fType = new FieldType(obj.getFieldType());
+    std::cout << "Copy constructor finished its work." << std::endl;
 }
 
 template <class Type>
@@ -166,6 +174,7 @@ LimitedField<Type> LimitedField<Type>::operator=(const LimitedField& other) {
 std::cout << "\"Operator = works\"" << std::endl;
     *this->value = other.getValue();
     *this->limit = other.getLimit();
+    *this->fType = other.getFieldType();
     return *this;
 }
 
@@ -175,7 +184,11 @@ LimitedField<Type> LimitedField<Type>::operator=(Type value) {
     *this->limit = value;
     return *this;
 }
-
+template <class Type>
+void LimitedField<Type>::mutate(const LimitedField& other, double coef) {
+    *this->value = (float)(*other.value) * coef;
+    *this->limit = (float)(*other.limit) * coef;
+}
 
 template <class Type>
 std::ostream& operator<<(std::ostream& out, const LimitedField<Type>& field) {
@@ -184,10 +197,12 @@ std::ostream& operator<<(std::ostream& out, const LimitedField<Type>& field) {
     Type hurmed = field.getLimit() / 2;
     Type veryHurmed = (Type)(( (float)field.getLimit() / 10 ) * 2);
 
-    out << FO_D_GREY << "HP:" << FO_RESET;
 
     switch ( field.getFieldType() ) {
         case FieldType::HEALTH : {
+
+            out << FO_D_GREY << "HP:" << FO_RESET;
+
             if ( field.getValue() >= full ) {
 
                 out << FO_B_L_GREEN << field.getValue() << FO_RESET;
@@ -227,42 +242,46 @@ std::ostream& operator<<(std::ostream& out, const LimitedField<Type>& field) {
             }
             break;
         }
+
         case FieldType::MANA : {
+
+            out << FO_D_GREY << "MP:" << FO_RESET;
+
             if ( field.getValue() >= full ) {
 
-                out << FO_B_L_GREEN << field.getValue() << FO_RESET;
+                out << FO_B_BLUE256 << field.getValue() << FO_RESET;
                 out << FO_D_GREY << '/' << FO_RESET;
-                out << FO_B_L_GREEN << field.getLimit() << FO_RESET;
+                out << FO_B_BLUE256 << field.getLimit() << FO_RESET;
 
             } else if ( field.getValue() < full && field.getValue() >= almostFull ) {
 
-                out << FO_GREEN << field.getValue() << FO_RESET;
+                out << FO_BLUE256 << field.getValue() << FO_RESET;
                 out << FO_D_GREY << '/' << FO_RESET;
-                out << FO_L_GREEN << field.getLimit() << FO_RESET;
+                out << FO_B_BLUE256 << field.getLimit() << FO_RESET;
 
             } else if ( field.getValue() < almostFull && field.getValue() >= hurmed ) {
 
-                out << FO_GREEN << field.getValue() << FO_RESET;
+                out << FO_BLUE256 << field.getValue() << FO_RESET;
                 out << FO_D_GREY << '/' << FO_RESET;
-                out << FO_GREEN << field.getLimit() << FO_RESET;
+                out << FO_BLUE256 << field.getLimit() << FO_RESET;
 
             } else if ( field.getValue() < hurmed && field.getValue() >= veryHurmed ) {
 
-                out << FO_ORANGE << field.getValue() << FO_RESET;
+                out << FO_VIOLET256 << field.getValue() << FO_RESET;
                 out << FO_D_GREY << '/' << FO_RESET;
-                out << FO_GREEN << field.getLimit() << FO_RESET;
+                out << FO_BLUE256 << field.getLimit() << FO_RESET;
 
             } else if ( field.getValue() < veryHurmed && field.getValue() >= 0.001 ) {
 
-                out << FO_RED << field.getValue() << FO_RESET;
+                out << FO_PINK256 << field.getValue() << FO_RESET;
                 out << FO_D_GREY << '/' << FO_RESET;
-                out << FO_B_ORANGE << field.getLimit() << FO_RESET;
+                out << FO_BLUE << field.getLimit() << FO_RESET;
 
             } else if ( field.getValue() < 0.001 ) {
 
                 out << FO_B_L_RED << field.getValue() << FO_RESET;
                 out << FO_D_GREY << '/' << FO_RESET;
-                out << FO_RED << field.getLimit() << FO_RESET;
+                out << FO_BLUE << field.getLimit() << FO_RESET;
 
             }
             break;

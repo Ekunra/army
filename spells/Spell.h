@@ -14,8 +14,10 @@ class Spell {
         Type* power;
         Type* manaCost;
         std::string* spellName;
+
     public:
         Spell(SpellEnum sEnum, Type power, Type manaCost, const std::string& spellName);
+        Spell(const Spell& prototype);
         virtual ~Spell();
 
         const SpellEnum& getSEnum() const;

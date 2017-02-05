@@ -11,6 +11,8 @@ class SpellCaster : public Unit<Type> {
     protected:
         SpellCasterStates<Type>* spellCasterStates;
         SpellBook<Type>* spellBook;
+
+        bool haveEnoughMana();
     public:
         SpellCaster(const std::string& name,
                     SpellCasterStates<Type>* SpellCasterStates,
@@ -21,12 +23,14 @@ class SpellCaster : public Unit<Type> {
                     BaseCounterAttack<Type>* baseCounterAttack);
         virtual ~SpellCaster();
 
+        const SpellCasterStates<Type>& getSpellCasterStates() const;
+        const SpellBook<Type>& getSpellBook() const;
+
         const Type& getMana() const;
         const Type& getManaLimit() const;
 
-        virtual void castDDTMagic(SpellEnum sEnum, Unit<Type>* enemy);
-        virtual void castHTMagic(SpellEnum sEnum, Unit<Type>* enemy);
-        virtual void castMTMagic(SpellEnum sEnum, SpellCaster* friendly);
+        virtual void cast(SpellEnum sEnum, SpellCaster<Type>* someCaster);
+        virtual void cast(SpellEnum sEnum, Unit<Type>* enemy);
 };
 
 template <class Type>
