@@ -15,7 +15,7 @@ Soldier<Type>::Soldier(const std::string& name)
                                 new BaseAttack<Type>,
                                 new BaseCounterAttack<Type>) {
     if ( DEBUG ) {
-        std::cout << FO_B_L_GREEN << "         ** " << FO_RESET;
+        std::cout << FO_B_L_GREEN << "-------- ** " << FO_RESET;
         std::cout << FO_B << "Soldier instance created." << FO_RESET << std::endl;
     }
 }

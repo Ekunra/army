@@ -31,7 +31,7 @@ Wizard<Type>::Wizard(const std::string& name)
     // SpellCaster<Type>::spellBook->insertSpell(MANAPORTION, new ManaPortion<Type>);
 
     if ( DEBUG ) {
-        std::cout << FO_B_L_GREEN << "         ** " << FO_RESET;
+        std::cout << FO_B_L_GREEN << "-------- ** " << FO_RESET;
         std::cout << FO_B << "Wizard instance created." << FO_RESET << std::endl;
     }
 }
@@ -44,9 +44,19 @@ Wizard<Type>::~Wizard() {
 }
 
 template <class Type>
-void Wizard<Type>::cast(SpellEnum sEnum, SpellCaster<Type>* someCaster) {}
+void Wizard<Type>::cast(SpellEnum sEnum, SpellCaster<Type>* someCaster) {
+    if ( Unit<Type>::getUEnum() != UnitEnum::WIZARD ) {
+        return;
+    }
+    SpellCaster<Type>::cast(sEnum, someCaster);
+}
 template <class Type>
-void Wizard<Type>::cast(SpellEnum sEnum, Unit<Type>* enemy) {}
+void Wizard<Type>::cast(SpellEnum sEnum, Unit<Type>* enemy) {
+    if ( Unit<Type>::getUEnum() != UnitEnum::WIZARD ) {
+        return;
+    }
+    SpellCaster<Type>::cast(sEnum, enemy);
+}
 
 template class Wizard<int>;
 template class Wizard<double>;

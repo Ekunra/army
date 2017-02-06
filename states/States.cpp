@@ -14,7 +14,7 @@ States<Type>::States(LimitedField<Type>* health,
                             uType(new UnitEnum(uType)),
                             title(new std::string(title)) {
     if ( DEBUG ) {
-        std::cout << FO_B_GREEN << "     + " << FO_RESET;
+        std::cout << FO_B_GREEN << "|    + " << FO_RESET;
         std::cout << FO_B << "States" << FO_RESET <<" created" << std::endl;
     }
 }

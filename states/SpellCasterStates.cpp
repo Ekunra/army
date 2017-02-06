@@ -10,7 +10,7 @@ SpellCasterStates<Type>::SpellCasterStates(LimitedField<Type>* mana,
                         healingTmagicCoef(new double(healingTmagicCoef/100)),
                         manaTmagicCoef(new double(manaTmagicCoef/100)) {
     if ( DEBUG ) {
-        std::cout << FO_B_GREEN << "           + " << FO_RESET;
+        std::cout << FO_B_GREEN << "|          + " << FO_RESET;
         std::cout << FO_B << "SpellCasterStates" << FO_RESET <<" created" << std::endl;
     }
 }

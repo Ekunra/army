@@ -31,7 +31,7 @@ int main() {
     std::cout << "------------------------------" << std::endl;
     std::cout << "------------------------------" << std::endl;
 
-    // delete sr1;
-    // delete w1;
+    delete sr1;
+    delete w1;
     return 0;
 }

@@ -17,7 +17,7 @@ class Spell {
 
     public:
         Spell(SpellEnum sEnum, Type power, Type manaCost, const std::string& spellName);
-        Spell(const Spell& prototype);
+        Spell(const Spell& sample);
         virtual ~Spell();
 
         const SpellEnum& getSEnum() const;

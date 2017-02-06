@@ -17,7 +17,7 @@ SpellCaster<Type>::SpellCaster( const std::string& name,
                                                     baseAttack,
                                                     baseCounterAttack ) {
     if ( DEBUG ) {
-        std::cout << FO_B_GREEN << "         + " << FO_RESET;
+        std::cout << FO_B_GREEN << "|        + " << FO_RESET;
         std::cout << FO_B << "SpellCaster" << FO_RESET << " instance created." << std::endl;
     }
 }

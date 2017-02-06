@@ -3,7 +3,7 @@
 template <class Type>
 BaseAbility<Type>::BaseAbility(Unit<Type>* owner) : owner(owner) {
     if ( DEBUG ) {
-        std::cout << FO_B_GREEN << "     + " << FO_RESET;
+        std::cout << FO_B_GREEN << "|    + " << FO_RESET;
         std::cout << FO_B << "BaseAbility" << FO_RESET << " created." << std::endl;
     }
 }

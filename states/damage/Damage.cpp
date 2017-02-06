@@ -5,7 +5,7 @@ Damage<Type>::Damage(Type dmg)
     : maxDmg(new Type(dmg)), minDmg(new Type(round(((float)dmg/10)*8))), lastDmg(new Type(0)) {
         Randomizer::launch();
         if ( DEBUG ) {
-            std::cout << FO_B_GREEN << "   + " << FO_RESET;
+            std::cout << FO_B_GREEN << "|  + " << FO_RESET;
             std::cout << FO_D_GREY << "Damage Instance created." << FO_RESET << std::endl;
         }
     }

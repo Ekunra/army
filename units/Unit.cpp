@@ -15,7 +15,7 @@ Unit<Type>::Unit(const std::string& name,
                             baseAttack(baseAttack),
                             baseCounterAttack(baseCounterAttack) {
     if ( DEBUG ) {
-        std::cout << FO_B_GREEN << "       + " << FO_RESET;
+        std::cout << FO_B_GREEN << "|      + " << FO_RESET;
         std::cout << FO_B << "Unit" << FO_RESET << " instance created." << std::endl;
     }
 }

@@ -8,7 +8,7 @@ LimitedField<Type>::LimitedField(Type value, FieldType fType)
               limit(new Type(value)),
               fType(new FieldType(fType)) {
     if ( DEBUG ) {
-        std::cout << FO_B_GREEN << "   + " << FO_RESET;
+        std::cout << FO_B_GREEN << "|  + " << FO_RESET;
         std::cout << FO_D_GREY << "LimitedField Instance created." << FO_RESET;
 
         switch (fType) {

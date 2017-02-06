@@ -3,7 +3,7 @@
 template <class Type>
 BaseAttack<Type>::BaseAttack() {
     if ( DEBUG ) {
-        std::cout << FO_B_GREEN << "     + " << FO_RESET;
+        std::cout << FO_B_GREEN << "|    + " << FO_RESET;
         std::cout << FO_B << "BaseAttack" << FO_RESET << " created" << std::endl;
     }
 }
