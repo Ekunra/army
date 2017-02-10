@@ -249,27 +249,27 @@ std::ostream& operator<<(std::ostream& out, const LimitedField<Type>& field) {
 
             if ( field.getValue() >= full ) {
 
-                out << FO_B_BLUE256 << field.getValue() << FO_RESET;
+                out << FO_B_BLUE << field.getValue() << FO_RESET;
                 out << FO_D_GREY << '/' << FO_RESET;
-                out << FO_B_BLUE256 << field.getLimit() << FO_RESET;
+                out << FO_B_BLUE << field.getLimit() << FO_RESET;
 
             } else if ( field.getValue() < full && field.getValue() >= almostFull ) {
 
-                out << FO_BLUE256 << field.getValue() << FO_RESET;
+                out << FO_BLUE << field.getValue() << FO_RESET;
                 out << FO_D_GREY << '/' << FO_RESET;
-                out << FO_B_BLUE256 << field.getLimit() << FO_RESET;
+                out << FO_B_BLUE << field.getLimit() << FO_RESET;
 
             } else if ( field.getValue() < almostFull && field.getValue() >= hurmed ) {
 
-                out << FO_BLUE256 << field.getValue() << FO_RESET;
+                out << FO_BLUE << field.getValue() << FO_RESET;
                 out << FO_D_GREY << '/' << FO_RESET;
-                out << FO_BLUE256 << field.getLimit() << FO_RESET;
+                out << FO_BLUE << field.getLimit() << FO_RESET;
 
             } else if ( field.getValue() < hurmed && field.getValue() >= veryHurmed ) {
 
                 out << FO_VIOLET256 << field.getValue() << FO_RESET;
                 out << FO_D_GREY << '/' << FO_RESET;
-                out << FO_BLUE256 << field.getLimit() << FO_RESET;
+                out << FO_BLUE << field.getLimit() << FO_RESET;
 
             } else if ( field.getValue() < veryHurmed && field.getValue() >= 0.001 ) {
 

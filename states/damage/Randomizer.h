@@ -4,12 +4,13 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <memory>
 #include "../../debug.h"
 #include "../../macro_color.cpp"
 
 class Randomizer {
     private:
-        static Randomizer* instance;
+        static std::unique_ptr<Randomizer> instance;
     protected:
         Randomizer();
     public:

@@ -187,6 +187,7 @@ void Unit<Type>::useSecondaryAbility() {
         std::cout << "You have no secondaryAbility :D" << std::endl;
         return;
     }
+    this->secondaryAbility->action();
 }
 
 

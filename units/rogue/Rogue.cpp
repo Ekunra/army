@@ -2,18 +2,18 @@
 
 template <class Type>
 Rogue<Type>::Rogue(const std::string& name) 
-                :  Unit<Type>  (name, 
-                                new States<Type>(new LimitedField<Type>((Type)Hp::ROGUE),
-                                                 new Damage<Type>((Type)Dmg::ROGUE),
-                                                 new Defence((double)TakeDamageCoef::ROGUE,
-                                                             (double)TakeMagicDamageCoef::ROGUE),
-                                                 "Rogue",
-                                                 UnitEnum::ROGUE,
-                                                 UnitEnum::ALIVE),
-                                NULL/*new BaseAbility<Type>(this)*/,
-                                NULL,
-                                new RogueAttack<Type>,
-                                new BaseCounterAttack<Type>) {
+    :  Unit<Type> ( name, 
+                    new States<Type>(new LimitedField<Type>((Type)Hp::ROGUE, FieldType::HEALTH),
+                                     new Damage<Type>((Type)Dmg::ROGUE),
+                                     new Defence((double)TakeDamageCoef::ROGUE,
+                                                 (double)TakeMagicDamageCoef::ROGUE),
+                                     "Rogue",
+                                     UnitEnum::ROGUE,
+                                     UnitEnum::ALIVE),
+                    NULL/*new BaseAbility<Type>(this)*/,
+                    NULL,
+                    new RogueAttack<Type>,
+                    new BaseCounterAttack<Type>) {
     if ( DEBUG ) {
         std::cout << FO_B_L_GREEN << "         ** " << FO_RESET << FO_B << "Rogue instance created." << FO_RESET << std::endl;
     }
