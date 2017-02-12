@@ -4,12 +4,14 @@
 template <class Type>
 Unit<Type>::Unit(const std::string& name,
                     States<Type>* states,
+                    States<Type>* altStates,
                     BaseAbility<Type>* priAbility,
                     BaseAbility<Type>* secAbility,
                     BaseAttack<Type>* baseAttack,
                     BaseCounterAttack<Type>* baseCounterAttack)
                           : name(new std::string(name)),
                             states(states),
+                            altStates(altStates),
                             primaryAbility(priAbility),
                             secondaryAbility(secAbility),
                             baseAttack(baseAttack),

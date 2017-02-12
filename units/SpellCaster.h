@@ -3,20 +3,24 @@
 
 #include <iostream>
 #include "Unit.h"
+#include "../cast/BaseCast.h"
 #include "../spells/SpellBook.h"
 #include "../states/SpellCasterStates.h"
 
 template <class Type>
 class SpellCaster : public Unit<Type> {
     protected:
+        BaseCast<Type>* baseCast;
         SpellCasterStates<Type>* spellCasterStates;
         SpellBook<Type>* spellBook;
 
         bool haveEnoughMana();
     public:
-        SpellCaster(const std::string& name,
-                    SpellCasterStates<Type>* SpellCasterStates,
+        SpellCaster(SpellCasterStates<Type>* SpellCasterStates,
+                    BaseCast<Type>* baseCast,
+                    const std::string& name,
                     States<Type>* states,
+                    States<Type>* altStates,
                     BaseAbility<Type>* priAbility,
                     BaseAbility<Type>* secAbility,
                     BaseAttack<Type>* baseAttack,

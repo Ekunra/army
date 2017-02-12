@@ -2,6 +2,7 @@
 #define STATES_H
 
 #include <iostream>
+#include <memory>
 #include "../Exceptions.h"
 #include "../Properties.h"
 #include "damage/Damage.h"

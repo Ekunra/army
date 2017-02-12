@@ -71,7 +71,7 @@ enum class TakeDamageCoef { // Divides by 100 while initialization.
     ALIVE = 100
 };
 
-enum class TakeMagicDamageCoef { // Divides by 100 while initialization.
+enum class TakeMagicDamageCoef { // Divided by 100 while initialization.
     DEFAULT = 100,
 
     SOLDIER = 100,
@@ -119,21 +119,21 @@ enum class SCost {
     MANAPORTION = 20
 };
 
-enum class DDTMagicCoef { // Divides by 100 while initialization.
+enum class DDTMagicCoef { // Divided by 100 while initialization.
     WIZARD = 100,
     HEALER = 50,
     PRIEST = 50,
     NECROMANCER = 100
 };
 
-enum class HTMagicCoef { // Divides by 100 while initialization.
+enum class HTMagicCoef { // Divided by 100 while initialization.
     WIZARD = 50,
     HEALER = 100,
     PRIEST = 100,
     NECROMANCER = 100
 };
 
-enum class MTMagicCoef { // Divides by 100 while initialization.
+enum class MTMagicCoef { // Divided by 100 while initialization.
     WIZARD = 100,
     HEALER = 100,
     PRIEST = 100,

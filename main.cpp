@@ -13,29 +13,29 @@
 
 
 int main() {
-    std::unique_ptr<Soldier<double>> sr1(new Soldier<double>("sr1"));
-    std::unique_ptr<Wizard<double>> w1(new Wizard<double>("W1"));
-    std::unique_ptr<Soldier<double>> sr2(new Soldier<double>("sr2"));
+    Soldier<double>* sr1 = new Soldier<double>("SR1");
+    Rogue<double>* r1 = new Rogue<double>("RG1");
+    Wizard<double>* w1 = new Wizard<double>("WZ1");
 
     std::cout << "------------------------------" << std::endl;
 
     std::cout << *sr1 << std::endl;
+    std::cout << *r1 << std::endl;
     std::cout << *w1 << std::endl;
 
     std::cout << "------------------------------" << std::endl;
 
-    // LimitedField<double>* mana = new LimitedField<double>(200, FieldType::MANA);
-    // SpellCasterStates<double>* scStates = new SpellCasterStates<double>(mana);
-
-    // delete mana;
-    // delete scStates;
+    r1->attack(w1);
+    std::cout << "------------------------------" << std::endl;
+    sr1->attack(r1);
 
     std::cout << "------------------------------" << std::endl;
     std::cout << "------------------------------" << std::endl;
-
     std::cout << "------------------------------" << std::endl;
     std::cout << "------------------------------" << std::endl;
 
-    std::cout << "------------------------------" << std::endl;
+    delete sr1;
+    delete r1;
+    delete w1;
     return 0;
 }

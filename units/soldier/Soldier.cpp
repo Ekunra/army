@@ -2,20 +2,21 @@
 
 template <class Type>
 Soldier<Type>::Soldier(const std::string& name) 
-                :  Unit<Type>  (name, 
-                                new States<Type>(new LimitedField<Type>( (Type)Hp::SOLDIER, FieldType::HEALTH ),
-                                                 new Damage<Type>((Type)Dmg::SOLDIER),
-                                                 new Defence((double)TakeDamageCoef::SOLDIER,
-                                                             (double)TakeMagicDamageCoef::SOLDIER),
-                                                 "Soldier",
-                                                 UnitEnum::SOLDIER,
-                                                 UnitEnum::ALIVE),
-                                NULL/*new BaseAbility<Type>(this)*/,
-                                NULL,
-                                new BaseAttack<Type>,
-                                new BaseCounterAttack<Type>) {
+    :  Unit<Type>  (name, 
+                    new States<Type>(new LimitedField<Type>( (Type)Hp::SOLDIER, FieldType::HEALTH ),
+                                     new Damage<Type>((Type)Dmg::SOLDIER),
+                                     new Defence((double)TakeDamageCoef::SOLDIER,
+                                                 (double)TakeMagicDamageCoef::SOLDIER),
+                                     "Soldier",
+                                     UnitEnum::SOLDIER,
+                                     UnitEnum::ALIVE),
+                    nullptr,
+                    NULL/*new BaseAbility<Type>(this)*/,
+                    NULL,
+                    new BaseAttack<Type>,
+                    new BaseCounterAttack<Type>) {
     if ( DEBUG ) {
-        std::cout << FO_B_L_GREEN << "-------- ** " << FO_RESET;
+        std::cout << FO_B_L_GREEN << "---------- ** " << FO_RESET;
         std::cout << FO_B << "Soldier instance created." << FO_RESET << std::endl;
     }
 }
@@ -23,7 +24,7 @@ Soldier<Type>::Soldier(const std::string& name)
 template <class Type>
 Soldier<Type>::~Soldier() {
     if ( DEBUG ) {
-        std::cout << FO_B_RED << "   ** " << FO_RESET;
+        std::cout << FO_B_RED << "-- ** " << FO_RESET;
         std::cout << FO_RED << "Soldier destructed." << FO_RESET << std::endl;
     }
 }

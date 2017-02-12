@@ -6,9 +6,12 @@ Spell<Type>::Spell(SpellEnum sEnum, Type power, Type manaCost, const std::string
                 power(new Type(power)),
                 manaCost(new Type(manaCost)),
                 spellName(new std::string(spellName)) {
+
     if ( DEBUG ) {
-        std::cout << "         + " << this->getSpellName() << "'s Spell:: created" << std::endl;
+        std::cout << FO_B_GREEN << "             | " << FO_RESET;
+        std::cout << this->getSpellName() << "'s Spell:: created" << std::endl;
     }
+
 }
 template <class Type>
 Spell<Type>::Spell(const Spell<Type>& sample)
@@ -25,7 +28,7 @@ Spell<Type>::~Spell() {
     delete manaCost;
 
     if ( DEBUG ) {
-        std::cout << "         - " << this->getSpellName();
+        std::cout << FO_B_RED << "          - " << FO_RESET << this->getSpellName();
         std::cout << "'s Spell:: destructed" << std::endl;
     }
 

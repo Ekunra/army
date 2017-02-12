@@ -6,11 +6,18 @@ LightningBolt<Type>::LightningBolt( SpellEnum sEnum,
                                     Type manaCost,
                                     const std::string& spellName )
     : Spell<Type>(sEnum, power, manaCost, spellName) {
-        std::cout << " * +++ " << spellName << " created."<< std::endl;
+
+    if ( DEBUG ) {
+        std::cout << FO_B_GREEN << "             * " << FO_RESET;
+        std::cout << FO_B << spellName << FO_RESET << " created."<< std::endl;
     }
+}
 template <class Type>
 LightningBolt<Type>::~LightningBolt() {
-    std::cout << "   * --- LightningBolt destructed" << std::endl;
+    if ( DEBUG ) {
+        std::cout << FO_B_RED << "        * " << FO_RESET;
+        std::cout << FO_B << this->getSpellName() << FO_RESET << " destructed" << std::endl;
+    }
 }
 
 template class LightningBolt<int>;

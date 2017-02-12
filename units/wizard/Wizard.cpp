@@ -2,43 +2,45 @@
 
 template <class Type>
 Wizard<Type>::Wizard(const std::string& name)
-                : SpellCaster<Type>(name,
-                                    new SpellCasterStates<Type>(
-                                        new LimitedField<Type>( (Type)Mp::WIZARD,
-                                                                FieldType::MANA ),
-                                        (double)DDTMagicCoef::WIZARD,
-                                        (double)HTMagicCoef::WIZARD,
-                                        (double)MTMagicCoef::WIZARD ),
-                                    new States<Type> (
-                                        new LimitedField<Type>( (Type)Hp::WIZARD,
-                                                                FieldType::HEALTH ),
-                                        new Damage<Type>((Type)Dmg::WIZARD),
-                                        new Defence((double)TakeDamageCoef::WIZARD,
-                                                    (double)TakeMagicDamageCoef::WIZARD),
-                                        "Wizard",
-                                        UnitEnum::WIZARD,
-                                        UnitEnum::ALIVE ),
-                                    NULL,
-                                    NULL,
-                                    new BaseAttack<Type>,
-                                    new BaseCounterAttack<Type> ) {
+    : SpellCaster<Type>(new SpellCasterStates<Type>(
+                            new LimitedField<Type>( (Type)Mp::WIZARD,
+                                                    FieldType::MANA ),
+                            (double)DDTMagicCoef::WIZARD,
+                            (double)HTMagicCoef::WIZARD,
+                            (double)MTMagicCoef::WIZARD ),
+                        new BaseCast<Type>(),
+                        name,
+                        new States<Type> (
+                            new LimitedField<Type>( (Type)Hp::WIZARD,
+                                                    FieldType::HEALTH ),
+                            new Damage<Type>((Type)Dmg::WIZARD),
+                            new Defence((double)TakeDamageCoef::WIZARD,
+                                        (double)TakeMagicDamageCoef::WIZARD),
+                            "Wizard",
+                            UnitEnum::WIZARD,
+                            UnitEnum::ALIVE ),
+                        nullptr, // altState;
+                        nullptr, // primary Ability;
+                        nullptr, // secondary Ability;
+                        new BaseAttack<Type>,
+                        new BaseCounterAttack<Type> ) {
 
-    // SpellCaster<Type>::spellBook->insertSpell(FIREBALL, new FireBall<Type>);
-    // SpellCaster<Type>::spellBook->insertSpell(IMPLOSION, new Implosion<Type>);
-    // SpellCaster<Type>::spellBook->insertSpell(LIGHTNINGBOLT, new LightningBolt<Type>);
-    // SpellCaster<Type>::spellBook->insertSpell(HEAL, new Heal<Type>);
-    // SpellCaster<Type>::spellBook->insertSpell(BLESS, new Bless<Type>);
-    // SpellCaster<Type>::spellBook->insertSpell(MANAPORTION, new ManaPortion<Type>);
+    SpellCaster<Type>::spellBook->insertSpell(FIREBALL, new FireBall<Type>);
+    SpellCaster<Type>::spellBook->insertSpell(IMPLOSION, new Implosion<Type>);
+    SpellCaster<Type>::spellBook->insertSpell(LIGHTNINGBOLT, new LightningBolt<Type>);
+    SpellCaster<Type>::spellBook->insertSpell(HEAL, new Heal<Type>);
+    SpellCaster<Type>::spellBook->insertSpell(BLESS, new Bless<Type>);
+    SpellCaster<Type>::spellBook->insertSpell(MANAPORTION, new ManaPortion<Type>);
 
     if ( DEBUG ) {
-        std::cout << FO_B_L_GREEN << "-------- ** " << FO_RESET;
+        std::cout << FO_B_L_GREEN << "---------- ** " << FO_RESET;
         std::cout << FO_B << "Wizard instance created." << FO_RESET << std::endl;
     }
 }
 template <class Type>
 Wizard<Type>::~Wizard() {
     if ( DEBUG ) {
-        std::cout << FO_B_RED << "   ** " << FO_RESET;
+        std::cout << FO_B_RED << "-- ** " << FO_RESET;
         std::cout << FO_RED << "Wizard destructed." << FO_RESET << std::endl;
     }
 }

@@ -21,6 +21,7 @@ class Unit {
     protected:
         std::string* name;
         States<Type>* states;
+        States<Type>* altStates;
         BaseAbility<Type>* primaryAbility;
         BaseAbility<Type>* secondaryAbility;
         BaseAttack<Type>* baseAttack;
@@ -31,6 +32,7 @@ class Unit {
     public:
         Unit(const std::string& name,
                 States<Type>* states,
+                States<Type>* altStates,
                 BaseAbility<Type>* priAbility,
                 BaseAbility<Type>* secAbility,
                 BaseAttack<Type>* baseAttack,

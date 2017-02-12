@@ -1,17 +1,21 @@
 #include "SpellCaster.h"
 
 template <class Type>
-SpellCaster<Type>::SpellCaster( const std::string& name,
-                                SpellCasterStates<Type>* spellCasterStates,
+SpellCaster<Type>::SpellCaster( SpellCasterStates<Type>* spellCasterStates,
+                                BaseCast<Type>* baseCast,
+                                const std::string& name,
                                 States<Type>* states,
+                                States<Type>* altStates,
                                 BaseAbility<Type>* priAbility,
                                 BaseAbility<Type>* secAbility,
                                 BaseAttack<Type>* baseAttack,
-                                BaseCounterAttack<Type>* baseCounterAttack)
-                                    : spellBook(new SpellBook<Type>() ),
+                                BaseCounterAttack<Type>* baseCounterAttack )
+                                    : baseCast(baseCast),
+                                      spellBook(new SpellBook<Type>()),
                                       spellCasterStates(spellCasterStates),
                                       Unit<Type> (  name,
                                                     states,
+                                                    altStates,
                                                     priAbility,
                                                     secAbility,
                                                     baseAttack,
@@ -23,8 +27,9 @@ SpellCaster<Type>::SpellCaster( const std::string& name,
 }
 template <class Type>
 SpellCaster<Type>::~SpellCaster() {
-    delete spellCasterStates;
     delete spellBook;
+    delete baseCast;
+    delete spellCasterStates;
     if ( DEBUG ) {
         std::cout << FO_B_RED << "  - " << FO_RESET;
         std::cout << "SpellCaster (";

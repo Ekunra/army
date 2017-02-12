@@ -9,21 +9,28 @@ SpellBook<Type>::SpellBook() : spellBook(new std::map<SpellEnum, Spell<Type>*>) 
 
 template <class Type>
 SpellBook<Type>::~SpellBook() {
-    if ( DEBUG ) {
-        std::cout << "       --- Start deleting spells from SpellBook. --- " << std::endl;
-    }
+        if ( DEBUG ) {
+            std::cout << FO_B_RED << "        --- " << FO_RESET;
+            std::cout << "SpellBook's spells deleting is started. --- " << std::endl;
+        }
+
     typename std::map<SpellEnum, Spell<Type>*>::iterator it;
+
     for ( it = this->spellBook->begin(); it != this->spellBook->end(); ++it ) {
         delete it->second ;
     }
-    if ( DEBUG ) {
-        std::cout << "       --- Spells' deleting from SpellBook finished. --- " << std::endl;
-    }
+
+        if ( DEBUG ) {
+            std::cout << FO_B_RED << "        --- " << FO_RESET;
+            std::cout << "SpellBook's spells deleting is finished. --- " << std::endl;
+        }
 
     delete spellBook;
-    if ( DEBUG ) {
-        std::cout << FO_B_RED << "       - " << FO_RESET << "SPELL BOOK destructed." << std::endl;
-    }
+
+        if ( DEBUG ) {
+            std::cout << FO_B_RED << "      - " << FO_RESET;
+            std::cout << "SPELL BOOK destructed." << std::endl;
+        }
 }
 
 template <class Type>

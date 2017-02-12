@@ -10,19 +10,20 @@ Rogue<Type>::Rogue(const std::string& name)
                                      "Rogue",
                                      UnitEnum::ROGUE,
                                      UnitEnum::ALIVE),
+                    nullptr,
                     NULL/*new BaseAbility<Type>(this)*/,
                     NULL,
                     new RogueAttack<Type>,
                     new BaseCounterAttack<Type>) {
     if ( DEBUG ) {
-        std::cout << FO_B_L_GREEN << "         ** " << FO_RESET << FO_B << "Rogue instance created." << FO_RESET << std::endl;
+        std::cout << FO_B_L_GREEN << "---------- ** " << FO_RESET << FO_B << "Rogue instance created." << FO_RESET << std::endl;
     }
 }
 
 template <class Type>
 Rogue<Type>::~Rogue() {
     if ( DEBUG ) {
-        std::cout << FO_B_RED << "   ** " << FO_RESET;
+        std::cout << FO_B_RED << "-- ** " << FO_RESET;
         std::cout << FO_RED << "Rogue destructed." << FO_RESET << std::endl;
     }
 }
