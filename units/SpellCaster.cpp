@@ -60,9 +60,11 @@ const Type& SpellCaster<Type>::getManaLimit() const {
 }
 
 template <class Type>
-void SpellCaster<Type>::cast(SpellEnum sEnum, SpellCaster<Type>* someCaster) {}
+void SpellCaster<Type>::cast(SpellEnum sEnum, SpellCaster<Type>* someCaster) {
+}
 template <class Type>
-void SpellCaster<Type>::cast(SpellEnum sEnum, Unit<Type>* enemy) {}
+void SpellCaster<Type>::cast(SpellEnum sEnum, Unit<Type>* enemy) {
+}
 
 template class SpellCaster<int>;
 template class SpellCaster<double>;

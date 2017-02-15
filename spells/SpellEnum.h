@@ -14,7 +14,7 @@ typedef enum {
     MT_MAGIC,
     MANAPORTION,
 
-    SUMMON_MAGIC,
+    ST_MAGIC,
     SUMMON_DEMON
 } SpellEnum;
 

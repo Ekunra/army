@@ -51,7 +51,6 @@ template class SpellCasterStates<float>;
 template <class Type>
 std::ostream& operator<<(std::ostream& out, const SpellCasterStates<Type>& spellCasterStates) {
     out << spellCasterStates.getManaObj();
-    // std::cout << "Should be SpellCasterStates.";
     return out;
 };
 
