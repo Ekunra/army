@@ -6,13 +6,16 @@ typedef enum {
     FIREBALL,
     LIGHTNINGBOLT,
     IMPLOSION,
-    
+
     HT_MAGIC,
     HEAL,
     BLESS,
 
     MT_MAGIC,
-    MANAPORTION
+    MANAPORTION,
+
+    SUMMON_MAGIC,
+    SUMMON_DEMON
 } SpellEnum;
 
 #endif // SPELLENUM_H

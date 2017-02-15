@@ -11,8 +11,8 @@ class Wizard : public SpellCaster<Type> {
         Wizard(const std::string& name);
         virtual ~Wizard();
 
-        virtual void cast(SpellEnum sEnum, SpellCaster<Type>* someCaster);
-        virtual void cast(SpellEnum sEnum, Unit<Type>* enemy);
+        virtual void cast(SpellEnum sEnum, SpellCaster<Type>* targetCaster);
+        virtual void cast(SpellEnum sEnum, Unit<Type>* targetUnit);
 };
 
 template <class Type>

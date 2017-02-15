@@ -33,8 +33,8 @@ class SpellCaster : public Unit<Type> {
         const Type& getMana() const;
         const Type& getManaLimit() const;
 
-        virtual void cast(SpellEnum sEnum, SpellCaster<Type>* someCaster);
-        virtual void cast(SpellEnum sEnum, Unit<Type>* enemy);
+        virtual void cast(SpellEnum sEnum, SpellCaster<Type>* targetCaster);
+        virtual void cast(SpellEnum sEnum, Unit<Type>* targetUnit);
 };
 
 template <class Type>
