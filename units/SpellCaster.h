@@ -14,8 +14,10 @@ class SpellCaster : public Unit<Type> {
         SpellCasterStates<Type>* spellCasterStates;
         SpellBook<Type>* spellBook;
 
-        bool haveEnoughMana();
+
     public:
+        bool haveEnoughMana(Type manaNeeded);
+        bool haveSpell(SpellEnum sEnum);
         SpellCaster(SpellCasterStates<Type>* SpellCasterStates,
                     BaseCast<Type>* baseCast,
                     const std::string& name,

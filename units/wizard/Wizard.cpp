@@ -48,8 +48,8 @@ Wizard<Type>::~Wizard() {
 template <class Type>
 void Wizard<Type>::cast(SpellEnum sEnum, SpellCaster<Type>* targetCaster) {
     if ( Unit<Type>::getUEnum() != UnitEnum::WIZARD ) {
-        std::cout << " - This Unit has no cast ability now! He is a ";
-        std::cout << FO_B_RED << Unit<Type>::getTitle() << FO_RESET << " now!" << std::endl;
+        // std::cout << " - This Unit has no cast ability now! He is a ";
+        // std::cout << FO_B_RED << Unit<Type>::getTitle() << FO_RESET << " now!" << std::endl;
         return;
     }
     SpellCaster<Type>::cast(sEnum, targetCaster);
@@ -57,8 +57,8 @@ void Wizard<Type>::cast(SpellEnum sEnum, SpellCaster<Type>* targetCaster) {
 template <class Type>
 void Wizard<Type>::cast(SpellEnum sEnum, Unit<Type>* targetUnit) {
     if ( Unit<Type>::getUEnum() != UnitEnum::WIZARD ) {
-        std::cout << " - This Unit has no cast ability now! He is a ";
-        std::cout << FO_B_RED << Unit<Type>::getTitle() << FO_RESET << " now!" << std::endl;
+        // std::cout << " - This Unit has no cast ability now! He is a ";
+        // std::cout << FO_B_RED << Unit<Type>::getTitle() << FO_RESET << " now!" << std::endl;
         return;
     }
     SpellCaster<Type>::cast(sEnum, targetUnit);

@@ -12,7 +12,13 @@ class BaseCast {
         BaseCast();
         virtual ~BaseCast();
 
-        virtual void action();
+        virtual void action ( SpellEnum sEnum,
+                              SpellCaster<Type>* caster,
+                              SpellCaster<Type>* target );
+
+        virtual void action ( SpellEnum sEnum,
+                              SpellCaster<Type>* caster,
+                              Unit<Type>* target );
 };
 
 #endif // BASECAST_H

@@ -25,7 +25,8 @@ int main() {
 
     std::cout << "------------------------------" << std::endl;
 
-    // r1->attack(w1);
+    std::cout << w1->haveEnoughMana(15) << std::endl;
+    std::cout << w1->haveSpell(FIREBALL) << std::endl;
     std::cout << "------------------------------" << std::endl;
     // sr1->attack(r1);
 

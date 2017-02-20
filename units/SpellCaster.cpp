@@ -39,7 +39,21 @@ SpellCaster<Type>::~SpellCaster() {
 }
 
 template <class Type>
-bool SpellCaster<Type>::haveEnoughMana() {}
+bool SpellCaster<Type>::haveEnoughMana(Type manaNeeded) {
+    if ( manaNeeded <= this->spellCasterStates->getMana() ) {
+        std::cout << "   - Enough mana for casting spell." << std::endl;
+    } else {
+        throw NotEnoughManaException("Not ennough mana for spell casting.");
+    }
+}
+template <class Type>
+bool SpellCaster<Type>::haveSpell(SpellEnum sEnum) {
+    std::cout << "   - Do we have such a Spell?" << std::endl;
+    if ( !this->spellBook->haveSpell(sEnum) ) {
+        throw NoSuchSpellException("You haven't such a Spell");
+    }
+    std::cout << "   - Yes, you have." << std::endl;
+}
 
 template <class Type>
 const SpellCasterStates<Type>& SpellCaster<Type>::getSpellCasterStates() const {
