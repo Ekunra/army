@@ -6,6 +6,7 @@
 #include "../abilities/BaseAbility.h"
 #include "../attack/BaseAttack.h"
 #include "../attack/BaseCounterAttack.h"
+#include "../cast/BaseCast.h"
 
 template <class Type>
 class BaseAbility;

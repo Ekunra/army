@@ -5,10 +5,19 @@
 #include "../debug.h"
 #include "../macro_color.cpp"
 #include "../Properties.h"
+#include "../spells/SpellEnum.h"
+#include "../units/SpellCaster.h"
+#include "../units/Unit.h"
+
+template <class Type>
+class Unit;
+
+template <class Type>
+class SpellCaster;
 
 template <class Type>
 class BaseCast {
-    public:
+    public: 
         BaseCast();
         virtual ~BaseCast();
 

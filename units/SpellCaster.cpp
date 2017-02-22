@@ -75,9 +75,17 @@ const Type& SpellCaster<Type>::getManaLimit() const {
 
 template <class Type>
 void SpellCaster<Type>::cast(SpellEnum sEnum, SpellCaster<Type>* someCaster) {
+    std::cout << FO_B << this->getName() << FO_RESET;
+    std::cout << "'s Spellcaster::cast(SpellEnum, SpellCaster*) received ";
+    std::cout << someCaster->getName() << " for sending it to baseCast" << std::endl;
+    this->baseCast->action(sEnum, this, someCaster);
 }
 template <class Type>
 void SpellCaster<Type>::cast(SpellEnum sEnum, Unit<Type>* enemy) {
+    std::cout << FO_B << this->getName() << FO_RESET;
+    std::cout << "'s Spellcaster::cast(SpellEnum, Unit*) received ";
+    std::cout << enemy->getName() << " for sending it to baseCast" << std::endl;
+    this->baseCast->action(sEnum, this, enemy);
 }
 
 template class SpellCaster<int>;

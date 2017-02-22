@@ -3,9 +3,22 @@
 
 #include <iostream>
 #include "Unit.h"
+// #include "../attack/BaseCounterAttack.h"
 #include "../cast/BaseCast.h"
 #include "../spells/SpellBook.h"
 #include "../states/SpellCasterStates.h"
+
+template <class Type>
+class BaseCast;
+
+template <class Type>
+class BaseAbility;
+
+template <class Type>
+class BaseAttack;
+
+template <class Type>
+class BaseCounterAttack;
 
 template <class Type>
 class SpellCaster : public Unit<Type> {
@@ -16,8 +29,6 @@ class SpellCaster : public Unit<Type> {
 
 
     public:
-        bool haveEnoughMana(Type manaNeeded);
-        bool haveSpell(SpellEnum sEnum);
         SpellCaster(SpellCasterStates<Type>* SpellCasterStates,
                     BaseCast<Type>* baseCast,
                     const std::string& name,
@@ -28,6 +39,9 @@ class SpellCaster : public Unit<Type> {
                     BaseAttack<Type>* baseAttack,
                     BaseCounterAttack<Type>* baseCounterAttack);
         virtual ~SpellCaster();
+
+        bool haveEnoughMana(Type manaNeeded);
+        bool haveSpell(SpellEnum sEnum);
 
         const SpellCasterStates<Type>& getSpellCasterStates() const;
         const SpellBook<Type>& getSpellBook() const;

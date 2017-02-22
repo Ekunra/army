@@ -13,30 +13,35 @@
 
 
 int main() {
-    // Soldier<double>* sr1 = new Soldier<double>("SR1");
+    Soldier<double>* sr1 = new Soldier<double>("SR1");
     // Rogue<double>* r1 = new Rogue<double>("RG1");
     Wizard<double>* w1 = new Wizard<double>("WZ1");
+    Wizard<double>* w2 = new Wizard<double>("WZ2");
 
     std::cout << "------------------------------" << std::endl;
 
-    // std::cout << *sr1 << std::endl;
+    std::cout << *sr1 << std::endl;
     // std::cout << *r1 << std::endl;
     std::cout << *w1 << std::endl;
+    std::cout << *w2 << std::endl;
 
     std::cout << "------------------------------" << std::endl;
 
-    std::cout << w1->haveEnoughMana(15) << std::endl;
-    std::cout << w1->haveSpell(FIREBALL) << std::endl;
+    w1->cast(FIREBALL, sr1);
     std::cout << "------------------------------" << std::endl;
-    // sr1->attack(r1);
+    w1->cast(FIREBALL, w2);
+    // w1->attack(w2);
 
     std::cout << "------------------------------" << std::endl;
+    // std::cout << *w1 << std::endl;
+    // std::cout << *w2 << std::endl;
     std::cout << "------------------------------" << std::endl;
     std::cout << "------------------------------" << std::endl;
     std::cout << "------------------------------" << std::endl;
 
-    // delete sr1;
+    delete sr1;
     // delete r1;
     delete w1;
+    delete w2;
     return 0;
 }

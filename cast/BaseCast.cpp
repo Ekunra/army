@@ -16,8 +16,10 @@ BaseCast<Type>::~BaseCast() {
 }
 
 template <class Type>
-void BaseCast<Type>::action() {}
+void BaseCast<Type>::action(SpellEnum sEnum, SpellCaster<Type>* caster, SpellCaster<Type>* target) {}
 
+template <class Type>
+void BaseCast<Type>::action(SpellEnum sEnum, SpellCaster<Type>* caster, Unit<Type>* target) {}
 
 template class BaseCast<int>;
 template class BaseCast<double>;
