@@ -1,6 +1,18 @@
 #include "SpellCaster.h"
 
 template <class Type>
+void SpellCaster<Type>::prepareToCast(SpellEnum sEnum) {
+    if ( !this->haveSpell(sEnum) ) {
+        return;
+    }
+    if ( !this->haveEnoughMana(sEnum) ) {
+        return;
+    }
+    // this->haveEnoughMana(this->spellBook->getSpell(sEnum)->getManaCost());
+    // this->spellCasterStates->spendMana(this->spellBook->getSpell(sEnum));
+}
+
+template <class Type>
 SpellCaster<Type>::SpellCaster( SpellCasterStates<Type>* spellCasterStates,
                                 BaseCast<Type>* baseCast,
                                 const std::string& name,
@@ -40,19 +52,26 @@ SpellCaster<Type>::~SpellCaster() {
 
 template <class Type>
 bool SpellCaster<Type>::haveEnoughMana(Type manaNeeded) {
+        std::cout << "   - Do we have enough Mana?" << std::endl;
     if ( manaNeeded <= this->spellCasterStates->getMana() ) {
         std::cout << "   - Enough mana for casting spell." << std::endl;
+        return true;
     } else {
-        throw NotEnoughManaException("Not ennough mana for spell casting.");
+        // throw NotEnoughManaException("Not ennough mana for spell casting.");
+        std::cout << FO_B_L_RED << "   - You have not enough Mana!" << FO_RESET << std::endl;
     }
+    return false;
 }
 template <class Type>
 bool SpellCaster<Type>::haveSpell(SpellEnum sEnum) {
     std::cout << "   - Do we have such a Spell?" << std::endl;
-    if ( !this->spellBook->haveSpell(sEnum) ) {
-        throw NoSuchSpellException("You haven't such a Spell");
+    if ( this->spellBook->haveSpell(sEnum) ) {
+        // throw NoSuchSpellException("You haven't such a Spell");
+        std::cout << "   - Yes, you have such Spell." << std::endl;
+        return true;
     }
-    std::cout << "   - Yes, you have." << std::endl;
+    std::cout << FO_B_L_RED << "   - You have no such Spell!" << FO_RESET << std::endl;
+    return false;
 }
 
 template <class Type>
@@ -64,6 +83,11 @@ const SpellBook<Type>& SpellCaster<Type>::getSpellBook() const {
     return *this->spellBook;
 }
 
+
+template <class Type>
+const Spell<Type>& SpellCaster<Type>::getSpell(SpellEnum& sEnum) const {
+    return this->spellBook->getSpell(sEnum);
+}
 template <class Type>
 const Type& SpellCaster<Type>::getMana() const {
     return this->spellCasterStates->getMana();
@@ -75,6 +99,7 @@ const Type& SpellCaster<Type>::getManaLimit() const {
 
 template <class Type>
 void SpellCaster<Type>::cast(SpellEnum sEnum, SpellCaster<Type>* someCaster) {
+    this->prepareToCast(sEnum);
     std::cout << FO_B << this->getName() << FO_RESET;
     std::cout << "'s Spellcaster::cast(SpellEnum, SpellCaster*) received ";
     std::cout << someCaster->getName() << " for sending it to baseCast" << std::endl;
@@ -82,6 +107,7 @@ void SpellCaster<Type>::cast(SpellEnum sEnum, SpellCaster<Type>* someCaster) {
 }
 template <class Type>
 void SpellCaster<Type>::cast(SpellEnum sEnum, Unit<Type>* enemy) {
+    this->prepareToCast(sEnum);
     std::cout << FO_B << this->getName() << FO_RESET;
     std::cout << "'s Spellcaster::cast(SpellEnum, Unit*) received ";
     std::cout << enemy->getName() << " for sending it to baseCast" << std::endl;

@@ -24,6 +24,8 @@ class Spell {
         const Type& getPower() const;
         const Type& getManaCost() const;
         const std::string& getSpellName() const;
+
+        Spell<Type> operator=(const Spell& other);
 };
 
 template <class Type>

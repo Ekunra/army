@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include "Unit.h"
-// #include "../attack/BaseCounterAttack.h"
 #include "../cast/BaseCast.h"
 #include "../spells/SpellBook.h"
 #include "../states/SpellCasterStates.h"
@@ -27,6 +26,7 @@ class SpellCaster : public Unit<Type> {
         SpellCasterStates<Type>* spellCasterStates;
         SpellBook<Type>* spellBook;
 
+        void prepareToCast(SpellEnum sEnum);
 
     public:
         SpellCaster(SpellCasterStates<Type>* SpellCasterStates,
@@ -46,6 +46,7 @@ class SpellCaster : public Unit<Type> {
         const SpellCasterStates<Type>& getSpellCasterStates() const;
         const SpellBook<Type>& getSpellBook() const;
 
+        const Spell<Type>& getSpell(SpellEnum& sEnum) const;
         const Type& getMana() const;
         const Type& getManaLimit() const;
 

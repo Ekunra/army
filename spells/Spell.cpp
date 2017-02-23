@@ -52,6 +52,15 @@ const std::string& Spell<Type>::getSpellName() const {
     return *this->spellName;
 }
 
+template <class Type>
+Spell<Type> Spell<Type>::operator=(const Spell& other) {
+std::cout << "\" Spell Operator = works\"" << std::endl;
+    *this->sEnum = other.getSEnum();
+    *this->power = other.getPower();
+    *this->manaCost = other.getManaCost();
+    *this->spellName = other.getSpellName();
+    return *this;
+}
 
 template class Spell<int>;
 template class Spell<double>;

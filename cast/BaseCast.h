@@ -8,6 +8,10 @@
 #include "../spells/SpellEnum.h"
 #include "../units/SpellCaster.h"
 #include "../units/Unit.h"
+#include "../spells/spellTypes/DDTSpell.h"
+#include "../spells/spellTypes/HTSpell.h"
+#include "../spells/spellTypes/MTSpell.h"
+
 
 template <class Type>
 class Unit;
