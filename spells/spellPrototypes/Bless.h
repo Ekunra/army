@@ -8,6 +8,7 @@ class Bless : public Spell<Type> {
     protected:
     public:
         Bless ( SpellEnum sEnum=BLESS,
+                SpellEnum sType=HT_MAGIC,
                 Type power=(Type)SPower::BLESS,
                 Type manaCost=(Type)SCost::BLESS,
                 const std::string& spellName="Bless" );

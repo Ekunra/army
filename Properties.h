@@ -107,7 +107,8 @@ enum class SPower {
     LIGHTNINGBOLT = 30,
     HEAL = 40,
     BLESS = 500,
-    MANAPORTION = 40
+    MANAPORTION = 40,
+    MANADRAIN = 50
 };
 
 enum class SCost {
@@ -116,7 +117,8 @@ enum class SCost {
     LIGHTNINGBOLT = 60,
     HEAL = 40,
     BLESS = 100,
-    MANAPORTION = 20
+    MANAPORTION = 20,
+    MANADRAIN = 20
 };
 
 enum class DDTMagicCoef { // Divided by 100 while initialization.
@@ -130,11 +132,18 @@ enum class HTMagicCoef { // Divided by 100 while initialization.
     WIZARD = 50,
     HEALER = 100,
     PRIEST = 100,
-    NECROMANCER = 100
+    NECROMANCER = 50
 };
 
 enum class MTMagicCoef { // Divided by 100 while initialization.
     WIZARD = 100,
+    HEALER = 100,
+    PRIEST = 100,
+    NECROMANCER = 100
+};
+
+enum class DMTMagicCoef { // Divided by 100 while initialization.
+    WIZARD = 150,
     HEALER = 100,
     PRIEST = 100,
     NECROMANCER = 100

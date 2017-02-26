@@ -20,6 +20,12 @@ template <class Type>
 class BaseCounterAttack;
 
 template <class Type>
+class SpellCasterStates;
+
+template <class Type>
+class MTSpell;
+
+template <class Type>
 class SpellCaster : public Unit<Type> {
     protected:
         BaseCast<Type>* baseCast;
@@ -52,6 +58,10 @@ class SpellCaster : public Unit<Type> {
 
         virtual void cast(SpellEnum sEnum, SpellCaster<Type>* targetCaster);
         virtual void cast(SpellEnum sEnum, Unit<Type>* targetUnit);
+
+        virtual void takeMagic(MTSpell<Type>* spell);
+        virtual void takeMagic(DMTSpell<Type>* spell);
+        virtual void spendMana(SpellEnum sEnum);
 };
 
 template <class Type>

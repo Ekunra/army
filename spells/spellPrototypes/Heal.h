@@ -7,7 +7,7 @@ template <class Type>
 class Heal : public Spell<Type> {
     protected:
     public:
-        Heal(SpellEnum sEnum=HEAL, Type power=(Type)SPower::HEAL, Type manaCost=(Type)SCost::HEAL, const std::string& spellName="Heal");
+        Heal(SpellEnum sEnum=HEAL, SpellEnum sType=HT_MAGIC, Type power=(Type)SPower::HEAL, Type manaCost=(Type)SCost::HEAL, const std::string& spellName="Heal");
         virtual ~Heal();
 };
 

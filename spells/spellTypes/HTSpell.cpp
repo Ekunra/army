@@ -1,8 +1,8 @@
 #include "HTSpell.h"
 
 template <class Type>
-HTSpell<Type>::HTSpell(SpellEnum sEnum, Type power, Type manaCost, const std::string& spellName)
-    : Spell<Type>(sEnum, power, manaCost, spellName) {
+HTSpell<Type>::HTSpell(SpellEnum sEnum, SpellEnum sType, Type power, Type manaCost, const std::string& spellName)
+    : Spell<Type>(sEnum, sType, power, manaCost, spellName) {
     std::cout << "   * +++ HTSpell created" << std::endl;
 }
 template <class Type>

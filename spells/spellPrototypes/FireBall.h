@@ -7,7 +7,7 @@ template <class Type>
 class FireBall : public Spell<Type> {
     protected:
     public:
-        FireBall(SpellEnum sEnum=FIREBALL, Type power=(Type)SPower::FIREBALL, Type manaCost=(Type)SCost::FIREBALL, const std::string& spellName="FireBall");
+        FireBall(SpellEnum sEnum=FIREBALL, SpellEnum sType=DDT_MAGIC, Type power=(Type)SPower::FIREBALL, Type manaCost=(Type)SCost::FIREBALL, const std::string& spellName="FireBall");
         virtual ~FireBall();
 };
 

@@ -1,8 +1,8 @@
 #include "DDTSpell.h"
 
 template <class Type>
-DDTSpell<Type>::DDTSpell(SpellEnum sEnum, Type power, Type manaCost, const std::string& spellName)
-    : Spell<Type>(sEnum, power, manaCost, spellName) {
+DDTSpell<Type>::DDTSpell(SpellEnum sEnum, SpellEnum sType, Type power, Type manaCost, const std::string& spellName)
+    : Spell<Type>(sEnum, sType, power, manaCost, spellName) {
     std::cout << "   * +++ DDTSpell created" << std::endl;
 }
 template <class Type>

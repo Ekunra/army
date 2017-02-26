@@ -1,8 +1,9 @@
 #include "Spell.h"
 
 template <class Type>
-Spell<Type>::Spell(SpellEnum sEnum, Type power, Type manaCost, const std::string& spellName)
+Spell<Type>::Spell(SpellEnum sEnum, SpellEnum sType, Type power, Type manaCost, const std::string& spellName)
               : sEnum(new SpellEnum(sEnum)),
+                sType(new SpellEnum(sType)),
                 power(new Type(power)),
                 manaCost(new Type(manaCost)),
                 spellName(new std::string(spellName)) {
@@ -16,6 +17,7 @@ Spell<Type>::Spell(SpellEnum sEnum, Type power, Type manaCost, const std::string
 template <class Type>
 Spell<Type>::Spell(const Spell<Type>& sample)
               : sEnum(new SpellEnum(sample.getSEnum())),
+                sType(new SpellEnum(sample.getSType())),
                 power(new Type(sample.getPower())),
                 manaCost(new Type(sample.getManaCost())),
                 spellName(new std::string(sample.getSpellName()))  {
@@ -40,6 +42,10 @@ const SpellEnum& Spell<Type>::getSEnum() const {
     return *this->sEnum;
 }
 template <class Type>
+const SpellEnum& Spell<Type>::getSType() const {
+    return *this->sType;
+}
+template <class Type>
 const Type& Spell<Type>::getPower() const {
     return *this->power;
 }
@@ -53,9 +59,13 @@ const std::string& Spell<Type>::getSpellName() const {
 }
 
 template <class Type>
+Spell<Type> Spell<Type>::action() {}
+
+template <class Type>
 Spell<Type> Spell<Type>::operator=(const Spell& other) {
 std::cout << "\" Spell Operator = works\"" << std::endl;
     *this->sEnum = other.getSEnum();
+    *this->sType = other.getSType();
     *this->power = other.getPower();
     *this->manaCost = other.getManaCost();
     *this->spellName = other.getSpellName();
@@ -69,6 +79,28 @@ template class Spell<float>;
 template <class Type>
 std::ostream& operator<<(std::ostream& out, const Spell<Type>& spell) {
     out << spell.getSpellName() << " spell (";
+    out << "Type: ";
+
+    switch ( spell.getSType() ) {
+        case DDT_MAGIC : {
+            out << "damage, ";
+            break;
+        }
+        case HT_MAGIC : {
+            out << "heal, ";
+            break;
+        }
+        case MT_MAGIC : {
+            out << "mana, ";
+            break;
+        }
+        case ACT_MAGIC : {
+            out << "action, ";
+            break;
+        }
+        default : {}
+    }
+
     out << "power: " << spell.getPower() << ", ";
     out << "mana cost: " << spell.getManaCost() << ')';
     return out;

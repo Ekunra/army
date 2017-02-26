@@ -4,10 +4,12 @@ template <class Type>
 SpellCasterStates<Type>::SpellCasterStates(LimitedField<Type>* mana,
                                             double damageDTmagicCoef,
                                             double healingTmagicCoef,
+                                            double damageMTmagicCoef,
                                             double manaTmagicCoef )
                       : mana(mana),
                         damageDTmagicCoef(new double(damageDTmagicCoef/100)),
                         healingTmagicCoef(new double(healingTmagicCoef/100)),
+                        damageMTmagicCoef(new double(damageMTmagicCoef/100)),
                         manaTmagicCoef(new double(manaTmagicCoef/100)) {
     if ( DEBUG ) {
         std::cout << FO_B_GREEN << "|          + " << FO_RESET;
@@ -40,9 +42,35 @@ const Type& SpellCasterStates<Type>::getManaLimit() const {
 }
 
 template <class Type>
-void SpellCasterStates<Type>::receiveMana() {}
+const double& SpellCasterStates<Type>::getDDTmCoef() const {
+    return *this->damageDTmagicCoef;
+}
 template <class Type>
-void SpellCasterStates<Type>::spendMana() {}
+const double& SpellCasterStates<Type>::getHTmCoef() const {
+    return *this->healingTmagicCoef;
+}
+template <class Type>
+const double& SpellCasterStates<Type>::getDMTmCoef() const {
+    return *this->damageMTmagicCoef;
+}
+template <class Type>
+const double& SpellCasterStates<Type>::getMTmCoef() const {
+    return *this->manaTmagicCoef;
+}
+
+template <class Type>
+void SpellCasterStates<Type>::spendMana(SpellEnum sEnum, SpellCaster<Type>* caster) {
+    std::cout << "   SpellCasterStates::spendMana : " << FO_B << "spell cost " << caster->getSpell(sEnum).getManaCost() << FO_RESET << std::endl;
+    *this->mana -= caster->getSpell(sEnum).getManaCost();
+}
+template <class Type>
+void SpellCasterStates<Type>::spendMana(Spell<Type> spell, SpellCaster<Type>* caster) {
+    ;
+}
+template <class Type>
+void SpellCasterStates<Type>::receiveMana(Spell<Type> spell, SpellCaster<Type>* caster) {
+    ;
+}
 
 template class SpellCasterStates<int>;
 template class SpellCasterStates<double>;

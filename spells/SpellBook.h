@@ -11,6 +11,7 @@
 #include "spellPrototypes/Heal.h"
 #include "spellPrototypes/Bless.h"
 #include "spellPrototypes/ManaPortion.h"
+#include "spellPrototypes/ManaDrain.h"
 
 template <class Type>
 class SpellBook {

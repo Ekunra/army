@@ -1,10 +1,19 @@
 #include "MTSpell.h"
 
 template <class Type>
-MTSpell<Type>::MTSpell(SpellEnum sEnum, Type power, Type manaCost, const std::string& spellName)
-    : Spell<Type>(sEnum, power, manaCost, spellName) {
+MTSpell<Type>::MTSpell(SpellEnum sEnum, SpellEnum sType, Type power, Type manaCost, const std::string& spellName)
+    : Spell<Type>(sEnum, sType, power, manaCost, spellName) {
     std::cout << "   * +++ MTSpell created" << std::endl;
 }
+template <class Type>
+MTSpell<Type>::MTSpell(const Spell<Type>& prototype, SpellCaster<Type>& caster)
+    : Spell<Type> ( prototype.getSEnum(),
+                    prototype.getSType(),
+                    prototype.getPower(),
+                    prototype.getManaCost(),
+                    prototype.getSpellName() ) {
+    std::cout << "   * +++ MTSpell created with Spell Prototype." << std::endl;
+    }
 template <class Type>
 MTSpell<Type>::~MTSpell() {
     std::cout << "   * --- MTSpell destructed" << std::endl;

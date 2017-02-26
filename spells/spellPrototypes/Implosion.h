@@ -7,7 +7,7 @@ template <class Type>
 class Implosion : public Spell<Type> {
     protected:
     public:
-        Implosion(SpellEnum sEnum=IMPLOSION, Type power=(Type)SPower::IMPLOSION, Type manaCost=(Type)SCost::IMPLOSION, const std::string& spellName="Implosion");
+        Implosion(SpellEnum sEnum=IMPLOSION, SpellEnum sType=DDT_MAGIC, Type power=(Type)SPower::IMPLOSION, Type manaCost=(Type)SCost::IMPLOSION, const std::string& spellName="Implosion");
         virtual ~Implosion();
 };
 

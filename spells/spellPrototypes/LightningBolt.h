@@ -8,6 +8,7 @@ class LightningBolt : public Spell<Type> {
     protected:
     public:
         LightningBolt ( SpellEnum sEnum=LIGHTNINGBOLT,
+                        SpellEnum sType=DDT_MAGIC,
                         Type power=(Type)SPower::LIGHTNINGBOLT,
                         Type manaCost=(Type)SCost::LIGHTNINGBOLT,
                         const std::string& spellName="LightningBolt");

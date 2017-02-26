@@ -5,6 +5,13 @@
 #include "limitedfield/LimitedField.h"
 #include "../debug.h"
 #include "../macro_color.cpp"
+#include "../spells/SpellEnum.h"
+#include "../spells/spellTypes/MTSpell.h"
+#include "../spells/spellTypes/DMTSpell.h"
+#include "../units/SpellCaster.h"
+
+template <class Type>
+class SpellCaster;
 
 template <class Type>
 class SpellCasterStates {
@@ -12,11 +19,13 @@ class SpellCasterStates {
         LimitedField<Type>* mana;
         double* damageDTmagicCoef;
         double* healingTmagicCoef;
+        double* damageMTmagicCoef;
         double* manaTmagicCoef;
     public:
         SpellCasterStates ( LimitedField<Type>* mana,
                             double damageDTmagicCoef,
                             double healingTmagicCoef,
+                            double damageMTmagicCoef,
                             double manaTmagicCoef );
         virtual ~SpellCasterStates();
 
@@ -26,10 +35,12 @@ class SpellCasterStates {
         const Type& getManaLimit() const;
         const double& getDDTmCoef() const;
         const double& getHTmCoef() const;
+        const double& getDMTmCoef() const;
         const double& getMTmCoef() const;
 
-        virtual void receiveMana();
-        virtual void spendMana();
+        virtual void spendMana(SpellEnum sEnum, SpellCaster<Type>* caster);
+        virtual void spendMana(Spell<Type> spell, SpellCaster<Type>* caster);
+        virtual void receiveMana(Spell<Type> spell, SpellCaster<Type>* caster);
 };
 
 template <class Type>

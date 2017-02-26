@@ -1,11 +1,11 @@
-#include "LightningBolt.h"
+#include "ManaDrain.h"
 
 template <class Type>
-LightningBolt<Type>::LightningBolt( SpellEnum sEnum,
-                                    SpellEnum sType,
-                                    Type power,
-                                    Type manaCost,
-                                    const std::string& spellName )
+ManaDrain<Type>::ManaDrain( SpellEnum sEnum,
+                                SpellEnum sType,
+                                Type power,
+                                Type manaCost,
+                                const std::string& spellName )
     : Spell<Type>(sEnum, sType, power, manaCost, spellName) {
 
     if ( DEBUG ) {
@@ -14,13 +14,13 @@ LightningBolt<Type>::LightningBolt( SpellEnum sEnum,
     }
 }
 template <class Type>
-LightningBolt<Type>::~LightningBolt() {
+ManaDrain<Type>::~ManaDrain() {
     if ( DEBUG ) {
         std::cout << FO_B_RED << "        * " << FO_RESET;
         std::cout << FO_B << this->getSpellName() << FO_RESET << " destructed" << std::endl;
     }
 }
 
-template class LightningBolt<int>;
-template class LightningBolt<double>;
-template class LightningBolt<float>;
+template class ManaDrain<int>;
+template class ManaDrain<double>;
+template class ManaDrain<float>;

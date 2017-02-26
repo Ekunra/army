@@ -8,6 +8,7 @@ void SpellCaster<Type>::prepareToCast(SpellEnum sEnum) {
     if ( !this->haveEnoughMana(sEnum) ) {
         return;
     }
+    this->spendMana(sEnum);
     // this->haveEnoughMana(this->spellBook->getSpell(sEnum)->getManaCost());
     // this->spellCasterStates->spendMana(this->spellBook->getSpell(sEnum));
 }
@@ -52,7 +53,7 @@ SpellCaster<Type>::~SpellCaster() {
 
 template <class Type>
 bool SpellCaster<Type>::haveEnoughMana(Type manaNeeded) {
-        std::cout << "   - Do we have enough Mana?" << std::endl;
+        std::cout << FO_B << "   - Do we have enough Mana?" << FO_RESET << std::endl;
     if ( manaNeeded <= this->spellCasterStates->getMana() ) {
         std::cout << "   - Enough mana for casting spell." << std::endl;
         return true;
@@ -64,7 +65,7 @@ bool SpellCaster<Type>::haveEnoughMana(Type manaNeeded) {
 }
 template <class Type>
 bool SpellCaster<Type>::haveSpell(SpellEnum sEnum) {
-    std::cout << "   - Do we have such a Spell?" << std::endl;
+    std::cout << FO_B << "   - Do we have such a Spell?" << FO_RESET << std::endl;
     if ( this->spellBook->haveSpell(sEnum) ) {
         // throw NoSuchSpellException("You haven't such a Spell");
         std::cout << "   - Yes, you have such Spell." << std::endl;
@@ -95,6 +96,20 @@ const Type& SpellCaster<Type>::getMana() const {
 template <class Type>
 const Type& SpellCaster<Type>::getManaLimit() const {
     return this->spellCasterStates->getManaLimit();
+}
+
+template <class Type>
+void SpellCaster<Type>::takeMagic(MTSpell<Type>* spell) {
+    std::cout << "takeMagic(MTSpell<Type>* spell) works" << std::endl;
+}
+template <class Type>
+void SpellCaster<Type>::takeMagic(DMTSpell<Type>* spell) {
+    std::cout << "takeMagic(DMTSpell<Type>* spell) works" << std::endl;
+}
+template <class Type>
+void SpellCaster<Type>::spendMana(SpellEnum sEnum) {
+    std::cout << "   SpellCaster::spendMana(SpellEnum sEnum) works" << std::endl;
+    this->spellCasterStates->spendMana(sEnum, this);
 }
 
 template <class Type>

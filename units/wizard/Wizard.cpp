@@ -7,6 +7,7 @@ Wizard<Type>::Wizard(const std::string& name)
                                                     FieldType::MANA ),
                             (double)DDTMagicCoef::WIZARD,
                             (double)HTMagicCoef::WIZARD,
+                            (double)DMTMagicCoef::WIZARD,
                             (double)MTMagicCoef::WIZARD ),
                         new BaseCast<Type>(),
                         name,

@@ -10,6 +10,7 @@
 #include "../units/Unit.h"
 #include "../spells/spellTypes/DDTSpell.h"
 #include "../spells/spellTypes/HTSpell.h"
+#include "../spells/spellTypes/DMTSpell.h"
 #include "../spells/spellTypes/MTSpell.h"
 
 
