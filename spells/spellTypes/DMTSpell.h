@@ -8,6 +8,7 @@ template <class Type>
 class DMTSpell : public Spell<Type> {
     public:
         DMTSpell(SpellEnum sEnum, SpellEnum sType, Type power, Type manaCost, const std::string& spellName);
+        DMTSpell(const Spell<Type>& prototype, SpellCaster<Type>& caster);
         virtual ~DMTSpell();
 };
 

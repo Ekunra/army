@@ -5,6 +5,14 @@ DMTSpell<Type>::DMTSpell(SpellEnum sEnum, SpellEnum sType, Type power, Type mana
     : Spell<Type>(sEnum, sType, power, manaCost, spellName) {
     std::cout << "   * +++ DMTSpell created" << std::endl;
 }
+DMTSpell<Type>::DMTSpell(const Spell<Type>& prototype, SpellCaster<Type>& caster)
+    : Spell<Type> ( prototype.getSEnum(),
+                    prototype.getSType(),
+                    prototype.getPower(),
+                    prototype.getManaCost(),
+                    prototype.getSpellName() ) {
+    std::cout << "   * +++ DMTSpell created with Spell Prototype." << std::endl;
+}
 template <class Type>
 DMTSpell<Type>::~DMTSpell() {
     std::cout << "   * --- DMTSpell destructed" << std::endl;
