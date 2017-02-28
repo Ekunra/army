@@ -44,6 +44,7 @@ template <class Type>
 Unit<Type>::~Unit() {
     delete name;
     delete states;
+    delete altStates;
     delete primaryAbility;
     delete secondaryAbility;
     delete baseAttack;
@@ -168,10 +169,10 @@ void Unit<Type>::takeCADamage(Unit* enemy) {
 
 
 template <class Type>
-void Unit<Type>::takeMagic(/*DDTSpell* spell*/) {}
+void Unit<Type>::takeMagic(DDTSpell<Type>* spell) {}
 
-// template <class Type>
-// void Unit<Type>::takeMagic(HTSpell* spell) {}
+template <class Type>
+void Unit<Type>::takeMagic(HTSpell<Type>* spell) {}
 
 
 template <class Type>

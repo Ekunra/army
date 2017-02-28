@@ -3,11 +3,13 @@
 
 #include <iostream>
 #include <memory>
-#include "../Exceptions.h"
-#include "../Properties.h"
 #include "damage/Damage.h"
 #include "defence/Defence.h"
 #include "limitedfield/LimitedField.h"
+#include "../Exceptions.h"
+#include "../Properties.h"
+#include "../spells/spellTypes/DDTSpell.h"
+#include "../spells/spellTypes/HTSpell.h"
 
 template <class Type>
 class States {
@@ -46,8 +48,8 @@ class States {
         virtual void takeDamage(States* enemy);
         virtual void takeCADamage(States* enemy);
 
-        virtual void takeMagicEffect(/*DDTSpell* spell*/);
-        // virtual void takeMagicEffect(HTSpell* spell);
+        virtual void takeMagicEffect(DDTSpell<Type>* spell);
+        virtual void takeMagicEffect(HTSpell<Type>* spell);
 };
 
 template <class Type>

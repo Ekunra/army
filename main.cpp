@@ -53,6 +53,15 @@ int main() {
     std::cout << *w2 << std::endl;
 
     std::cout << "------------------------------" << std::endl;
+    // try {
+        w1->cast(MANADRAIN, w2);
+    // } catch (ArmyException e) {
+        // e.show();
+    // }
+    std::cout << *w1 << std::endl;
+    std::cout << *w2 << std::endl;
+
+    std::cout << "------------------------------" << std::endl;
     std::cout << *r1 << std::endl;
     std::cout << *w1 << std::endl;
     std::cout << *w2 << std::endl;

@@ -3,6 +3,10 @@
 
 #include <iostream>
 #include "../Spell.h"
+#include "../../units/SpellCaster.h"
+
+template <class Type>
+class SpellCaster;
 
 template <class Type>
 class DMTSpell : public Spell<Type> {

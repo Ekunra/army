@@ -64,12 +64,14 @@ void SpellCasterStates<Type>::spendMana(SpellEnum sEnum, SpellCaster<Type>* cast
     *this->mana -= caster->getSpell(sEnum).getManaCost();
 }
 template <class Type>
-void SpellCasterStates<Type>::spendMana(Spell<Type> spell, SpellCaster<Type>* caster) {
-    ;
+void SpellCasterStates<Type>::spendMana(Spell<Type>* spell) {
+    *this->mana -= spell->getPower();
+    delete spell;
 }
 template <class Type>
-void SpellCasterStates<Type>::receiveMana(Spell<Type> spell, SpellCaster<Type>* caster) {
-    ;
+void SpellCasterStates<Type>::receiveMana(Spell<Type>* spell) {
+    *this->mana += spell->getPower();
+    delete spell;
 }
 
 template class SpellCasterStates<int>;

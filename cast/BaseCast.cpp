@@ -29,19 +29,13 @@ void BaseCast<Type>::action(SpellEnum sEnum, SpellCaster<Type>* caster, SpellCas
             break;
         }
         case MT_MAGIC : {
-            std::cout << FO_B << caster->getName() << FO_RESET << " will cast ";
-            std::cout << FO_B << caster->getSpell(sEnum).getSpellName() << FO_RESET;
-            std::cout << " to ";
-            std::cout << FO_B << target->getName() << FO_RESET << std::endl;
             MTSpell<Type>* newSpell = new MTSpell<Type>(caster->getSpell(sEnum), *caster);
-            delete newSpell;
+            target->takeMagic(newSpell);
             break;
         }
         case DMT_MAGIC : {
-            std::cout << FO_B << caster->getName() << FO_RESET << " will cast ";
-            std::cout << FO_B << caster->getSpell(sEnum).getSpellName() << FO_RESET;
-            std::cout << " to ";
-            std::cout << FO_B << target->getName() << FO_RESET << std::endl;
+            DMTSpell<Type>* newSpell = new DMTSpell<Type>(caster->getSpell(sEnum), *caster);
+            target->takeMagic(newSpell);
             break;
         }
         default : {

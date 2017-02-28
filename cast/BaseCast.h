@@ -5,6 +5,7 @@
 #include "../debug.h"
 #include "../macro_color.cpp"
 #include "../Properties.h"
+#include "../spells/Spell.h"
 #include "../spells/SpellEnum.h"
 #include "../units/SpellCaster.h"
 #include "../units/Unit.h"
@@ -22,6 +23,9 @@ class SpellCaster;
 
 template <class Type>
 class BaseCast {
+    protected:
+        Spell<Type> createSpell(SpellEnum sEnum, SpellCaster<Type>* caster);
+
     public: 
         BaseCast();
         virtual ~BaseCast();

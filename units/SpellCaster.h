@@ -7,23 +7,13 @@
 #include "../spells/SpellBook.h"
 #include "../states/SpellCasterStates.h"
 
-template <class Type>
-class BaseCast;
-
-template <class Type>
-class BaseAbility;
-
-template <class Type>
-class BaseAttack;
-
-template <class Type>
-class BaseCounterAttack;
-
-template <class Type>
-class SpellCasterStates;
-
-template <class Type>
-class MTSpell;
+template <class Type> class BaseCast;
+template <class Type> class BaseAbility;
+template <class Type> class BaseAttack;
+template <class Type> class BaseCounterAttack;
+template <class Type> class SpellCasterStates;
+template <class Type> class DMTSpell;
+template <class Type> class MTSpell;
 
 template <class Type>
 class SpellCaster : public Unit<Type> {
@@ -33,6 +23,9 @@ class SpellCaster : public Unit<Type> {
         SpellBook<Type>* spellBook;
 
         void prepareToCast(SpellEnum sEnum);
+
+        void haveEnoughMana(Type manaNeeded);
+        void haveSpell(SpellEnum sEnum);
 
     public:
         SpellCaster(SpellCasterStates<Type>* SpellCasterStates,
@@ -46,8 +39,6 @@ class SpellCaster : public Unit<Type> {
                     BaseCounterAttack<Type>* baseCounterAttack);
         virtual ~SpellCaster();
 
-        bool haveEnoughMana(Type manaNeeded);
-        bool haveSpell(SpellEnum sEnum);
 
         const SpellCasterStates<Type>& getSpellCasterStates() const;
         const SpellBook<Type>& getSpellBook() const;

@@ -12,7 +12,7 @@ MTSpell<Type>::MTSpell(const Spell<Type>& prototype, SpellCaster<Type>& caster)
                     prototype.getPower(),
                     prototype.getManaCost(),
                     prototype.getSpellName() ) {
-    std::cout << "   * +++ MTSpell created with Spell Prototype." << std::endl;
+    std::cout << "   * +++ ManaTSpell created with Spell Prototype." << std::endl;
     }
 template <class Type>
 MTSpell<Type>::~MTSpell() {

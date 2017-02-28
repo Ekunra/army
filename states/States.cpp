@@ -129,10 +129,10 @@ void States<Type>::takeCADamage(States<Type>* enemy) {
 
 
 template <class Type>
-void States<Type>::takeMagicEffect(/*DDTSpell* spell*/) {}
+void States<Type>::takeMagicEffect(DDTSpell<Type>* spell) {}
 
-// template <class Type>
-// void States<Type>::takeMagicEffect(/*HTSpell* spell*/) {}
+template <class Type>
+void States<Type>::takeMagicEffect(HTSpell<Type>* spell) {}
 
 template class States<int>;
 template class States<double>;

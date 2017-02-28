@@ -7,15 +7,14 @@
 #include "../attack/BaseAttack.h"
 #include "../attack/BaseCounterAttack.h"
 #include "../cast/BaseCast.h"
+// #include "../spells/spellTypes/DDTSpell.h"
+// #include "../spells/spellTypes/HTSpell.h"
 
-template <class Type>
-class BaseAbility;
-
-template <class Type>
-class BaseAttack;
-
-template <class Type>
-class BaseCounterAttack;
+template <class Type> class BaseAbility;
+template <class Type> class BaseAttack;
+template <class Type> class BaseCounterAttack;
+// template <class Type> class DDTSpell;
+// template <class Type> class HTSpell;
 
 template <class Type>
 class Unit {
@@ -65,8 +64,8 @@ class Unit {
         virtual void takeDamage(Unit* enemy);
         virtual void takeCADamage(Unit* enemy);
 
-        virtual void takeMagic(/*DDTSpell* spell*/);
-        // virtual void takeMagic(HTSpell* spell);
+        virtual void takeMagic(DDTSpell<Type>* spell);
+        virtual void takeMagic(HTSpell<Type>* spell);
 
         virtual void usePrimaryAbility(Unit<Type>* enemy);
         virtual void useSecondaryAbility();

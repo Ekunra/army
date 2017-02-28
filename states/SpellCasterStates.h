@@ -6,12 +6,9 @@
 #include "../debug.h"
 #include "../macro_color.cpp"
 #include "../spells/SpellEnum.h"
-#include "../spells/spellTypes/MTSpell.h"
 #include "../spells/spellTypes/DMTSpell.h"
+#include "../spells/spellTypes/MTSpell.h"
 #include "../units/SpellCaster.h"
-
-template <class Type>
-class SpellCaster;
 
 template <class Type>
 class SpellCasterStates {
@@ -39,8 +36,8 @@ class SpellCasterStates {
         const double& getMTmCoef() const;
 
         virtual void spendMana(SpellEnum sEnum, SpellCaster<Type>* caster);
-        virtual void spendMana(Spell<Type> spell, SpellCaster<Type>* caster);
-        virtual void receiveMana(Spell<Type> spell, SpellCaster<Type>* caster);
+        virtual void spendMana(Spell<Type>* spell);
+        virtual void receiveMana(Spell<Type>* spell);
 };
 
 template <class Type>

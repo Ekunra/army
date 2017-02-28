@@ -32,6 +32,7 @@ Wizard<Type>::Wizard(const std::string& name)
     SpellCaster<Type>::spellBook->insertSpell(HEAL, new Heal<Type>);
     SpellCaster<Type>::spellBook->insertSpell(BLESS, new Bless<Type>);
     SpellCaster<Type>::spellBook->insertSpell(MANAPORTION, new ManaPortion<Type>);
+    SpellCaster<Type>::spellBook->insertSpell(MANADRAIN, new ManaDrain<Type>);
 
     if ( DEBUG ) {
         std::cout << FO_B_L_GREEN << "---------- ** " << FO_RESET;
@@ -49,8 +50,6 @@ Wizard<Type>::~Wizard() {
 template <class Type>
 void Wizard<Type>::cast(SpellEnum sEnum, SpellCaster<Type>* targetCaster) {
     if ( Unit<Type>::getUEnum() != UnitEnum::WIZARD ) {
-        // std::cout << " - This Unit has no cast ability now! He is a ";
-        // std::cout << FO_B_RED << Unit<Type>::getTitle() << FO_RESET << " now!" << std::endl;
         return;
     }
     std::cout << FO_B << this->getName() << FO_RESET;
@@ -61,8 +60,6 @@ void Wizard<Type>::cast(SpellEnum sEnum, SpellCaster<Type>* targetCaster) {
 template <class Type>
 void Wizard<Type>::cast(SpellEnum sEnum, Unit<Type>* targetUnit) {
     if ( Unit<Type>::getUEnum() != UnitEnum::WIZARD ) {
-        // std::cout << " - This Unit has no cast ability now! He is a ";
-        // std::cout << FO_B_RED << Unit<Type>::getTitle() << FO_RESET << " now!" << std::endl;
         return;
     }
     std::cout << FO_B << this->getName() << FO_RESET;
