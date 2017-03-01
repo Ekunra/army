@@ -59,7 +59,9 @@ const std::string& Spell<Type>::getSpellName() const {
 }
 
 template <class Type>
-Spell<Type> Spell<Type>::action() {}
+void Spell<Type>::action(SpellCaster<Type>* caster, SpellCaster<Type>* target) {}
+template <class Type>
+void Spell<Type>::action(SpellCaster<Type>* caster, Unit<Type>* target) {}
 
 template <class Type>
 Spell<Type> Spell<Type>::operator=(const Spell& other) {

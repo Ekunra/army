@@ -29,11 +29,12 @@ int main() {
     std::cout << *w2 << std::endl;
 
     std::cout << "------------------------------" << std::endl;
-    r1->attack(sr1);
-    r1->attack(sr1);
-    r1->attack(sr1);
-    r1->attack(sr1);
-    r1->attack(sr1);
+    sr1->attack(r1);
+    sr1->attack(r1);
+    sr1->attack(r1);
+    sr1->attack(r1);
+    sr1->attack(r1);
+    sr1->attack(r1);
     std::cout << *r1 << std::endl;
     std::cout << *sr1 << std::endl;
     std::cout << "------------------------------" << std::endl;
@@ -57,12 +58,6 @@ int main() {
     std::cout << "------------------------------" << std::endl;
 
     w1->cast(MANADRAIN, sr1);
-    std::cout << *sr1 << std::endl;
-    std::cout << *w1 << std::endl;
-
-    std::cout << "------------------------------" << std::endl;
-
-    w1->cast(MANAPORTION, w1);
     std::cout << *sr1 << std::endl;
     std::cout << *w1 << std::endl;
 

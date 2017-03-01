@@ -5,7 +5,7 @@
 #include "../debug.h"
 #include "../macro_color.cpp"
 #include "../Properties.h"
-#include "../spells/Spell.h"
+// #include "../spells/Spell.h"
 #include "../spells/SpellEnum.h"
 #include "../units/SpellCaster.h"
 #include "../units/Unit.h"

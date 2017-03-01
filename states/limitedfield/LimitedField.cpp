@@ -118,7 +118,7 @@ std::cout << "\"Operator < works\"" << std::endl;
 
 template <class Type>
 void LimitedField<Type>::operator+=(Type value) {
-std::cout << "\"Operator += works\"" << std::endl;
+std::cout << "\"Operator(LimitedField) += works\"" << std::endl;
     Type result = *this->value + value;
 
     *this->value = this->validate(result);
@@ -126,7 +126,7 @@ std::cout << "\"Operator += works\"" << std::endl;
 
 template <class Type>
 void LimitedField<Type>::operator-=(Type value) {
-std::cout << "\"Operator -= works\"" << std::endl;
+std::cout << "\"Operator(LimitedField) -= works\"" << std::endl;
     Type result = *this->value - value;
 
     *this->value = this->validate(result);

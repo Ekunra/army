@@ -31,9 +31,6 @@ BaseCast<Type>::~BaseCast() {
 
 template <class Type>
 void BaseCast<Type>::action(SpellEnum sEnum, SpellCaster<Type>* caster, SpellCaster<Type>* target) {
-    std::cout << FO_B << "   action \"SpellCaster\" received : " << FO_RESET << caster->getSpell(sEnum).getSpellName() << "\n";
-    std::cout << "                                   " << caster->getName() << "\n";
-    std::cout << "                                   " << target->getName() << std::endl;
     switch ( caster->getSpell(sEnum).getSType() ) {
         case ACT_MAGIC : {
             // std::cout << FO_B << caster->getName() << FO_RESET << " will cast ";
@@ -59,9 +56,6 @@ void BaseCast<Type>::action(SpellEnum sEnum, SpellCaster<Type>* caster, SpellCas
 
 template <class Type>
 void BaseCast<Type>::action(SpellEnum sEnum, SpellCaster<Type>* caster, Unit<Type>* target) {
-    std::cout << FO_B << "   action \"Unit\" received : " << FO_RESET << caster->getSpell(sEnum).getSpellName() << "\n";
-    std::cout << "                            " << caster->getName() << "\n";
-    std::cout << "                            " << target->getName() << std::endl;
     if ( caster->getSpell(sEnum).getSType() == MT_MAGIC || caster->getSpell(sEnum).getSType() == DMT_MAGIC ) {
         std::cout << FO_B << " Is not much usefull!!!" << FO_RESET << std::endl;
         return;
@@ -77,19 +71,11 @@ void BaseCast<Type>::action(SpellEnum sEnum, SpellCaster<Type>* caster, Unit<Typ
             break;
         }
         case DDT_MAGIC : {
-            std::cout << FO_B << caster->getName() << FO_RESET << " will cast ";
-            std::cout << FO_B << caster->getSpell(sEnum).getSpellName() << FO_RESET;
-            std::cout << " to ";
-            std::cout << FO_B << target->getName() << FO_RESET << std::endl;
             target->takeMagic(new DDTSpell<Type>(this->createSpell(sEnum, caster, caster->getSpellCasterStates().getDDTmCoef())));
             break;
         }
         case HT_MAGIC : {
-            std::cout << FO_B << caster->getName() << FO_RESET << " will cast ";
-            std::cout << FO_B << caster->getSpell(sEnum).getSpellName() << FO_RESET;
-            std::cout << " to ";
-            std::cout << FO_B << target->getName() << FO_RESET << std::endl;
-            target->takeMagic(new DDTSpell<Type>(this->createSpell(sEnum, caster, caster->getSpellCasterStates().getHTmCoef())));
+            target->takeMagic(new HTSpell<Type>(this->createSpell(sEnum, caster, caster->getSpellCasterStates().getHTmCoef())));
             break;
         }
         default : {}

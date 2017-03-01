@@ -150,13 +150,13 @@ void Unit<Type>::counterAttack(Unit* enemy) {
 
 template <class Type>
 void Unit<Type>::takeDamage(Unit* enemy) {
-    // std::cout << "      --- " << this->getName() << " taking damage." << std::endl;
+    std::cout << "      --- " << this->getName() << " taking damage." << std::endl;
     if ( this->isAlive() ) {
-        // std::cout << "      * isAlive in takeDamage() function." << std::endl;
+        std::cout << "      * isAlive in takeDamage() function." << std::endl;
         this->states->takeDamage(enemy->states);
-        // std::cout << "      * this->states->takeDamage(enemy->states) sent states and finishing it's work." << std::endl;
+        std::cout << "      * this->states->takeDamage(enemy->states) sent states and finishing it's work." << std::endl;
     } else {
-        // std::cout << "      --- " << this->getName() << " is not alive & can't take damage." << std::endl;
+        std::cout << "      --- " << this->getName() << " is not alive & can't take damage." << std::endl;
     }
 }
 

@@ -5,7 +5,12 @@
 #include "../debug.h"
 #include "../Properties.h"
 #include "../macro_color.cpp"
+// #include "../units/SpellCaster.h" - Ваще ППЦ при включении не компилится!!!!!!!!!!!!!!!!!!!!!!!!
+// #include "../units/Unit.h" - Ваще ППЦ при включении не компилится!!!!!!!!!!!!!!!!!!!!!!!!
 #include "SpellEnum.h"
+
+template <class Type> class SpellCaster;
+template <class Type> class Unit;
 
 template <class Type>
 class Spell {
@@ -27,7 +32,8 @@ class Spell {
         const Type& getManaCost() const;
         const std::string& getSpellName() const;
 
-        Spell<Type> action();
+        void action(SpellCaster<Type>* caster, SpellCaster<Type>* target);
+        void action(SpellCaster<Type>* caster, Unit<Type>* target);
 
         Spell<Type> operator=(const Spell& other);
 };
