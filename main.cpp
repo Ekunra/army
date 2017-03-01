@@ -44,7 +44,25 @@ int main() {
     
     std::cout << "------------------------------" << std::endl;
 
-    w1->cast(FIREBALL, w2);
+    w1->cast(HEAL, sr1);
+    std::cout << *sr1 << std::endl;
+    std::cout << *w1 << std::endl;
+
+    std::cout << "------------------------------" << std::endl;
+
+    w1->cast(MANAPORTION, sr1);
+    std::cout << *sr1 << std::endl;
+    std::cout << *w1 << std::endl;
+
+    std::cout << "------------------------------" << std::endl;
+
+    w1->cast(MANADRAIN, sr1);
+    std::cout << *sr1 << std::endl;
+    std::cout << *w1 << std::endl;
+
+    std::cout << "------------------------------" << std::endl;
+
+    w1->cast(MANAPORTION, w1);
     std::cout << *sr1 << std::endl;
     std::cout << *w1 << std::endl;
 
