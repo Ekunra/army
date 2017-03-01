@@ -8,6 +8,7 @@ template <class Type>
 class DDTSpell : public Spell<Type> {
     public:
         DDTSpell(SpellEnum sEnum, SpellEnum sType, Type power, Type manaCost, const std::string& spellName);
+        DDTSpell(const Spell<Type>& prototype);
         virtual ~DDTSpell();
 };
 

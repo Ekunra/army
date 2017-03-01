@@ -3,16 +3,12 @@
 
 #include <iostream>
 #include "../Spell.h"
-#include "../../units/SpellCaster.h"
-
-template <class Type>
-class SpellCaster;
 
 template <class Type>
 class MTSpell : public Spell<Type> {
     public:
         MTSpell(SpellEnum sEnum, SpellEnum sType, Type power, Type manaCost, const std::string& spellName);
-        MTSpell(const Spell<Type>& prototype, SpellCaster<Type>& caster);
+        MTSpell(const Spell<Type>& prototype);
         virtual ~MTSpell();
 };
 

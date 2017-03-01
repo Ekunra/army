@@ -24,7 +24,7 @@ class SpellCaster;
 template <class Type>
 class BaseCast {
     protected:
-        Spell<Type> createSpell(SpellEnum sEnum, SpellCaster<Type>* caster);
+        Spell<Type> createSpell(SpellEnum sEnum, SpellCaster<Type>* caster, double coef);
 
     public: 
         BaseCast();

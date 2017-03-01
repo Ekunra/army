@@ -6,6 +6,15 @@ HTSpell<Type>::HTSpell(SpellEnum sEnum, SpellEnum sType, Type power, Type manaCo
     std::cout << "   * +++ HTSpell created" << std::endl;
 }
 template <class Type>
+HTSpell<Type>::HTSpell(const Spell<Type>& prototype)
+    : Spell<Type> ( prototype.getSEnum(),
+                    prototype.getSType(),
+                    prototype.getPower(),
+                    prototype.getManaCost(),
+                    prototype.getSpellName() ) {
+    std::cout << "   * +++ HealthTSpell created with Spell Prototype." << std::endl;
+    }
+template <class Type>
 HTSpell<Type>::~HTSpell() {
     std::cout << "   * --- HTSpell destructed" << std::endl;
 }
@@ -16,7 +25,7 @@ template class HTSpell<float>;
 
 template <class Type>
 std::ostream& operator<<(std::ostream& out, const HTSpell<Type>& spell) {
-    std::cout << *((HTSpell<Type>*)(&spell));
+    std::cout << *((Spell<Type>*)(&spell));
     return out;
 }
 

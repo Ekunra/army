@@ -36,7 +36,7 @@ bool Unit<double>::isAlive() {
 template <>
 bool Unit<float>::isAlive() {
     std::cout << " - <float>::isAlive() is working." << std::endl;
-    return this->states->getHitPoints() >= 0.1;
+    return this->states->getHitPoints() >= 0.01;
 }
 
 

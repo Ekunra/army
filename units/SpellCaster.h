@@ -12,8 +12,8 @@ template <class Type> class BaseAbility;
 template <class Type> class BaseAttack;
 template <class Type> class BaseCounterAttack;
 template <class Type> class SpellCasterStates;
-template <class Type> class DMTSpell;
-template <class Type> class MTSpell;
+// template <class Type> class DMTSpell;
+// template <class Type> class MTSpell;
 
 template <class Type>
 class SpellCaster : public Unit<Type> {

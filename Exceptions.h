@@ -10,7 +10,7 @@ class ArmyException {
         ArmyException(const std::string& text) : text(text) {}
 
         void show() {
-            std::cout << FO_B_L_RED << "   - " << text << FO_RESET << std::endl;
+            std::cout << FO_B_L_RED << "   - [EXCEPION] " << text << FO_RESET << std::endl;
         }
 };
 

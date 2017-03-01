@@ -10,6 +10,8 @@
 #include "../spells/spellTypes/MTSpell.h"
 #include "../units/SpellCaster.h"
 
+template <class Type> class SpellCaster;
+
 template <class Type>
 class SpellCasterStates {
     protected:

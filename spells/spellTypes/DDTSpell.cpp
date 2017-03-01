@@ -6,6 +6,15 @@ DDTSpell<Type>::DDTSpell(SpellEnum sEnum, SpellEnum sType, Type power, Type mana
     std::cout << "   * +++ DDTSpell created" << std::endl;
 }
 template <class Type>
+DDTSpell<Type>::DDTSpell(const Spell<Type>& prototype)
+    : Spell<Type> ( prototype.getSEnum(),
+                    prototype.getSType(),
+                    prototype.getPower(),
+                    prototype.getManaCost(),
+                    prototype.getSpellName() ) {
+    std::cout << "   * +++ DamageDTSpell created with Spell Prototype." << std::endl;
+    }
+template <class Type>
 DDTSpell<Type>::~DDTSpell() {
     std::cout << "   * --- DDTSpell destructed" << std::endl;
 }

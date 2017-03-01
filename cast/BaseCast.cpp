@@ -1,6 +1,20 @@
 #include "BaseCast.h"
 
 template <class Type>
+Spell<Type> BaseCast<Type>::createSpell(SpellEnum sEnum, SpellCaster<Type>* caster, double coef) {
+    std::cout << "   we receive " << caster->getSpell(sEnum).getSpellName() << " with spellPower = " << caster->getSpell(sEnum).getPower() << " and coef = " << coef << std::endl;
+    std::cout << "   Will be Power: " << caster->getSpell(sEnum).getPower() * coef << std::endl;
+    std::cout << "        manaCost: " << caster->getSpell(sEnum).getManaCost() << std::endl;
+    std::cout << "            name: " << caster->getSpell(sEnum).getSpellName() << std::endl;
+    Spell<Type> spell ( caster->getSpell(sEnum).getSEnum(),
+                        caster->getSpell(sEnum).getSType(),
+                        caster->getSpell(sEnum).getPower() * coef,
+                        caster->getSpell(sEnum).getManaCost(),
+                        caster->getSpell(sEnum).getSpellName());
+    return spell;
+}
+
+template <class Type>
 BaseCast<Type>::BaseCast() {
     if ( DEBUG ) {
         std::cout << FO_B_GREEN << "|          + " << FO_RESET;
@@ -22,20 +36,18 @@ void BaseCast<Type>::action(SpellEnum sEnum, SpellCaster<Type>* caster, SpellCas
     std::cout << "                                   " << target->getName() << std::endl;
     switch ( caster->getSpell(sEnum).getSType() ) {
         case ACT_MAGIC : {
-            std::cout << FO_B << caster->getName() << FO_RESET << " will cast ";
-            std::cout << FO_B << caster->getSpell(sEnum).getSpellName() << FO_RESET;
-            std::cout << " to ";
-            std::cout << FO_B << target->getName() << FO_RESET << std::endl;
+            // std::cout << FO_B << caster->getName() << FO_RESET << " will cast ";
+            // std::cout << FO_B << caster->getSpell(sEnum).getSpellName() << FO_RESET;
+            // std::cout << " to ";
+            // std::cout << FO_B << target->getName() << FO_RESET << std::endl;
             break;
         }
         case MT_MAGIC : {
-            MTSpell<Type>* newSpell = new MTSpell<Type>(caster->getSpell(sEnum), *caster);
-            target->takeMagic(newSpell);
+            target->takeMagic(new MTSpell<Type>(this->createSpell(sEnum, caster, caster->getSpellCasterStates().getMTmCoef())));
             break;
         }
         case DMT_MAGIC : {
-            DMTSpell<Type>* newSpell = new DMTSpell<Type>(caster->getSpell(sEnum), *caster);
-            target->takeMagic(newSpell);
+            target->takeMagic(new DMTSpell<Type>(this->createSpell(sEnum, caster, caster->getSpellCasterStates().getDMTmCoef())));
             break;
         }
         default : {

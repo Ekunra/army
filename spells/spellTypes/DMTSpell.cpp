@@ -6,7 +6,7 @@ DMTSpell<Type>::DMTSpell(SpellEnum sEnum, SpellEnum sType, Type power, Type mana
     std::cout << "   * +++ DMTSpell created" << std::endl;
 }
 template <class Type>
-DMTSpell<Type>::DMTSpell(const Spell<Type>& prototype, SpellCaster<Type>& caster)
+DMTSpell<Type>::DMTSpell(const Spell<Type>& prototype)
     : Spell<Type> ( prototype.getSEnum(),
                     prototype.getSType(),
                     prototype.getPower(),

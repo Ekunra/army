@@ -6,7 +6,7 @@ MTSpell<Type>::MTSpell(SpellEnum sEnum, SpellEnum sType, Type power, Type manaCo
     std::cout << "   * +++ MTSpell created" << std::endl;
 }
 template <class Type>
-MTSpell<Type>::MTSpell(const Spell<Type>& prototype, SpellCaster<Type>& caster)
+MTSpell<Type>::MTSpell(const Spell<Type>& prototype)
     : Spell<Type> ( prototype.getSEnum(),
                     prototype.getSType(),
                     prototype.getPower(),

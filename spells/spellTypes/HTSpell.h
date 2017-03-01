@@ -8,6 +8,7 @@ template <class Type>
 class HTSpell : public Spell<Type> {
     public:
         HTSpell(SpellEnum sEnum, SpellEnum sType, Type power, Type manaCost, const std::string& spellName);
+        HTSpell(const Spell<Type>& prototype);
         virtual ~HTSpell();
 };
 

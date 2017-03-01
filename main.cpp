@@ -14,12 +14,12 @@
 
 
 int main() {
-    // Soldier<double>* sr1 = new Soldier<double>("SR1");
+    Soldier<int>* sr1 = new Soldier<int>("SR1");
 
     // MTSpell<double>* newSpell = new MTSpell<double>(MANAPORTION, MT_MAGIC, (double)sPower::MANAPORTION, (double)sCost::MANAPORTION, "ManaPortion");
-    Rogue<double>* r1 = new Rogue<double>("RG1");
-    Wizard<double>* w1 = new Wizard<double>("WZ1");
-    Wizard<double>* w2 = new Wizard<double>("WZ2");
+    Rogue<int>* r1 = new Rogue<int>("RG1");
+    Wizard<int>* w1 = new Wizard<int>("WZ1");
+    Wizard<int>* w2 = new Wizard<int>("WZ2");
 
     std::cout << "------------------------------" << std::endl;
 
@@ -30,36 +30,56 @@ int main() {
 
     std::cout << "------------------------------" << std::endl;
 
-    w1->cast(MANAPORTION, r1);
-    std::cout << *r1 << std::endl;
-    std::cout << *w1 << std::endl;
-
-    std::cout << "------------------------------" << std::endl;
-    
-    w1->cast(FIREBALL, r1);
-    std::cout << *r1 << std::endl;
-    std::cout << *w1 << std::endl;
-
-    std::cout << "------------------------------" << std::endl;
-    
-    w1->cast(FIREBALL, w2);
+    w1->cast(MANADRAIN, w2);
     std::cout << *w1 << std::endl;
     std::cout << *w2 << std::endl;
+
+    std::cout << "------------------------------" << std::endl;
+    
+    w1->cast(MANADRAIN, w2);
+    std::cout << *w1 << std::endl;
+    std::cout << *w2 << std::endl;
+
+    std::cout << "------------------------------" << std::endl;
+    
+    // w1->cast(FIREBALL, w2);
+    // std::cout << *w1 << std::endl;
+    // std::cout << *w2 << std::endl;
     
     std::cout << "------------------------------" << std::endl;
     
+    w1->cast(MANAPORTION, w2);
+    std::cout << *w1 << std::endl;
+    std::cout << *w2 << std::endl;
+
+    std::cout << "------------------------------" << std::endl;
+    sr1->attack(w2);
+    std::cout << *w2 << std::endl;
+    sr1->attack(w2);
+    std::cout << *w2 << std::endl;
+    sr1->attack(w2);
+    std::cout << *w2 << std::endl;
+    sr1->attack(w2);
+    std::cout << *w2 << std::endl;
+    sr1->attack(w2);
+    std::cout << *w2 << std::endl;
+    sr1->attack(w2);
+    std::cout << "------------------------------" << std::endl;
+    w1->cast(MANAPORTION, w2);
+    std::cout << *w2 << std::endl;
+    std::cout << "------------------------------" << std::endl;
+    std::cout << *w1 << std::endl;
     w2->cast(MANAPORTION, w1);
     std::cout << *w1 << std::endl;
-    std::cout << *w2 << std::endl;
 
     std::cout << "------------------------------" << std::endl;
     // try {
-        w1->cast(MANADRAIN, w2);
+        // w1->cast(MANADRAIN, w2);
     // } catch (ArmyException e) {
         // e.show();
     // }
-    std::cout << *w1 << std::endl;
-    std::cout << *w2 << std::endl;
+    // std::cout << *w1 << std::endl;
+    // std::cout << *w2 << std::endl;
 
     std::cout << "------------------------------" << std::endl;
     std::cout << *r1 << std::endl;

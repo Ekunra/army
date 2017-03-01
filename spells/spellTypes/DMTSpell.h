@@ -3,16 +3,16 @@
 
 #include <iostream>
 #include "../Spell.h"
-#include "../../units/SpellCaster.h"
+// #include "../../units/SpellCaster.h"
 
-template <class Type>
-class SpellCaster;
+// template <class Type>
+// class SpellCaster;
 
 template <class Type>
 class DMTSpell : public Spell<Type> {
     public:
         DMTSpell(SpellEnum sEnum, SpellEnum sType, Type power, Type manaCost, const std::string& spellName);
-        DMTSpell(const Spell<Type>& prototype, SpellCaster<Type>& caster);
+        DMTSpell(const Spell<Type>& prototype);
         virtual ~DMTSpell();
 };
 
