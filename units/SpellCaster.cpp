@@ -91,12 +91,22 @@ const Type& SpellCaster<Type>::getManaLimit() const {
 template <class Type>
 void SpellCaster<Type>::takeMagic(MTSpell<Type>* spell) {
     std::cout << "   " << FO_D_GREY << this->getName() << FO_RESET << " takeMagic(MTSpell<Type>* spell) works" << std::endl;
-    this->spellCasterStates->receiveMana(spell);
+    if ( this->Unit<Type>::isAlive() ) {
+        this->spellCasterStates->receiveMana(spell);
+    } else {
+        std::cout << "   " << this->getName() << "is not alive and can't receive MTSpell, deleting SPELL" << std::endl;
+        delete spell;
+    }
 }
 template <class Type>
 void SpellCaster<Type>::takeMagic(DMTSpell<Type>* spell) {
     std::cout << "   " << FO_D_GREY << this->getName() << FO_RESET << " takeMagic(DMTSpell<Type>* spell) works" << std::endl;
-    this->spellCasterStates->spendMana(spell);
+    if ( this->Unit<Type>::isAlive() ) {
+        this->spellCasterStates->spendMana(spell);
+    } else {
+        std::cout << "   " << this->getName() << "is not alive and can't receive DMTSpell, deleting SPELL" << std::endl;
+        delete spell;
+    }
 }
 template <class Type>
 void SpellCaster<Type>::spendMana(SpellEnum sEnum) {
@@ -107,11 +117,13 @@ void SpellCaster<Type>::spendMana(SpellEnum sEnum) {
 template <class Type>
 void SpellCaster<Type>::cast(SpellEnum sEnum, SpellCaster<Type>* someCaster) {
     try {
-        this->prepareToCast(sEnum);
-        std::cout << FO_B << this->getName() << FO_RESET;
-        std::cout << "'s Spellcaster::cast(SpellEnum, SpellCaster*) received ";
-        std::cout << someCaster->getName() << " for sending it to baseCast" << std::endl;
-        this->baseCast->action(sEnum, this, someCaster);
+        if ( this->Unit<Type>::isAlive() ) {
+            this->prepareToCast(sEnum);
+            std::cout << FO_B << this->getName() << FO_RESET;
+            std::cout << "'s Spellcaster::cast(SpellEnum, SpellCaster*) received ";
+            std::cout << someCaster->getName() << " for sending it to baseCast" << std::endl;
+            this->baseCast->action(sEnum, this, someCaster);
+        }
     } catch (ArmyException e) {
         e.show();
     }
@@ -119,11 +131,13 @@ void SpellCaster<Type>::cast(SpellEnum sEnum, SpellCaster<Type>* someCaster) {
 template <class Type>
 void SpellCaster<Type>::cast(SpellEnum sEnum, Unit<Type>* enemy) {
     try {
-        this->prepareToCast(sEnum);
-        std::cout << FO_B << this->getName() << FO_RESET;
-        std::cout << "'s Spellcaster::cast(SpellEnum, Unit*) received ";
-        std::cout << enemy->getName() << " for sending it to baseCast" << std::endl;
-        this->baseCast->action(sEnum, this, enemy);
+        if ( this->Unit<Type>::isAlive() ) {
+            this->prepareToCast(sEnum);
+            std::cout << FO_B << this->getName() << FO_RESET;
+            std::cout << "'s Spellcaster::cast(SpellEnum, Unit*) received ";
+            std::cout << enemy->getName() << " for sending it to baseCast" << std::endl;
+            this->baseCast->action(sEnum, this, enemy);
+        }
     } catch (ArmyException e) {
         e.show();
     }

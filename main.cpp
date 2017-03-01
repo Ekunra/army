@@ -14,62 +14,38 @@
 
 
 int main() {
-    Soldier<int>* sr1 = new Soldier<int>("SR1");
 
     // MTSpell<double>* newSpell = new MTSpell<double>(MANAPORTION, MT_MAGIC, (double)sPower::MANAPORTION, (double)sCost::MANAPORTION, "ManaPortion");
+    Soldier<int>* sr1 = new Soldier<int>("SR1");
     Rogue<int>* r1 = new Rogue<int>("RG1");
     Wizard<int>* w1 = new Wizard<int>("WZ1");
     Wizard<int>* w2 = new Wizard<int>("WZ2");
 
     std::cout << "------------------------------" << std::endl;
 
-    // std::cout << *sr1 << std::endl;
+    std::cout << *sr1 << std::endl;
     std::cout << *r1 << std::endl;
     std::cout << *w1 << std::endl;
     std::cout << *w2 << std::endl;
 
     std::cout << "------------------------------" << std::endl;
-
-    w1->cast(MANADRAIN, w2);
-    std::cout << *w1 << std::endl;
-    std::cout << *w2 << std::endl;
-
+    r1->attack(sr1);
+    r1->attack(sr1);
+    r1->attack(sr1);
+    r1->attack(sr1);
+    r1->attack(sr1);
+    std::cout << *r1 << std::endl;
+    std::cout << *sr1 << std::endl;
     std::cout << "------------------------------" << std::endl;
-    
-    w1->cast(MANADRAIN, w2);
-    std::cout << *w1 << std::endl;
-    std::cout << *w2 << std::endl;
 
-    std::cout << "------------------------------" << std::endl;
-    
-    // w1->cast(FIREBALL, w2);
-    // std::cout << *w1 << std::endl;
-    // std::cout << *w2 << std::endl;
+    w1->cast(FIREBALL, sr1);
+    std::cout << *sr1 << std::endl;
+    std::cout << *w1 << std::endl;
     
     std::cout << "------------------------------" << std::endl;
-    
-    w1->cast(MANAPORTION, w2);
-    std::cout << *w1 << std::endl;
-    std::cout << *w2 << std::endl;
 
-    std::cout << "------------------------------" << std::endl;
-    sr1->attack(w2);
-    std::cout << *w2 << std::endl;
-    sr1->attack(w2);
-    std::cout << *w2 << std::endl;
-    sr1->attack(w2);
-    std::cout << *w2 << std::endl;
-    sr1->attack(w2);
-    std::cout << *w2 << std::endl;
-    sr1->attack(w2);
-    std::cout << *w2 << std::endl;
-    sr1->attack(w2);
-    std::cout << "------------------------------" << std::endl;
-    w1->cast(MANAPORTION, w2);
-    std::cout << *w2 << std::endl;
-    std::cout << "------------------------------" << std::endl;
-    std::cout << *w1 << std::endl;
-    w2->cast(MANAPORTION, w1);
+    w1->cast(FIREBALL, w2);
+    std::cout << *sr1 << std::endl;
     std::cout << *w1 << std::endl;
 
     std::cout << "------------------------------" << std::endl;
@@ -82,6 +58,7 @@ int main() {
     // std::cout << *w2 << std::endl;
 
     std::cout << "------------------------------" << std::endl;
+    std::cout << *sr1 << std::endl;
     std::cout << *r1 << std::endl;
     std::cout << *w1 << std::endl;
     std::cout << *w2 << std::endl;
@@ -100,6 +77,7 @@ int main() {
     std::cout << "------------------------------" << std::endl;
 
     // delete sr1;
+    delete sr1;
     delete r1;
     delete w1;
     delete w2;

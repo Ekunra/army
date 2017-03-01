@@ -81,6 +81,7 @@ void BaseCast<Type>::action(SpellEnum sEnum, SpellCaster<Type>* caster, Unit<Typ
             std::cout << FO_B << caster->getSpell(sEnum).getSpellName() << FO_RESET;
             std::cout << " to ";
             std::cout << FO_B << target->getName() << FO_RESET << std::endl;
+            target->takeMagic(new DDTSpell<Type>(this->createSpell(sEnum, caster, caster->getSpellCasterStates().getDDTmCoef())));
             break;
         }
         case HT_MAGIC : {
@@ -88,6 +89,7 @@ void BaseCast<Type>::action(SpellEnum sEnum, SpellCaster<Type>* caster, Unit<Typ
             std::cout << FO_B << caster->getSpell(sEnum).getSpellName() << FO_RESET;
             std::cout << " to ";
             std::cout << FO_B << target->getName() << FO_RESET << std::endl;
+            target->takeMagic(new DDTSpell<Type>(this->createSpell(sEnum, caster, caster->getSpellCasterStates().getHTmCoef())));
             break;
         }
         default : {}
