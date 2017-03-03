@@ -85,6 +85,10 @@ template <class Type>
 const BaseAbility<Type>* Unit<Type>::getSecondaryAbility() const {
     return this->secondaryAbility;
 }
+template <class Type>
+LimitedField<Type>& Unit<Type>::getHealthObj() {
+    return this->states->getHealthObj();
+}
 
 
 template <class Type>

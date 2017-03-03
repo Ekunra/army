@@ -46,6 +46,7 @@ class Unit {
         const States<Type>* getStates() const;
         const BaseAbility<Type>* getPrimaryAbility() const;
         const BaseAbility<Type>* getSecondaryAbility() const;
+        LimitedField<Type>& getHealthObj();
 
         const Type& getHitPoints() const;
         const Type& getHitPointsLimit() const;
