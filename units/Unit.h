@@ -7,14 +7,10 @@
 #include "../attack/BaseAttack.h"
 #include "../attack/BaseCounterAttack.h"
 #include "../cast/BaseCast.h"
-// #include "../spells/spellTypes/DDTSpell.h"
-// #include "../spells/spellTypes/HTSpell.h"
 
 template <class Type> class BaseAbility;
 template <class Type> class BaseAttack;
 template <class Type> class BaseCounterAttack;
-// template <class Type> class DDTSpell;
-// template <class Type> class HTSpell;
 
 template <class Type>
 class Unit {
@@ -27,7 +23,6 @@ class Unit {
         BaseAttack<Type>* baseAttack;
         BaseCounterAttack<Type>* baseCounterAttack;
 
-        bool isAlive();
 
     public:
         Unit(const std::string& name,
@@ -39,6 +34,7 @@ class Unit {
                 BaseCounterAttack<Type>* baseCounterAttack);
         virtual ~Unit();
 
+        bool isAlive();
         void ensureIsAlive();
 
         const LimitedField<Type>* getHealth() const;
@@ -46,12 +42,13 @@ class Unit {
         const States<Type>* getStates() const;
         const BaseAbility<Type>* getPrimaryAbility() const;
         const BaseAbility<Type>* getSecondaryAbility() const;
-        LimitedField<Type>& getHealthObj();
+        LimitedField<Type>& getHealthField();
 
         const Type& getHitPoints() const;
         const Type& getHitPointsLimit() const;
         const Type& getMaxDmg() const;
         const Type& getMinDmg() const;
+        const Type& getLastDmg() const;
         const UnitEnum& getUEnum() const;
         const UnitEnum& getUType() const;
         const std::string& getTitle() const;

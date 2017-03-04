@@ -86,8 +86,8 @@ const BaseAbility<Type>* Unit<Type>::getSecondaryAbility() const {
     return this->secondaryAbility;
 }
 template <class Type>
-LimitedField<Type>& Unit<Type>::getHealthObj() {
-    return this->states->getHealthObj();
+LimitedField<Type>& Unit<Type>::getHealthField() {
+    return this->states->getHealthField();
 }
 
 
@@ -106,6 +106,10 @@ const Type& Unit<Type>::getMaxDmg() const {
 template <class Type>
 const Type& Unit<Type>::getMinDmg() const {
     return this->states->getMinDmg();
+}
+template <class Type>
+const Type& Unit<Type>::getLastDmg() const {
+    return this->states->getLastDmg();
 }
 template <class Type>
 const UnitEnum& Unit<Type>::getUEnum() const {

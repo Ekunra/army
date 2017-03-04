@@ -47,7 +47,7 @@ const Defence* States<Type>::getDefence() const {
     return this->defence;
 }
 template <class Type>
-LimitedField<Type>& States<Type>::getHealthObj() {
+LimitedField<Type>& States<Type>::getHealthField() {
     return *this->health;
 }
 

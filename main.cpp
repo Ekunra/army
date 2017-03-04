@@ -80,9 +80,9 @@ int main() {
     std::cout << "------------------------------" << std::endl;
     std::cout << *s << std::endl;
     std::cout << "------------------------------" << std::endl;
-    s->getHealthObj() -= 50;
+    s->getHealthField() -= 50;
     std::cout << *s << std::endl;
-    s->getHealthObj() += 27.7;
+    s->getHealthField() += 27.7;
     std::cout << *s << std::endl;
     std::cout << "------------------------------" << std::endl;
 

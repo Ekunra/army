@@ -149,6 +149,10 @@ enum class DMTMagicCoef { // Divided by 100 while initialization.
     NECROMANCER = 100
 };
 
+enum class VampireDrinkBlood { // Divided by 100 while calculation
+    COEF = 50
+};
+
 enum class FieldType {
     HEALTH,
     MANA,

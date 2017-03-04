@@ -33,7 +33,7 @@ class States {
         const LimitedField<Type>* getHealth() const;
         const Damage<Type>* getDamageObj() const;
         const Defence* getDefence() const;
-        LimitedField<Type>& getHealthObj();
+        LimitedField<Type>& getHealthField();
 
         const Type& getHitPoints() const;
         const Type& getHitPointsLimit() const;
