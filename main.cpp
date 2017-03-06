@@ -4,6 +4,7 @@
 #include "units/soldier/Soldier.h"
 #include "units/rogue/Rogue.h"
 #include "units/vampire/Vampire.h"
+#include "units/werewolf/Werewolf.h"
 #include "units/wizard/Wizard.h"
 #include "spells/SpellBook.h"
 #include "spells/Spell.h"
@@ -16,6 +17,7 @@ int main() {
     Soldier<double>* sr1 = new Soldier<double>("SR1");
     Rogue<double>* r1 = new Rogue<double>("RG1");
     Vampire<double>* v1 = new Vampire<double>("VR1");
+    Werewolf<double>* w1 = new Werewolf<double>("WW1");
     // Wizard<int>* w1 = new Wizard<int>("WZ1");
     // Wizard<int>* w2 = new Wizard<int>("WZ2");
 
@@ -78,6 +80,7 @@ int main() {
     delete sr1;
     delete r1;
     delete v1;
+    delete w1;
     // delete w1;
     // delete w2;
     return 0;
