@@ -13,8 +13,10 @@ Randomizer::Randomizer() {
 }
 Randomizer::~Randomizer() {
     if ( DEBUG ) {
+        std::cout << "----------------------------\n";
         std::cout << FO_B_RED << " * " << FO_RESET << "instance of ";
         std::cout << FO_B << "Randomizer" << FO_RESET << " deleted." << std::endl;
+        std::cout << "----------------------------" << std::endl;
     }
 }
 
