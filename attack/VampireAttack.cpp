@@ -20,6 +20,7 @@ VampireAttack<Type>::~VampireAttack() {
 template <class Type>
 void VampireAttack<Type>::attack(Unit<Type>* attacker, Unit<Type>* enemy) {
     std::cout << "      --- " << attacker->getName() << " attacking " << enemy->getName() << std::endl;
+        std::cout << "Calling ISALIVE from VampireAttack..." << std::endl;
     bool alive = enemy->isAlive();
     Type enemyHealth;
 
@@ -32,11 +33,11 @@ void VampireAttack<Type>::attack(Unit<Type>* attacker, Unit<Type>* enemy) {
 
         if ( alive ) {
             if ( enemyHealth >= attacker->getLastDmg()) {
-                attacker->getHealthField() += attacker->getLastDmg() / ((double)VampireDrinkBlood::COEF / 100);
-                std::cout << "   Vampire get << " << attacker->getLastDmg() / ((double)VampireDrinkBlood::COEF / 100) << "points of health." << std::endl;
+                attacker->getHealthField() += attacker->getLastDmg() * ((double)VampireDrinkBlood::COEF / 100);
+                std::cout << "   Vampire get " << attacker->getLastDmg() * ((double)VampireDrinkBlood::COEF / 100) << " oints of health. Vampire health is " << attacker->getHealthField() << std::endl;
             } else {
-                attacker->getHealthField() += enemyHealth / ((double)VampireDrinkBlood::COEF / 100);
-                std::cout << "   Vampire get << " << enemyHealth / ((double)VampireDrinkBlood::COEF / 100) << "points of health." << std::endl;
+                attacker->getHealthField() += enemyHealth * ((double)VampireDrinkBlood::COEF / 100);
+                std::cout << "   Vampire get " << enemyHealth * ((double)VampireDrinkBlood::COEF / 100) << " points of health. Vampire health is " << attacker->getHealthField() << std::endl;
             }
         }
     std::cout << "      --- " << attacker->getName() << " calling " << enemy->getName()  << "\'s counterAttack!" << std::endl;

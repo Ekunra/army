@@ -13,30 +13,39 @@
 int main() {
 
     // MTSpell<double>* newSpell = new MTSpell<double>(MANAPORTION, MT_MAGIC, (double)sPower::MANAPORTION, (double)sCost::MANAPORTION, "ManaPortion");
-    // Soldier<int>* sr1 = new Soldier<int>("SR1");
-    // Rogue<int>* r1 = new Rogue<int>("RG1");
+    Soldier<int>* sr1 = new Soldier<int>("SR1");
+    Rogue<int>* r1 = new Rogue<int>("RG1");
+    Vampire<int>* v1 = new Vampire<int>("VR1");
     // Wizard<int>* w1 = new Wizard<int>("WZ1");
     // Wizard<int>* w2 = new Wizard<int>("WZ2");
-    Vampire<double>* v1 = new Vampire<double>("VR1");
 
     std::cout << "------------------------------" << std::endl;
 
-    // std::cout << *sr1 << std::endl;
-    // std::cout << *r1 << std::endl;
+    std::cout << *sr1 << std::endl;
+    std::cout << *r1 << std::endl;
     std::cout << *v1 << std::endl;
     // std::cout << *w1 << std::endl;
     // std::cout << *w2 << std::endl;
 
     // std::cout << "------------------------------" << std::endl;
-    // sr1->attack(r1);
-    // sr1->attack(r1);
-    // sr1->attack(r1);
-    // sr1->attack(r1);
-    // sr1->attack(r1);
-    // sr1->attack(r1);
-    // std::cout << *r1 << std::endl;
-    // std::cout << *sr1 << std::endl;
-    // std::cout << "------------------------------" << std::endl;
+    r1->attack(sr1);
+    r1->attack(v1);
+    r1->attack(v1);
+    std::cout << *sr1 << std::endl;
+    std::cout << *r1 << std::endl;
+    std::cout << *v1 << std::endl;
+    std::cout << "------------------------------" << std::endl;
+    v1->attack(sr1);
+    std::cout << "------------------------------" << std::endl;
+    v1->attack(sr1);
+    std::cout << "------------------------------" << std::endl;
+    v1->attack(sr1);
+    std::cout << "------------------------------" << std::endl;
+    v1->attack(sr1);
+    std::cout << "------------------------------" << std::endl;
+    v1->attack(sr1);
+    std::cout << *sr1 << std::endl;
+    std::cout << *v1 << std::endl;
     // std::cout << "------------------------------" << std::endl;
     // std::cout << "------------------------------" << std::endl;
     // std::cout << "------------------------------" << std::endl;
@@ -51,10 +60,6 @@ int main() {
     // std::cout << *w2 << std::endl;
 
     std::cout << "------------------------------" << std::endl;
-    // std::cout << *sr1 << std::endl;
-    // std::cout << *r1 << std::endl;
-    // std::cout << *w1 << std::endl;
-    // std::cout << *w2 << std::endl;
     std::cout << "------------------------------" << std::endl;
     std::cout << "------------------------------" << std::endl;
     // LimitedField<double>* lf = new LimitedField<double>(100, FieldType::HEALTH);
@@ -63,11 +68,15 @@ int main() {
     // States<double>* s = new States<double>(lf, dam, def, "WereWolf", UnitEnum::WOLF, UnitEnum::WOLF);
     std::cout << "------------------------------" << std::endl;
     std::cout << "------------------------------" << std::endl;
+    std::cout << *sr1 << std::endl;
+    std::cout << *r1 << std::endl;
+    std::cout << *v1 << std::endl;
+    // std::cout << *w1 << std::endl;
+    // std::cout << *w2 << std::endl;
     std::cout << "------------------------------" << std::endl;
 
-    // delete sr1;
-    // delete sr1;
-    // delete r1;
+    delete sr1;
+    delete r1;
     delete v1;
     // delete w1;
     // delete w2;

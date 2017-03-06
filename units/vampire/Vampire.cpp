@@ -3,13 +3,7 @@
 template <class Type>
 Vampire<Type>::Vampire(const std::string& name) 
     :  Unit<Type>  (name, 
-                    new States<Type>(new LimitedField<Type>( (Type)Hp::VAMPIRE, FieldType::HEALTH ),
-                                     new Damage<Type>((Type)Dmg::VAMPIRE),
-                                     new Defence((double)TakeDamageCoef::VAMPIRE,
-                                                 (double)TakeMagicDamageCoef::VAMPIRE),
-                                     "Vampire",
-                                     UnitEnum::VAMPIRE,
-                                     UnitEnum::EVILSPIRIT),
+                    new VampireStates<Type>(),
                     nullptr,
                     NULL/*new BaseAbility<Type>(this)*/,
                     NULL,

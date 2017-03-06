@@ -6,6 +6,7 @@
 #include "../../Properties.h"
 #include "../../attack/VampireAttack.h"
 #include "../../attack/VampireCounterAttack.h"
+#include "../../states/VampireStates.h"
 
 template <class Type>
 class Vampire : public Unit<Type> {

@@ -35,11 +35,11 @@ void VampireCounterAttack<Type>::counterAttack(Unit<Type>* counterAttacker, Unit
 
         if ( alive ) {
             if ( enemyHealth >= counterAttacker->getLastDmg()) {
-                counterAttacker->getHealthField() += (counterAttacker->getLastDmg() / ((double)VampireDrinkBlood::COEF / 100)) / 2;
-                std::cout << "   Vampire get << " << (counterAttacker->getLastDmg() / ((double)VampireDrinkBlood::COEF / 100)) / 2 << "points of health." << std::endl;
+                counterAttacker->getHealthField() += (counterAttacker->getLastDmg() * ((double)VampireDrinkBlood::COEF / 100)) / 2;
+                std::cout << "   Vampire get << " << (counterAttacker->getLastDmg() * ((double)VampireDrinkBlood::COEF / 100)) / 2 << "points of health. Vampire health is " << counterAttacker->getHealthField() << std::endl;
             } else {
-                counterAttacker->getHealthField() += (enemyHealth / ((double)VampireDrinkBlood::COEF / 100)) / 2;
-                std::cout << "   Vampire get << " << (enemyHealth / ((double)VampireDrinkBlood::COEF / 100)) / 2 << "points of health." << std::endl;
+                counterAttacker->getHealthField() += (enemyHealth * ((double)VampireDrinkBlood::COEF / 100)) / 2;
+                std::cout << "   Vampire get << " << (enemyHealth * ((double)VampireDrinkBlood::COEF / 100)) / 2 << "points of health. Vampire health is " << counterAttacker->getHealthField() << std::endl;
             }
         }
 }
