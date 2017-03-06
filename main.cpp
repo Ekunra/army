@@ -13,9 +13,9 @@
 int main() {
 
     // MTSpell<double>* newSpell = new MTSpell<double>(MANAPORTION, MT_MAGIC, (double)sPower::MANAPORTION, (double)sCost::MANAPORTION, "ManaPortion");
-    Soldier<int>* sr1 = new Soldier<int>("SR1");
-    Rogue<int>* r1 = new Rogue<int>("RG1");
-    Vampire<int>* v1 = new Vampire<int>("VR1");
+    Soldier<double>* sr1 = new Soldier<double>("SR1");
+    Rogue<double>* r1 = new Rogue<double>("RG1");
+    Vampire<double>* v1 = new Vampire<double>("VR1");
     // Wizard<int>* w1 = new Wizard<int>("WZ1");
     // Wizard<int>* w2 = new Wizard<int>("WZ2");
 
