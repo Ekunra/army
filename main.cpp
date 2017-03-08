@@ -14,40 +14,29 @@
 int main() {
 
     // MTSpell<double>* newSpell = new MTSpell<double>(MANAPORTION, MT_MAGIC, (double)sPower::MANAPORTION, (double)sCost::MANAPORTION, "ManaPortion");
-    Soldier<double>* sr1 = new Soldier<double>("SR1");
+    // Soldier<double>* sr1 = new Soldier<double>("SR1");
     Rogue<double>* r1 = new Rogue<double>("RG1");
-    Vampire<double>* v1 = new Vampire<double>("VR1");
-    Werewolf<double>* w1 = new Werewolf<double>("WW1");
+    // Vampire<double>* v1 = new Vampire<double>("VR1");
+    Werewolf<double>* ww1 = new Werewolf<double>("WW1");
     // Wizard<int>* w1 = new Wizard<int>("WZ1");
     // Wizard<int>* w2 = new Wizard<int>("WZ2");
 
     std::cout << "------------------------------" << std::endl;
 
-    std::cout << *sr1 << std::endl;
+    // std::cout << *sr1 << std::endl;
     std::cout << *r1 << std::endl;
-    std::cout << *v1 << std::endl;
+    // std::cout << *v1 << std::endl;
+    std::cout << *ww1 << std::endl;
     // std::cout << *w1 << std::endl;
     // std::cout << *w2 << std::endl;
 
     // std::cout << "------------------------------" << std::endl;
-    r1->attack(sr1);
-    r1->attack(v1);
-    r1->attack(v1);
-    std::cout << *sr1 << std::endl;
-    std::cout << *r1 << std::endl;
-    std::cout << *v1 << std::endl;
     std::cout << "------------------------------" << std::endl;
-    v1->attack(sr1);
+    ww1->useSecondaryAbility();
     std::cout << "------------------------------" << std::endl;
-    v1->attack(sr1);
     std::cout << "------------------------------" << std::endl;
-    v1->attack(sr1);
     std::cout << "------------------------------" << std::endl;
-    v1->attack(sr1);
     std::cout << "------------------------------" << std::endl;
-    v1->attack(sr1);
-    std::cout << *sr1 << std::endl;
-    std::cout << *v1 << std::endl;
     // std::cout << "------------------------------" << std::endl;
     // std::cout << "------------------------------" << std::endl;
     // std::cout << "------------------------------" << std::endl;
@@ -70,17 +59,18 @@ int main() {
     // States<double>* s = new States<double>(lf, dam, def, "WereWolf", UnitEnum::WOLF, UnitEnum::WOLF);
     std::cout << "------------------------------" << std::endl;
     std::cout << "------------------------------" << std::endl;
-    std::cout << *sr1 << std::endl;
+    // std::cout << *sr1 << std::endl;
     std::cout << *r1 << std::endl;
-    std::cout << *v1 << std::endl;
+    // std::cout << *v1 << std::endl;
+    std::cout << *ww1 << std::endl;
     // std::cout << *w1 << std::endl;
     // std::cout << *w2 << std::endl;
     std::cout << "------------------------------" << std::endl;
 
-    delete sr1;
+    // delete sr1;
     delete r1;
-    delete v1;
-    delete w1;
+    // delete v1;
+    delete ww1;
     // delete w1;
     // delete w2;
     return 0;

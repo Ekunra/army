@@ -36,7 +36,7 @@ Wizard<Type>::Wizard(const std::string& name)
 
     if ( DEBUG ) {
         std::cout << FO_B_L_GREEN << "---------- ** " << FO_RESET;
-        std::cout << FO_B << "Wizard instance created." << FO_RESET << std::endl;
+        std::cout << FO_B << "Wizard instance created." << FO_RESET << "\n" << std::endl;
     }
 }
 template <class Type>

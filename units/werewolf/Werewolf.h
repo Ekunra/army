@@ -4,7 +4,10 @@
 #include <iostream>
 #include "../Unit.h"
 #include "../../Properties.h"
+#include "../../abilities/BaseAbility.h"
+#include "../../abilities/WerewolfTransformAbility.h"
 #include "../../states/WerewolfStates.h"
+#include "../../states/WolfStates.h"
 
 template <class Type>
 class Werewolf : public Unit<Type> {

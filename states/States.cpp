@@ -106,7 +106,7 @@ void States<Type>::takeDamage(States<Type>* enemy) {
         std::cout << "      * states arrived to enemy states->takeDamage()" << std::endl;
     }
 
-    *this->health -= (enemy->getDamage() * this->defence->getDmgDefence() );
+    *this->health -= ( enemy->getDamage() * this->defence->getDmgDefence() );
 
     if ( DEBUG ) {
         std::cout << FO_B << "      caused damage is : " << FO_RESET;
@@ -134,7 +134,7 @@ void States<Type>::takeCADamage(States<Type>* enemy) {
 
 template <class Type>
 void States<Type>::takeMagicEffect(DDTSpell<Type>* spell) {
-    *this->health -= spell->getPower();
+    *this->health -= ( spell->getPower() * this->defence->getMDmgDefence() );
     delete spell;
 }
 

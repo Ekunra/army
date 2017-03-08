@@ -4,14 +4,14 @@ template <class Type>
 Werewolf<Type>::Werewolf(const std::string& name) 
     :  Unit<Type>  (name, 
                     new WerewolfStates<Type>(),
-                    nullptr,
+                    new WolfStates<Type>(),
                     NULL/*new BaseAbility<Type>(this)*/,
-                    NULL,
+                    new WerewolfTransformAbility<Type>(this),
                     new BaseAttack<Type>,
                     new BaseCounterAttack<Type>) {
     if ( DEBUG ) {
         std::cout << FO_B_L_GREEN << "---------- ** " << FO_RESET;
-        std::cout << FO_B << "Werewolf instance created." << FO_RESET << std::endl;
+        std::cout << FO_B << "Werewolf instance created." << FO_RESET << "\n" << std::endl;
     }
 }
 

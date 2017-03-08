@@ -76,7 +76,7 @@ enum class TakeMagicDamageCoef { // Divided by 100 while initialization.
 
     SOLDIER = 100,
     ROGUE = 100,
-    BERSERKER = 100,
+    BERSERKER = 0,
     WEREWOLF = 100,
     VAMPIRE = 100,
 

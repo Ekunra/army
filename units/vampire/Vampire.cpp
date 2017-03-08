@@ -11,7 +11,7 @@ Vampire<Type>::Vampire(const std::string& name)
                     new VampireCounterAttack<Type>) {
     if ( DEBUG ) {
         std::cout << FO_B_L_GREEN << "---------- ** " << FO_RESET;
-        std::cout << FO_B << "Vampire instance created." << FO_RESET << std::endl;
+        std::cout << FO_B << "Vampire instance created." << FO_RESET << "\n" << std::endl;
     }
 }
 

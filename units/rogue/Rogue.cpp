@@ -16,7 +16,7 @@ Rogue<Type>::Rogue(const std::string& name)
                     new RogueAttack<Type>,
                     new BaseCounterAttack<Type>) {
     if ( DEBUG ) {
-        std::cout << FO_B_L_GREEN << "---------- ** " << FO_RESET << FO_B << "Rogue instance created." << FO_RESET << std::endl;
+        std::cout << FO_B_L_GREEN << "---------- ** " << FO_RESET << FO_B << "Rogue instance created." << FO_RESET << "\n" << std::endl;
     }
 }
 
