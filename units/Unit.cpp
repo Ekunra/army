@@ -89,6 +89,14 @@ template <class Type>
 LimitedField<Type>& Unit<Type>::getHealthField() {
     return this->states->getHealthField();
 }
+template <class Type>
+States<Type>* Unit<Type>::getStatesAddress() {
+    return this->states;
+}
+template <class Type>
+States<Type>* Unit<Type>::getAltStatesAddress() {
+    return this->altStates;
+}
 
 
 template <class Type>
@@ -132,6 +140,17 @@ const std::string& Unit<Type>::getName() const {
 template <class Type>
 Type Unit<Type>::getDamage() {
     this->states->getDamage();
+}
+
+
+
+template <class Type>
+void Unit<Type>::setStates(States<Type>* newStates) {
+    this->states = newStates;
+}
+template <class Type>
+void Unit<Type>::setAltStates(States<Type>* newAltStates) {
+    this->altStates = newAltStates;
 }
 
 

@@ -16,7 +16,7 @@ int main() {
     // MTSpell<double>* newSpell = new MTSpell<double>(MANAPORTION, MT_MAGIC, (double)sPower::MANAPORTION, (double)sCost::MANAPORTION, "ManaPortion");
     // Soldier<double>* sr1 = new Soldier<double>("SR1");
     Rogue<double>* r1 = new Rogue<double>("RG1");
-    // Vampire<double>* v1 = new Vampire<double>("VR1");
+    Vampire<double>* v1 = new Vampire<double>("VR1");
     Werewolf<double>* ww1 = new Werewolf<double>("WW1");
     // Wizard<int>* w1 = new Wizard<int>("WZ1");
     // Wizard<int>* w2 = new Wizard<int>("WZ2");
@@ -30,12 +30,21 @@ int main() {
     // std::cout << *w1 << std::endl;
     // std::cout << *w2 << std::endl;
 
-    // std::cout << "------------------------------" << std::endl;
     std::cout << "------------------------------" << std::endl;
     ww1->useSecondaryAbility();
+    std::cout << *ww1 << std::endl;
     std::cout << "------------------------------" << std::endl;
+    ww1->useSecondaryAbility();
+    std::cout << *ww1 << std::endl;
     std::cout << "------------------------------" << std::endl;
+    ww1->useSecondaryAbility();
+    std::cout << *ww1 << std::endl;
     std::cout << "------------------------------" << std::endl;
+    ww1->useSecondaryAbility();
+    std::cout << *ww1 << std::endl;
+    std::cout << "------------------------------" << std::endl;
+    ww1->useSecondaryAbility();
+    std::cout << *ww1 << std::endl;
     std::cout << "------------------------------" << std::endl;
     // std::cout << "------------------------------" << std::endl;
     // std::cout << "------------------------------" << std::endl;
@@ -69,7 +78,7 @@ int main() {
 
     // delete sr1;
     delete r1;
-    // delete v1;
+    delete v1;
     delete ww1;
     // delete w1;
     // delete w2;

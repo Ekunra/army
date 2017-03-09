@@ -40,9 +40,12 @@ class Unit {
         const LimitedField<Type>* getHealth() const;
         const Damage<Type>* getDamageObj() const;
         const States<Type>* getStates() const;
+        const States<Type>* getAltStates() const;
         const BaseAbility<Type>* getPrimaryAbility() const;
         const BaseAbility<Type>* getSecondaryAbility() const;
         LimitedField<Type>& getHealthField();
+        States<Type>* getStatesAddress();
+        States<Type>* getAltStatesAddress();
 
         const Type& getHitPoints() const;
         const Type& getHitPointsLimit() const;
@@ -55,6 +58,9 @@ class Unit {
         const std::string& getName() const;
 
         Type getDamage();
+
+        void setStates(States<Type>* newStates);
+        void setAltStates(States<Type>* newAltStates);
 
         virtual void attack(Unit* enemy);
         virtual void counterAttack(Unit* enemy);
