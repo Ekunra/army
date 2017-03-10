@@ -19,10 +19,16 @@ WerewolfTransformAbility<Type>::~WerewolfTransformAbility() {
 
 template <class Type>
 void WerewolfTransformAbility<Type>::action() {
-    // std::cout << FO_B_RED << this->owner->getTitle() << " " << FO_RESET << FO_B << this->owner->getName() << FO_RESET << " have WerewolfTransformAbility." << std::endl;
-    States<Type>* temp = this->owner->getStatesAddress();
+    States<Type>* temp;
+
+    double coef = (double)this->owner->getAltStatesAddress()->getHitPointsLimit() / (double)this->owner->getStatesAddress()->getHitPointsLimit();
+    this->owner->getAltStatesAddress()->getHealthField().mutate(this->owner->getStatesAddress()->getHealthField(), coef);
+
+    temp = this->owner->getStatesAddress();
+
     this->owner->setStates(this->owner->getAltStatesAddress());
     this->owner->setAltStates(temp);
+
     temp = NULL;
     delete temp;
 }

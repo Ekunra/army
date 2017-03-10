@@ -143,7 +143,6 @@ Type Unit<Type>::getDamage() {
 }
 
 
-
 template <class Type>
 void Unit<Type>::setStates(States<Type>* newStates) {
     this->states = newStates;

@@ -54,7 +54,7 @@ void Wizard<Type>::cast(SpellEnum sEnum, SpellCaster<Type>* targetCaster) {
     }
     std::cout << FO_B << this->getName() << FO_RESET;
     std::cout << "'s cast(SpellEnum, SpellCaster*) received ";
-    std::cout << targetCaster->getName() << " for sending it to SpellCaster::cast" << std::endl;
+    std::cout << targetCaster->getName() << " for sending it to SpellCaster's::cast" << std::endl;
     SpellCaster<Type>::cast(sEnum, targetCaster);
 }
 template <class Type>
@@ -64,7 +64,7 @@ void Wizard<Type>::cast(SpellEnum sEnum, Unit<Type>* targetUnit) {
     }
     std::cout << FO_B << this->getName() << FO_RESET;
     std::cout << "'s cast(SpellEnum, Unit*) received ";
-    std::cout << targetUnit->getName() << " for sending it to SpellCaster::cast" << std::endl;
+    std::cout << targetUnit->getName() << " for sending it to SpellCaster's::cast" << std::endl;
     SpellCaster<Type>::cast(sEnum, targetUnit);
 }
 

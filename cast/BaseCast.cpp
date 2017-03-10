@@ -2,10 +2,10 @@
 
 template <class Type>
 Spell<Type> BaseCast<Type>::createSpell(SpellEnum sEnum, SpellCaster<Type>* caster, double coef) {
-    std::cout << "   we receive " << caster->getSpell(sEnum).getSpellName() << " with spellPower = " << caster->getSpell(sEnum).getPower() << " and coef = " << coef << std::endl;
-    std::cout << "   Will be Power: " << caster->getSpell(sEnum).getPower() * coef << std::endl;
-    std::cout << "        manaCost: " << caster->getSpell(sEnum).getManaCost() << std::endl;
-    std::cout << "            name: " << caster->getSpell(sEnum).getSpellName() << std::endl;
+    // std::cout << "   we receive " << caster->getSpell(sEnum).getSpellName() << " with spellPower = " << caster->getSpell(sEnum).getPower() << " and coef = " << coef << std::endl;
+    // std::cout << "   Will be Power: " << caster->getSpell(sEnum).getPower() * coef << std::endl;
+    // std::cout << "        manaCost: " << caster->getSpell(sEnum).getManaCost() << std::endl;
+    // std::cout << "            name: " << caster->getSpell(sEnum).getSpellName() << std::endl;
     Spell<Type> spell ( caster->getSpell(sEnum).getSEnum(),
                         caster->getSpell(sEnum).getSType(),
                         caster->getSpell(sEnum).getPower() * coef,

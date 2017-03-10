@@ -186,8 +186,8 @@ LimitedField<Type> LimitedField<Type>::operator=(Type value) {
 }
 template <class Type>
 void LimitedField<Type>::mutate(const LimitedField& other, double coef) {
-    *this->value = (float)(*other.value) * coef;
-    *this->limit = (float)(*other.limit) * coef;
+    *this->value = (double)(*other.value) * coef;
+    *this->limit = (double)(*other.limit) * coef;
 }
 
 template <class Type>

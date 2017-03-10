@@ -18,8 +18,8 @@ int main() {
     Rogue<double>* r1 = new Rogue<double>("RG1");
     Vampire<double>* v1 = new Vampire<double>("VR1");
     Werewolf<double>* ww1 = new Werewolf<double>("WW1");
-    // Wizard<int>* w1 = new Wizard<int>("WZ1");
-    // Wizard<int>* w2 = new Wizard<int>("WZ2");
+    Wizard<double>* w1 = new Wizard<double>("WZ1");
+    // Wizard<double>* w2 = new Wizard<double>("WZ2");
 
     std::cout << "------------------------------" << std::endl;
 
@@ -32,19 +32,10 @@ int main() {
 
     std::cout << "------------------------------" << std::endl;
     ww1->useSecondaryAbility();
-    std::cout << *ww1 << std::endl;
     std::cout << "------------------------------" << std::endl;
-    ww1->useSecondaryAbility();
-    std::cout << *ww1 << std::endl;
     std::cout << "------------------------------" << std::endl;
-    ww1->useSecondaryAbility();
-    std::cout << *ww1 << std::endl;
     std::cout << "------------------------------" << std::endl;
-    ww1->useSecondaryAbility();
-    std::cout << *ww1 << std::endl;
     std::cout << "------------------------------" << std::endl;
-    ww1->useSecondaryAbility();
-    std::cout << *ww1 << std::endl;
     std::cout << "------------------------------" << std::endl;
     // std::cout << "------------------------------" << std::endl;
     // std::cout << "------------------------------" << std::endl;
@@ -56,23 +47,17 @@ int main() {
     // } catch (ArmyException e) {
         // e.show();
     // }
-    // std::cout << *w1 << std::endl;
-    // std::cout << *w2 << std::endl;
 
     std::cout << "------------------------------" << std::endl;
     std::cout << "------------------------------" << std::endl;
     std::cout << "------------------------------" << std::endl;
-    // LimitedField<double>* lf = new LimitedField<double>(100, FieldType::HEALTH);
-    // Damage<double>* dam = new Damage<double>(3.33);
-    // Defence* def = new Defence(1.5, 0.5);
-    // States<double>* s = new States<double>(lf, dam, def, "WereWolf", UnitEnum::WOLF, UnitEnum::WOLF);
     std::cout << "------------------------------" << std::endl;
     std::cout << "------------------------------" << std::endl;
     // std::cout << *sr1 << std::endl;
     std::cout << *r1 << std::endl;
     // std::cout << *v1 << std::endl;
     std::cout << *ww1 << std::endl;
-    // std::cout << *w1 << std::endl;
+    std::cout << *w1 << std::endl;
     // std::cout << *w2 << std::endl;
     std::cout << "------------------------------" << std::endl;
 
@@ -80,7 +65,7 @@ int main() {
     delete r1;
     delete v1;
     delete ww1;
-    // delete w1;
+    delete w1;
     // delete w2;
     return 0;
 }
