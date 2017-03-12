@@ -41,7 +41,7 @@ int main() {
     ww1->usePrimaryAbility(v1);
     std::cout << "------------------------------" << std::endl;
     std::cout << *w1 << std::endl;
-    ww1->usePrimaryAbility(w1);
+    r1->usePrimaryAbility(w1);
     std::cout << "------------------------------" << std::endl;
     std::cout << "------------------------------" << std::endl;
     std::cout << "------------------------------" << std::endl;

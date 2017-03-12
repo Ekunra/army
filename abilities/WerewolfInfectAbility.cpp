@@ -19,6 +19,10 @@ WerewolfInfectAbility<Type>::~WerewolfInfectAbility() {
 
 template <class Type>
 void WerewolfInfectAbility<Type>::action(Unit<Type>* enemy) {
+    if ( !enemy->isAlive() ) {
+        return;
+    }
+
     if ( enemy->getUEnum() != UnitEnum::WEREWOLF && enemy->getUEnum() != UnitEnum::WOLF && enemy->getUEnum() != UnitEnum::VAMPIRE ) {
         States<Type>* previousEnemyStates = enemy->getStatesAddress();
         States<Type>* previousEnemyAltStates = enemy->getAltStatesAddress();
@@ -38,15 +42,18 @@ void WerewolfInfectAbility<Type>::action(Unit<Type>* enemy) {
         delete previousEnemyStates;
         delete previousEnemyAltStates;
 
+        WerewolfAttack<Type>* newWerewolfAttack = new WerewolfAttack<Type>();
+        enemy->setAttack(newWerewolfAttack);
 
+        WerewolfCounterAttack<Type>* newWerewolfCounterAttack = new WerewolfCounterAttack<Type>();
+        enemy->setCounterAttack(newWerewolfCounterAttack);
 
+        WerewolfInfectAbility<Type>* newWerewolfInfectAbility = new WerewolfInfectAbility<Type>(enemy);
+        enemy->setPrimaryAbility(newWerewolfInfectAbility);
+
+        WerewolfTransformAbility<Type>* newWerewolfTransformAbility = new WerewolfTransformAbility<Type>(enemy);
+        enemy->setSecondaryAbility(newWerewolfTransformAbility);
     }
-    // enemy->setStates(...);
-    // enemy->setAltStates(...);
-    // enemy->setAttack(...);
-    // enemy->setCounterAttack(...);
-    // enemy->setPrimaryAbility(...);
-    // enemy->setSecondaryAbility(...);
 }
 
 

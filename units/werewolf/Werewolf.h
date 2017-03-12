@@ -4,7 +4,6 @@
 #include <iostream>
 #include "../Unit.h"
 #include "../../Properties.h"
-// #include "../../abilities/BaseAbility.h"
 #include "../../states/WerewolfStates.h"
 #include "../../states/WolfStates.h"
 #include "../../attack/WerewolfAttack.h"

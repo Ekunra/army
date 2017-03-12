@@ -150,8 +150,12 @@ template class SpellCaster<float>;
 template <class Type>
 std::ostream& operator<<(std::ostream& out, const SpellCaster<Type>& spellCaster) {
     out << *((Unit<Type>*)(&spellCaster));
-    out << FO_D_GREY << " | " << FO_RESET;
-    out << spellCaster.getSpellCasterStates();
+    if ( spellCaster.getUEnum() != UnitEnum::WEREWOLF &&
+         spellCaster.getUEnum() != UnitEnum::WOLF &&
+         spellCaster.getUEnum() != UnitEnum::VAMPIRE ) {
+        out << FO_D_GREY << " | " << FO_RESET;
+        out << spellCaster.getSpellCasterStates();
+    }
     return out;
 };
 

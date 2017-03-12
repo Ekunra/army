@@ -7,6 +7,8 @@
 #include "../units/Unit.h"
 #include "../states/WerewolfStates.h"
 #include "../states/WolfStates.h"
+#include "../attack/WerewolfAttack.h"
+#include "../attack/WerewolfCounterAttack.h"
 
 
 template <class Type>

@@ -156,21 +156,30 @@ void Unit<Type>::setAltStates(States<Type>* newAltStates) {
     this->altStates = newAltStates;
 }
 template <class Type>
-void setAttack(BaseAttack<Type>* newAttack) {
-
+void Unit<Type>::setAttack(BaseAttack<Type>* newAttack) {
+    BaseAttack<Type>* temp = this->baseAttack;
+    this->baseAttack = newAttack;
+    delete temp;
 }
 template <class Type>
-void setCounterAttack(BaseCounterAttack<Type>* newCounterAttack) {}
+void Unit<Type>::setCounterAttack(BaseCounterAttack<Type>* newCounterAttack) {
+    BaseCounterAttack<Type>* temp = this->baseCounterAttack;
+    this->baseCounterAttack = newCounterAttack;
+    delete temp;
+}
 template <class Type>
-void setPrimaryAbility(BaseAbility<Type>* newPrimaryAbility) {}
+void Unit<Type>::setPrimaryAbility(BaseAbility<Type>* newPrimaryAbility) {
+    BaseAbility<Type>* temp = this->primaryAbility;
+    this->primaryAbility = newPrimaryAbility;
+    delete temp;
+}
 template <class Type>
-void setSecondaryAbility(BaseAbility<Type>* newSecondaryAbility) {}
-    // delete states;
-    // delete altStates;
-    // delete primaryAbility;
-    // delete secondaryAbility;
-    // delete baseAttack;
-    // delete baseCounterAttack;
+void Unit<Type>::setSecondaryAbility(BaseAbility<Type>* newSecondaryAbility) {
+    BaseAbility<Type>* temp = this->secondaryAbility;
+    this->secondaryAbility = newSecondaryAbility;
+    delete temp;
+}
+
 
 template <class Type>
 void Unit<Type>::attack(Unit* enemy) {
