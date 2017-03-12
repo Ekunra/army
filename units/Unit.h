@@ -39,6 +39,7 @@ class Unit {
 
         const LimitedField<Type>* getHealth() const;
         const Damage<Type>* getDamageObj() const;
+        const Defence* getDefenceObj() const;
         const States<Type>* getStates() const;
         const States<Type>* getAltStates() const;
         const BaseAbility<Type>* getPrimaryAbility() const;
@@ -61,6 +62,10 @@ class Unit {
 
         void setStates(States<Type>* newStates);
         void setAltStates(States<Type>* newAltStates);
+        void setAttack(BaseAttack<Type>* newAttack);
+        void setCounterAttack(BaseCounterAttack<Type>* newCounterAttack);
+        void setPrimaryAbility(BaseAbility<Type>* newPrimaryAbility);
+        void setSecondaryAbility(BaseAbility<Type>* newSecondaryAbility);
 
         virtual void attack(Unit* enemy);
         virtual void counterAttack(Unit* enemy);

@@ -4,10 +4,13 @@
 #include <iostream>
 #include "../Unit.h"
 #include "../../Properties.h"
-#include "../../abilities/BaseAbility.h"
-#include "../../abilities/WerewolfTransformAbility.h"
+// #include "../../abilities/BaseAbility.h"
 #include "../../states/WerewolfStates.h"
 #include "../../states/WolfStates.h"
+#include "../../attack/WerewolfAttack.h"
+#include "../../attack/WerewolfCounterAttack.h"
+#include "../../abilities/WerewolfTransformAbility.h"
+#include "../../abilities/WerewolfInfectAbility.h"
 
 template <class Type>
 class Werewolf : public Unit<Type> {

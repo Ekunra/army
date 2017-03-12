@@ -74,6 +74,10 @@ const Damage<Type>* Unit<Type>::getDamageObj() const {
     return this->states->getDamageObj();
 }
 template <class Type>
+const Defence* Unit<Type>::getDefenceObj() const {
+    return this->states->getDefence();
+}
+template <class Type>
 const States<Type>* Unit<Type>::getStates() const {
     return this->states;
 }
@@ -151,7 +155,22 @@ template <class Type>
 void Unit<Type>::setAltStates(States<Type>* newAltStates) {
     this->altStates = newAltStates;
 }
+template <class Type>
+void setAttack(BaseAttack<Type>* newAttack) {
 
+}
+template <class Type>
+void setCounterAttack(BaseCounterAttack<Type>* newCounterAttack) {}
+template <class Type>
+void setPrimaryAbility(BaseAbility<Type>* newPrimaryAbility) {}
+template <class Type>
+void setSecondaryAbility(BaseAbility<Type>* newSecondaryAbility) {}
+    // delete states;
+    // delete altStates;
+    // delete primaryAbility;
+    // delete secondaryAbility;
+    // delete baseAttack;
+    // delete baseCounterAttack;
 
 template <class Type>
 void Unit<Type>::attack(Unit* enemy) {

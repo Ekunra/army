@@ -17,7 +17,7 @@ class LimitedField {
         Type validate(Type value);
 
     public:
-        LimitedField(Type value, FieldType fType=FieldType::DEFAULT);
+        LimitedField(Type value=(Type)Hp::DEFAULT, FieldType fType=FieldType::DEFAULT);
         LimitedField(const LimitedField& obj);
         ~LimitedField();
 

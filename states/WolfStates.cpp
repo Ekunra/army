@@ -12,7 +12,7 @@ WolfStates<Type>::WolfStates ( LimitedField<Type>* health,
                      defence,
                      "Wolf",
                      uEnum,
-                     uType) {
+                     uType ) {
     if ( DEBUG ) {
         std::cout << FO_B_GREEN << "|    + " << FO_RESET;
         std::cout << FO_B << "WolfStates" << FO_RESET <<" created" << std::endl;

@@ -32,13 +32,31 @@ LimitedField<Type>::LimitedField(Type value, FieldType fType)
 
 template <class Type>
 LimitedField<Type>::LimitedField(const LimitedField& obj) {
-    std::cout << "Copy constructor works." << std::endl;
-    std::cout << obj.getValue() << std::endl;
-    std::cout << obj.getLimit() << std::endl;
     value = new Type(obj.getValue());
     limit = new Type(obj.getLimit());
     fType = new FieldType(obj.getFieldType());
-    std::cout << "Copy constructor finished its work." << std::endl;
+
+    if ( DEBUG ) {
+        std::cout << FO_B_GREEN << "|| + " << FO_RESET;
+        std::cout << FO_D_GREY << "LimitedField Instance created." << FO_RESET;
+
+        switch (*fType) {
+            case FieldType::HEALTH : {
+                std::cout << " Health.";
+                break;
+            }
+            case FieldType::MANA : {
+                std::cout << " Mana.";
+                break;
+            }
+            default : {
+                std::cout << " Default.";
+            }
+        }
+
+        std::cout << FO_B << " COPY" << FO_RESET << std::endl;
+
+    }
 }
 
 template <class Type>

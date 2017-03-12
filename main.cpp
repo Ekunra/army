@@ -25,15 +25,23 @@ int main() {
 
     // std::cout << *sr1 << std::endl;
     std::cout << *r1 << std::endl;
-    // std::cout << *v1 << std::endl;
+    std::cout << *v1 << std::endl;
     std::cout << *ww1 << std::endl;
-    // std::cout << *w1 << std::endl;
+    std::cout << *w1 << std::endl;
     // std::cout << *w2 << std::endl;
 
     std::cout << "------------------------------" << std::endl;
-    ww1->useSecondaryAbility();
+    ww1->attack(r1);
+    ww1->attack(w1);
     std::cout << "------------------------------" << std::endl;
+    std::cout << *r1 << std::endl;
+    ww1->usePrimaryAbility(r1);
     std::cout << "------------------------------" << std::endl;
+    std::cout << *v1 << std::endl;
+    ww1->usePrimaryAbility(v1);
+    std::cout << "------------------------------" << std::endl;
+    std::cout << *w1 << std::endl;
+    ww1->usePrimaryAbility(w1);
     std::cout << "------------------------------" << std::endl;
     std::cout << "------------------------------" << std::endl;
     std::cout << "------------------------------" << std::endl;

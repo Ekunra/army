@@ -5,10 +5,10 @@ Werewolf<Type>::Werewolf(const std::string& name)
     :  Unit<Type>  (name, 
                     new WerewolfStates<Type>(),
                     new WolfStates<Type>(),
-                    NULL/*new BaseAbility<Type>(this)*/,
+                    new WerewolfInfectAbility<Type>(this),
                     new WerewolfTransformAbility<Type>(this),
-                    new BaseAttack<Type>,
-                    new BaseCounterAttack<Type>) {
+                    new WerewolfAttack<Type>(),
+                    new WerewolfCounterAttack<Type>() ) {
     if ( DEBUG ) {
         std::cout << FO_B_L_GREEN << "---------- ** " << FO_RESET;
         std::cout << FO_B << "Werewolf instance created." << FO_RESET << "\n" << std::endl;

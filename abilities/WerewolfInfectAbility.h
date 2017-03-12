@@ -3,7 +3,11 @@
 
 #include <iostream>
 #include "BaseAbility.h"
+#include "WerewolfTransformAbility.h"
 #include "../units/Unit.h"
+#include "../states/WerewolfStates.h"
+#include "../states/WolfStates.h"
+
 
 template <class Type>
 class Unit;

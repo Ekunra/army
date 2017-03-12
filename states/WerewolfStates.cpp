@@ -1,14 +1,18 @@
 #include "WerewolfStates.h"
 
 template <class Type>
-WerewolfStates<Type>::WerewolfStates ()
-    : States<Type> ( new LimitedField<Type>( (Type)Hp::WEREWOLF, FieldType::HEALTH ),
-                     new Damage<Type>((Type)Dmg::WEREWOLF),
-                     new Defence((double)TakeDamageCoef::WEREWOLF,
-                                 (double)TakeMagicDamageCoef::WEREWOLF),
+WerewolfStates<Type>::WerewolfStates ( LimitedField<Type>* health,
+                                       Damage<Type>* damage,
+                                       Defence* defence,
+                                       const std::string& title,
+                                       UnitEnum uEnum,
+                                       UnitEnum uType )
+    : States<Type> ( health,
+                     damage,
+                     defence,
                      "Werewolf",
-                     UnitEnum::WEREWOLF,
-                     UnitEnum::ALIVE) {
+                     uEnum,
+                     uType ) {
     if ( DEBUG ) {
         std::cout << FO_B_GREEN << "|    + " << FO_RESET;
         std::cout << FO_B << "WerewolfStates" << FO_RESET <<" created" << std::endl;

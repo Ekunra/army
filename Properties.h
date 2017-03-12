@@ -33,7 +33,8 @@ enum class Hp {
     HEALER = 40,
     PRIEST = 60,
     WARLOCK = 80,
-    NECROMANCER = 40
+    NECROMANCER = 40,
+    DEFAULT = 10
 };
 
 enum class Dmg {
