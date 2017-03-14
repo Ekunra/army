@@ -10,7 +10,7 @@ WerewolfStates<Type>::WerewolfStates ( LimitedField<Type>* health,
     : States<Type> ( health,
                      damage,
                      defence,
-                     "Werewolf",
+                     title,
                      uEnum,
                      uType ) {
     if ( DEBUG ) {

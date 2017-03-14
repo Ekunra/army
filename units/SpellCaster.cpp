@@ -118,11 +118,13 @@ template <class Type>
 void SpellCaster<Type>::cast(SpellEnum sEnum, SpellCaster<Type>* someCaster) {
     try {
         if ( this->Unit<Type>::isAlive() ) {
-            this->prepareToCast(sEnum);
-            std::cout << FO_B << this->getName() << FO_RESET;
-            std::cout << "'s Spellcaster::cast(SpellEnum, SpellCaster*) received ";
-            std::cout << someCaster->getName() << " for sending it to baseCast" << std::endl;
-            this->baseCast->action(sEnum, this, someCaster);
+            if ( Unit<Type>::getUEnum() != UnitEnum::WEREWOLF && Unit<Type>::getUEnum() != UnitEnum::WOLF && Unit<Type>::getUEnum() != UnitEnum::VAMPIRE ) {
+                this->prepareToCast(sEnum);
+                std::cout << FO_B << this->getName() << FO_RESET;
+                std::cout << "'s Spellcaster::cast(SpellEnum, SpellCaster*) received ";
+                std::cout << someCaster->getName() << " for sending it to baseCast" << std::endl;
+                this->baseCast->action(sEnum, this, someCaster);
+            }
         }
     } catch (ArmyException e) {
         e.show();
@@ -132,11 +134,13 @@ template <class Type>
 void SpellCaster<Type>::cast(SpellEnum sEnum, Unit<Type>* enemy) {
     try {
         if ( this->Unit<Type>::isAlive() ) {
-            this->prepareToCast(sEnum);
-            std::cout << FO_B << this->getName() << FO_RESET;
-            std::cout << "'s Spellcaster::cast(SpellEnum, Unit*) received ";
-            std::cout << enemy->getName() << " for sending it to baseCast" << std::endl;
-            this->baseCast->action(sEnum, this, enemy);
+            if ( Unit<Type>::getUEnum() != UnitEnum::WEREWOLF && Unit<Type>::getUEnum() != UnitEnum::WOLF && Unit<Type>::getUEnum() != UnitEnum::VAMPIRE ) {
+                this->prepareToCast(sEnum);
+                std::cout << FO_B << this->getName() << FO_RESET;
+                std::cout << "'s Spellcaster::cast(SpellEnum, Unit*) received ";
+                std::cout << enemy->getName() << " for sending it to baseCast" << std::endl;
+                this->baseCast->action(sEnum, this, enemy);
+            }
         }
     } catch (ArmyException e) {
         e.show();

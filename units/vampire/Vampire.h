@@ -4,6 +4,7 @@
 #include <iostream>
 #include "../Unit.h"
 #include "../../Properties.h"
+#include "../../abilities/VampireInfectAbility.h"
 #include "../../attack/VampireAttack.h"
 #include "../../attack/VampireCounterAttack.h"
 #include "../../states/VampireStates.h"

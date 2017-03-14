@@ -5,7 +5,7 @@ Vampire<Type>::Vampire(const std::string& name)
     :  Unit<Type>  (name, 
                     new VampireStates<Type>(),
                     nullptr,
-                    NULL/*new BaseAbility<Type>(this)*/,
+                    new VampireInfectAbility<Type>(this),
                     NULL,
                     new VampireAttack<Type>,
                     new VampireCounterAttack<Type>) {
