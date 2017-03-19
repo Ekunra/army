@@ -40,6 +40,7 @@ std::ostream& operator<<(std::ostream& out, const VampireStates<Type>& vampireSt
     out << *vampireStates.getHealth();
     out << FO_D_GREY << " | " << FO_RESET;
     out << *vampireStates.getDamageObj();
+    return out;
 }
 
 template std::ostream& operator<<(std::ostream& out, const VampireStates<int>& states);

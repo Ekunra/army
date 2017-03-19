@@ -143,7 +143,7 @@ const std::string& Unit<Type>::getName() const {
 
 template <class Type>
 Type Unit<Type>::getDamage() {
-    this->states->getDamage();
+    return this->states->getDamage();
 }
 
 

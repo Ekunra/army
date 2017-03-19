@@ -182,6 +182,7 @@ std::ostream& operator<<(std::ostream& out, const States<Type>& states) {
     out << *states.getHealth();
     out << FO_D_GREY << " | " << FO_RESET;
     out << *states.getDamageObj();
+    return out;
 }
 
 template std::ostream& operator<<(std::ostream& out, const States<int>& states);
