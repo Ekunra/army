@@ -4,6 +4,7 @@
 #include <iostream>
 #include "../Unit.h"
 #include "../../Properties.h"
+#include "../../states/SoldierStates.h"
 
 template <class Type>
 class Soldier : public Unit<Type> {
