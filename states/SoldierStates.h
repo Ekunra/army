@@ -7,8 +7,8 @@
 template <class Type>
 class SoldierStates : public States<Type> {
     public:
-        SoldierStates(LimitedField<Type>* health=new LimitedField<Type>( (Type)Hp::SOLDIER*2, FieldType::HEALTH ),
-                   Damage<Type>* damage=new Damage<Type>((Type)Dmg::SOLDIER*2),
+        SoldierStates(LimitedField<Type>* health=new LimitedField<Type>( (Type)Hp::SOLDIER, FieldType::HEALTH ),
+                   Damage<Type>* damage=new Damage<Type>((Type)Dmg::SOLDIER),
                    Defence* defence=new Defence((double)TakeDamageCoef::SOLDIER,
                                                 (double)TakeMagicDamageCoef::SOLDIER),
                    const std::string& title="Soldier",
