@@ -140,7 +140,7 @@ void States<Type>::takeMagicEffect(DDTSpell<Type>* spell) {
 
 template <class Type>
 void States<Type>::takeMagicEffect(HTSpell<Type>* spell) {
-    *this->health += spell->getPower();
+    *this->health += ( spell->getPower() * this->defence->getMDmgDefence() );
     delete spell;
 }
 
