@@ -7,6 +7,7 @@
 #include "units/vampire/Vampire.h"
 #include "units/werewolf/Werewolf.h"
 #include "units/wizard/Wizard.h"
+#include "units/healer/Healer.h"
 #include "spells/SpellBook.h"
 #include "spells/Spell.h"
 #include "states/SpellCasterStates.h"
@@ -21,6 +22,7 @@ int main() {
     Vampire<double>* v1 = new Vampire<double>("VR1");
     Werewolf<double>* ww1 = new Werewolf<double>("WW1");
     Wizard<double>* w1 = new Wizard<double>("WZ1");
+    Healer<double>* h1 = new Healer<double>("HL1");
 
     std::cout << "------------------------------" << std::endl;
 
@@ -30,6 +32,7 @@ int main() {
     std::cout << *v1 << std::endl;
     std::cout << *ww1 << std::endl;
     std::cout << *w1 << std::endl;
+    std::cout << *h1 << std::endl;
 
     std::cout << "------------------------------" << std::endl;
     w1->cast(FIREBALL, br1);
@@ -71,6 +74,7 @@ int main() {
     std::cout << *v1 << std::endl;
     std::cout << *ww1 << std::endl;
     std::cout << *w1 << std::endl;
+    std::cout << *h1 << std::endl;
     // std::cout << *w2 << std::endl;
     std::cout << "------------------------------" << std::endl;
 
@@ -80,6 +84,7 @@ int main() {
     delete v1;
     delete ww1;
     delete w1;
+    delete h1;
     // delete w2;
     return 0;
 }

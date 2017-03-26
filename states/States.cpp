@@ -168,9 +168,11 @@ std::ostream& operator<<(std::ostream& out, const States<Type>& states) {
             break;
         }
         case UnitEnum::HEALER : {
+            out << FO_B_BLUE;
             break;
         }
         case UnitEnum::PRIEST : {
+            out << FO_B_BLUE;
             break;
         }
         default : {
