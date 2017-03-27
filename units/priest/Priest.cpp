@@ -41,7 +41,7 @@ Priest<Type>::~Priest() {
 
 template <class Type>
 void Priest<Type>::cast(SpellEnum sEnum, SpellCaster<Type>* targetCaster) {
-    if ( Unit<Type>::getUEnum() != UnitEnum::WIZARD ) {
+    if ( Unit<Type>::getUEnum() != UnitEnum::PRIEST ) {
         return;
     }
     std::cout << FO_B << this->getName() << FO_RESET;
@@ -51,7 +51,7 @@ void Priest<Type>::cast(SpellEnum sEnum, SpellCaster<Type>* targetCaster) {
 }
 template <class Type>
 void Priest<Type>::cast(SpellEnum sEnum, Unit<Type>* targetUnit) {
-    if ( Unit<Type>::getUEnum() != UnitEnum::WIZARD ) {
+    if ( Unit<Type>::getUEnum() != UnitEnum::PRIEST ) {
         return;
     }
     std::cout << FO_B << this->getName() << FO_RESET;
