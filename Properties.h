@@ -154,6 +154,10 @@ enum class VampireDrinkBlood { // Divided by 100 while calculation
     COEF = 50
 };
 
+enum class DamageModifyCoef { // Divided by 100 while calculation
+    EVILSPIRIT_PRIEST_ATTACK = 200
+};
+
 enum class FieldType {
     HEALTH,
     MANA,

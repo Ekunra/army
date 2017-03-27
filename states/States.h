@@ -34,6 +34,7 @@ class States {
         const Damage<Type>* getDamageObj() const;
         const Defence* getDefence() const;
         LimitedField<Type>& getHealthField();
+        Damage<Type>* getDamageAddress();
 
         const Type& getHitPoints() const;
         const Type& getHitPointsLimit() const;

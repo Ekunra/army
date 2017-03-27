@@ -5,6 +5,7 @@
 #include <cmath>
 #include "Randomizer.h"
 #include "../../macro_color.cpp"
+#include "../../Properties.h"
 
 template <class Type>
 class Damage {
@@ -12,6 +13,7 @@ class Damage {
         Type* maxDmg;
         Type* minDmg;
         Type* lastDmg;
+        Type* initialDmg;
 
         void randomize();
 
@@ -23,6 +25,9 @@ class Damage {
         const Type& getMinDmg() const;
         const Type& getLastDmg() const;
         Type& getDamage();
+
+        virtual void modifyDmg(DamageModifyCoef coef);
+        void resetToInitialDmg();
 };
 
 template <class Type>

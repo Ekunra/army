@@ -2,7 +2,7 @@
 
 template <class Type>
 Damage<Type>::Damage(Type dmg)
-    : maxDmg(new Type(dmg)), minDmg(new Type(round(((float)dmg/10)*8))), lastDmg(new Type(0)) {
+    : maxDmg(new Type(dmg)), minDmg(new Type(round(((float)dmg/10)*8))), lastDmg(new Type(0)), initialDmg(new Type(dmg)) {
         Randomizer::launch();
         if ( DEBUG ) {
             std::cout << FO_B_GREEN << "|  + " << FO_RESET;
@@ -15,6 +15,7 @@ Damage<Type>::~Damage() {
     delete maxDmg;
     delete minDmg;
     delete lastDmg;
+    delete initialDmg;
     if ( DEBUG ) {
         std::cout << FO_B_RED << "        - " << FO_RESET << "Damage Instance deleted." << std::endl;
     }
@@ -62,6 +63,20 @@ template <class Type>
 Type& Damage<Type>::getDamage() {
     this->randomize();
     return *this->lastDmg;
+}
+
+template <class Type>
+void Damage<Type>::modifyDmg(DamageModifyCoef coef) {
+    double modCoef = (double)coef / 100;
+    std::cout << "   Damage::modifyDmg() works. modCoef = " << modCoef << std::endl;
+    *this->maxDmg *= modCoef;
+    *this->minDmg = (Type)(round(((float)(*this->maxDmg)/10)*8));
+}
+
+template <class Type>
+void Damage<Type>::resetToInitialDmg() {
+    *this->maxDmg = *this->initialDmg;
+    *this->minDmg = (Type)(round(((float)(*this->initialDmg)/10)*8));
 }
 
 

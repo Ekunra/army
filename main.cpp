@@ -8,6 +8,7 @@
 #include "units/werewolf/Werewolf.h"
 #include "units/wizard/Wizard.h"
 #include "units/healer/Healer.h"
+#include "units/priest/Priest.h"
 #include "spells/SpellBook.h"
 #include "spells/Spell.h"
 #include "states/SpellCasterStates.h"
@@ -23,30 +24,32 @@ int main() {
     Werewolf<double>* ww1 = new Werewolf<double>("WW1");
     Wizard<double>* w1 = new Wizard<double>("WZ1");
     Healer<double>* h1 = new Healer<double>("HL1");
+    Priest<double>* p1 = new Priest<double>("PR1");
 
     std::cout << "------------------------------" << std::endl;
 
-    std::cout << *sr1 << std::endl;
-    std::cout << *br1 << std::endl;
-    std::cout << *r1 << std::endl;
-    std::cout << *v1 << std::endl;
-    std::cout << *ww1 << std::endl;
-    std::cout << *w1 << std::endl;
-    std::cout << *h1 << std::endl;
+    // std::cout << *sr1 << std::endl;
+    // std::cout << *br1 << std::endl;
+    // std::cout << *r1 << std::endl;
+    // std::cout << *v1 << std::endl;
+    // std::cout << *ww1 << std::endl;
+    // std::cout << *w1 << std::endl;
+    // std::cout << *h1 << std::endl;
+    // std::cout << *p1 << std::endl;
 
-    std::cout << "------------------------------" << std::endl;
-    w1->cast(FIREBALL, br1);
-    std::cout << *w1 << std::endl;
-    std::cout << *br1 << std::endl;
-    std::cout << "------------------------------" << std::endl;
-    r1->attack(br1);
-    r1->attack(br1);
-    std::cout << *r1 << std::endl;
-    std::cout << *br1 << std::endl;
-    std::cout << "------------------------------" << std::endl;
-    w1->cast(HEAL, br1);
-    std::cout << *w1 << std::endl;
-    std::cout << *br1 << std::endl;
+    // std::cout << "------------------------------" << std::endl;
+    // w1->cast(FIREBALL, br1);
+    // std::cout << *w1 << std::endl;
+    // std::cout << *br1 << std::endl;
+    // std::cout << "------------------------------" << std::endl;
+    // r1->attack(br1);
+    // r1->attack(br1);
+    // std::cout << *r1 << std::endl;
+    // std::cout << *br1 << std::endl;
+    // std::cout << "------------------------------" << std::endl;
+    // w1->cast(HEAL, br1);
+    // std::cout << *w1 << std::endl;
+    // std::cout << *br1 << std::endl;
     std::cout << "------------------------------" << std::endl;
     std::cout << "------------------------------" << std::endl;
     std::cout << "------------------------------" << std::endl;
@@ -75,6 +78,7 @@ int main() {
     std::cout << *ww1 << std::endl;
     std::cout << *w1 << std::endl;
     std::cout << *h1 << std::endl;
+    std::cout << *p1 << std::endl;
     // std::cout << *w2 << std::endl;
     std::cout << "------------------------------" << std::endl;
 
@@ -85,6 +89,7 @@ int main() {
     delete ww1;
     delete w1;
     delete h1;
+    delete p1;
     // delete w2;
     return 0;
 }

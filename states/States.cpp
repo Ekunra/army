@@ -50,6 +50,10 @@ template <class Type>
 LimitedField<Type>& States<Type>::getHealthField() {
     return *this->health;
 }
+template <class Type>
+Damage<Type>* States<Type>::getDamageAddress() {
+    return this->damage;
+}
 
 
 template <class Type>
