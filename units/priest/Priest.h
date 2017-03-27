@@ -6,7 +6,6 @@
 #include "../../states/PriestStates.h"
 #include "../../attack/PriestAttack.h"
 #include "../../attack/PriestCounterAttack.h"
-#include "../../cast/PriestCast.h"
 
 template <class Type>
 class Priest : public SpellCaster<Type> {

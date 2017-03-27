@@ -9,7 +9,7 @@ Priest<Type>::Priest(const std::string& name)
                             (double)HTMagicCoef::PRIEST,
                             (double)DMTMagicCoef::PRIEST,
                             (double)MTMagicCoef::PRIEST ),
-                        new PriestCast<Type>(),
+                        new BaseCast<Type>(),
                         name,
                         new PriestStates<Type>(),
                         nullptr, // altStates;
