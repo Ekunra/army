@@ -7,13 +7,15 @@
 #include "../attack/BaseAttack.h"
 #include "../attack/BaseCounterAttack.h"
 #include "../cast/BaseCast.h"
+#include "../observe/Observable.h"
 
 template <class Type> class BaseAbility;
 template <class Type> class BaseAttack;
 template <class Type> class BaseCounterAttack;
+template <class Type> class Observable;
 
 template <class Type>
-class Unit {
+class Unit : public Observable<Type> {
     protected:
         std::string* name;
         States<Type>* states;
@@ -78,6 +80,11 @@ class Unit {
 
         virtual void usePrimaryAbility(Unit<Type>* enemy);
         virtual void useSecondaryAbility();
+
+        // Observable
+        // virtual void attachObserver() = 0;
+        // virtual void dettachObserver() = 0;
+        // virtual void notifyObserver() = 0;
 };
 
 template <class Type>

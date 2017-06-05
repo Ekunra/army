@@ -1,6 +1,5 @@
 #include "Unit.h"
 
-
 template <class Type>
 Unit<Type>::Unit(const std::string& name,
                     States<Type>* states,
@@ -9,7 +8,8 @@ Unit<Type>::Unit(const std::string& name,
                     BaseAbility<Type>* secAbility,
                     BaseAttack<Type>* baseAttack,
                     BaseCounterAttack<Type>* baseCounterAttack)
-                          : name(new std::string(name)),
+                          : Observable<Type>(this),
+                            name(new std::string(name)),
                             states(states),
                             altStates(altStates),
                             primaryAbility(priAbility),
