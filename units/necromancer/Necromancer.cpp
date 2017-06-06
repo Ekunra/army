@@ -21,9 +21,6 @@ Necromancer<Type>::Necromancer(const std::string& name)
     SpellCaster<Type>::spellBook->insertSpell(FIREBALL, new FireBall<Type>);
     SpellCaster<Type>::spellBook->insertSpell(IMPLOSION, new Implosion<Type>);
     SpellCaster<Type>::spellBook->insertSpell(LIGHTNINGBOLT, new LightningBolt<Type>);
-    SpellCaster<Type>::spellBook->insertSpell(HEAL, new Heal<Type>);
-    SpellCaster<Type>::spellBook->insertSpell(BLESS, new Bless<Type>);
-    SpellCaster<Type>::spellBook->insertSpell(MANAPORTION, new ManaPortion<Type>);
     SpellCaster<Type>::spellBook->insertSpell(MANADRAIN, new ManaDrain<Type>);
 
     if ( DEBUG ) {
