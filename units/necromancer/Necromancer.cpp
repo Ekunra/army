@@ -25,7 +25,7 @@ Necromancer<Type>::Necromancer(const std::string& name)
 
     if ( DEBUG ) {
         std::cout << FO_B_L_GREEN << "---------- ** " << FO_RESET;
-        std::cout << FO_B << "Necromancer instance created." << FO_RESET << "\n" << std::endl;
+        std::cout << FO_B << "Necromancer instance created. " << FO_RESET << "\n" << std::endl;
     }
 }
 template <class Type>
