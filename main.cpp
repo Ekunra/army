@@ -10,6 +10,7 @@
 #include "units/wizard/Wizard.h"
 #include "units/healer/Healer.h"
 #include "units/priest/Priest.h"
+#include "units/necromancer/Necromancer.h"
 #include "spells/SpellBook.h"
 #include "spells/Spell.h"
 #include "states/SpellCasterStates.h"
@@ -17,6 +18,7 @@
 
 int main() {
     Soldier<double>* sr1 = new Soldier<double>("SR1");
+    Necromancer<double>* necr1 = new Necromancer<double>("NECR");
     // Berserker<double>* br1 = new Berserker<double>("BR1");
     // Rogue<double>* r1 = new Rogue<double>("RG1");
     // Vampire<double>* v1 = new Vampire<double>("VR1");
@@ -74,6 +76,7 @@ int main() {
     // std::cout << *h1 << std::endl;
     // std::cout << *p1 << std::endl;
     // std::cout << *w2 << std::endl;
+    std::cout << *necr1 << std::endl;
     std::cout << "------------------------------" << std::endl;
 
     delete sr1;
@@ -85,5 +88,6 @@ int main() {
     // delete h1;
     // delete p1;
     // delete w2;
+    delete necr1;
     return 0;
 }

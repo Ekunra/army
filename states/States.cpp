@@ -179,6 +179,10 @@ std::ostream& operator<<(std::ostream& out, const States<Type>& states) {
             out << FO_B_BLUE;
             break;
         }
+        case UnitEnum::NECROMANCER : {
+            out << FO_B_VIOLET;
+            break;
+        }
         default : {
             out << FO_B;
         }
