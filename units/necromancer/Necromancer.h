@@ -4,9 +4,12 @@
 #include <iostream>
 #include "../SpellCaster.h"
 #include "../../states/NecromancerStates.h"
+#include "../../observe/Observer.h"
+
+template <class Type> class Observer;
 
 template <class Type>
-class Necromancer : public SpellCaster<Type> {
+class Necromancer : public SpellCaster<Type>, public Observer<Type> {
     protected:
     public:
         Necromancer(const std::string& name);

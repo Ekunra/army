@@ -16,7 +16,8 @@ Necromancer<Type>::Necromancer(const std::string& name)
                         nullptr, // primary Ability;
                         nullptr, // secondary Ability;
                         new BaseAttack<Type>,
-                        new BaseCounterAttack<Type> ) {
+                        new BaseCounterAttack<Type> ),
+      Observer<Type>(this) {
 
     SpellCaster<Type>::spellBook->insertSpell(FIREBALL, new FireBall<Type>);
     SpellCaster<Type>::spellBook->insertSpell(IMPLOSION, new Implosion<Type>);
