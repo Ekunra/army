@@ -11,6 +11,7 @@ template <class Type> class Observer;
 template <class Type>
 class Necromancer : public SpellCaster<Type>, public Observer<Type> {
     protected:
+        
     public:
         Necromancer(const std::string& name);
         virtual ~Necromancer();
