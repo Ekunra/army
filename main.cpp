@@ -19,8 +19,8 @@
 int main() {
     Soldier<double>* sr1 = new Soldier<double>("SR1");
     Necromancer<double>* necr1 = new Necromancer<double>("NECR");
-    // Berserker<double>* br1 = new Berserker<double>("BR1");
-    // Rogue<double>* r1 = new Rogue<double>("RG1");
+    Berserker<double>* br1 = new Berserker<double>("BR1");
+    Rogue<double>* r1 = new Rogue<double>("RG1");
     // Vampire<double>* v1 = new Vampire<double>("VR1");
     // Werewolf<double>* ww1 = new Werewolf<double>("WW1");
     // Wizard<double>* w1 = new Wizard<double>("WZ1");
@@ -29,9 +29,10 @@ int main() {
 
     std::cout << "------------------------------" << std::endl;
 
-    // std::cout << *sr1 << std::endl;
-    // std::cout << *br1 << std::endl;
-    // std::cout << *r1 << std::endl;
+    std::cout << *sr1 << std::endl;
+    std::cout << *necr1 << std::endl;
+    std::cout << *br1 << std::endl;
+    std::cout << *r1 << std::endl;
     // std::cout << *v1 << std::endl;
     // std::cout << *ww1 << std::endl;
     // std::cout << *w1 << std::endl;
@@ -45,11 +46,31 @@ int main() {
     // p1->cast(FIREBALL, sr1);
     // std::cout << *sr1 << std::endl;
     std::cout << "------------------------------" << std::endl;
+    
+    necr1->attachObservable(sr1);
+    necr1->attachObservable(br1);
+    necr1->attachObservable(r1);
+    
     std::cout << "------------------------------" << std::endl;
+    
+    necr1->showObservables();
+    
     std::cout << "------------------------------" << std::endl;
+    
+    necr1->dettachObservable(r1);
+    
     std::cout << "------------------------------" << std::endl;
+    
+    necr1->showObservables();
+    
     std::cout << "------------------------------" << std::endl;
+    
+    necr1->dettachObservable(sr1);
+    
     std::cout << "------------------------------" << std::endl;
+    
+    necr1->showObservables();
+    
     std::cout << "------------------------------" << std::endl;
     // std::cout << "------------------------------" << std::endl;
     // std::cout << "------------------------------" << std::endl;
@@ -80,8 +101,8 @@ int main() {
     std::cout << "------------------------------" << std::endl;
 
     delete sr1;
-    // delete br1;
-    // delete r1;
+    delete br1;
+    delete r1;
     // delete v1;
     // delete ww1;
     // delete w1;

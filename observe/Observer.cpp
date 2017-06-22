@@ -16,11 +16,26 @@ Observer<Type>::~Observer() {
 }
 
 template <class Type>
-void Observer<Type>::attachObservable() {}
+void Observer<Type>::attachObservable(Unit<Type>* enemy) {
+    this->observables->insert(enemy);
+}
+
 template <class Type>
-void Observer<Type>::dettachObservable() {}
+void Observer<Type>::dettachObservable(Unit<Type>* enemy) {
+    this->observables->erase(enemy);
+}
+
 template <class Type>
 void Observer<Type>::notifyObservable() {}
+
+template <class Type>
+void Observer<Type>::showObservables() {
+    typename std::set<Unit<Type>*>::iterator it = (*this->observables).begin();
+    for ( ; it != this->observables->end(); it++ ) {
+        std::cout << " --- " << (*it)->getName() << " [ " << **it << " ] " << std::endl;
+    }
+}
+
 
 template class Observer<int>;
 template class Observer<double>;

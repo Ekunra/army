@@ -19,9 +19,10 @@ class Observer {
         Observer(Necromancer<Type>* necr);
         virtual ~Observer();
 
-        void attachObservable();
-        void dettachObservable();
+        void attachObservable(Unit<Type>* enemy);
+        void dettachObservable(Unit<Type>* enemy);
         void notifyObservable();
+        void showObservables();
 };
 
 #endif // OBSERVER_H
