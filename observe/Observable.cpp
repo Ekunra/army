@@ -2,7 +2,7 @@
 
 
 template <class Type>
-Observable<Type>::Observable(Unit<Type>* owner) : owner(owner) {
+Observable<Type>::Observable(Unit<Type>* owner) : owner(owner), observers(new std::set<Necromancer<Type>*>) {
     if ( DEBUG ) {
         std::cout << FO_B_GREEN << "|        + " << FO_RESET;
         std::cout << FO_B << "Observable" << FO_RESET << " instance created. " << std::endl;

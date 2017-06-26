@@ -18,6 +18,8 @@ class Necromancer : public SpellCaster<Type>, public Observer<Type> {
 
         virtual void cast(SpellEnum sEnum, SpellCaster<Type>* targetCaster);
         virtual void cast(SpellEnum sEnum, Unit<Type>* targetUnit);
+        
+        virtual void attack(Unit<Type>* enemy);
 };
 
 template <class Type>

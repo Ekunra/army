@@ -30,7 +30,7 @@ bool Unit<int>::isAlive() {
 }
 template <>
 bool Unit<double>::isAlive() {
-    std::cout << " - <double>::isAlive() is working." << std::endl;
+    std::cout << " - <double>::isAlive() is working. Checking's health is : " << this->states->getHitPoints() << std::endl;
     return this->states->getHitPoints() > 0;
 }
 template <>
@@ -204,7 +204,8 @@ void Unit<Type>::counterAttack(Unit* enemy) {
 
 template <class Type>
 void Unit<Type>::takeDamage(Unit* enemy) {
-    std::cout << "      --- " << this->getName() << " taking damage." << std::endl;
+    std::cout << "      --- " << this->getName() << " taking damage. " << this->getName() << "'s health is: ";
+    std::cout << this->states->getHitPoints() << ' ' << enemy->getName() << "'s health is: " << enemy->getHitPoints() << std::endl;
     if ( this->isAlive() ) {
         std::cout << "      * isAlive in takeDamage() function." << std::endl;
         this->states->takeDamage(enemy->states);

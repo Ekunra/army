@@ -58,6 +58,29 @@ void Necromancer<Type>::cast(SpellEnum sEnum, Unit<Type>* targetUnit) {
     SpellCaster<Type>::cast(sEnum, targetUnit);
 }
 
+template <class Type>
+void Necromancer<Type>::attack(Unit<Type>* enemy) {
+    bool enemyAlive = false;
+    
+    if ( enemy->isAlive() ) {
+        enemyAlive = true;
+    }
+    
+    Unit<Type>::attack(enemy);
+    
+    if ( this->isAlive() ) {
+        if ( enemy->isAlive() ) {
+            this->attachObservable(enemy);
+        }
+        
+        if ( !enemy->isAlive() && enemyAlive == true ) {
+            std::cout << "     !!! Some health added..." << std::endl;
+            this->getHealthField() += enemy->getHitPointsLimit() * ((double)NecromancerSuckHealth::COEF / 100);
+        }
+    }
+    
+}
+
 template class Necromancer<int>;
 template class Necromancer<double>;
 template class Necromancer<float>;

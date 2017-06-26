@@ -47,7 +47,7 @@ enum class Dmg {
     HEALER = 10,
     PRIEST = 10,
     WARLOCK = 15,
-    NECROMANCER = 15
+    NECROMANCER = 25
 };
 
 enum class TakeDamageCoef { // Divides by 100 while initialization.
@@ -152,6 +152,10 @@ enum class DMTMagicCoef { // Divided by 100 while initialization.
 
 enum class VampireDrinkBlood { // Divided by 100 while calculation
     COEF = 50
+};
+
+enum class NecromancerSuckHealth { // Divided by 100 while calculation
+    COEF = 20
 };
 
 enum class DamageModifyCoef { // Divided by 100 while calculation

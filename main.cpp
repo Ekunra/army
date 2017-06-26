@@ -28,7 +28,57 @@ int main() {
     // Priest<double>* p1 = new Priest<double>("PR1");
 
     std::cout << "------------------------------" << std::endl;
-
+    
+    necr1->attack(sr1);
+    std::cout << *sr1 << std::endl;
+    std::cout << *necr1 << std::endl;
+    
+    std::cout << "------------------------------" << std::endl;
+    
+    necr1->attack(sr1);
+    std::cout << *sr1 << std::endl;
+    std::cout << *necr1 << std::endl;
+    
+    std::cout << "------------------------------" << std::endl;
+    
+    necr1->attack(sr1);
+    std::cout << *sr1 << std::endl;
+    std::cout << *necr1 << std::endl;
+    
+    std::cout << "------------------------------" << std::endl;
+    
+    necr1->attack(sr1);
+    std::cout << *sr1 << std::endl;
+    std::cout << *necr1 << std::endl;
+    
+    std::cout << "------------------------------" << std::endl;
+    
+    necr1->attack(sr1);
+    std::cout << *sr1 << std::endl;
+    std::cout << *necr1 << std::endl;
+    
+    std::cout << "------------------------------" << std::endl;
+    
+    necr1->attack(sr1);
+    std::cout << *sr1 << std::endl;
+    std::cout << *necr1 << std::endl;
+    
+    std::cout << "------------------------------" << std::endl;
+    
+    necr1->attack(sr1);
+    std::cout << *sr1 << std::endl;
+    std::cout << *necr1 << std::endl;
+    
+    std::cout << "------------------------------" << std::endl;
+    
+    necr1->attack(sr1);
+    std::cout << *sr1 << std::endl;
+    std::cout << *necr1 << std::endl;
+    
+    std::cout << "------------------------------" << std::endl;
+    
+    // std::cout << "------------------------------" << std::endl;
+    
     std::cout << *sr1 << std::endl;
     std::cout << *necr1 << std::endl;
     std::cout << *br1 << std::endl;
